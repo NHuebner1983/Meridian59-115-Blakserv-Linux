@@ -3185,7 +3185,7 @@ messages:
    "This message builds the minimap dot flags for each object we can see, "
    "which is then sent to our client for drawing objects on the map/minimap."
    {
-      local iBehavior, iFlags, oIllusion, oOtherGuild;
+      local iBehavior, iFlags, oIllusion, oOtherGuild, oTargetClass;
 
       if what = $
          OR poOwner <> Send(what,@GetOwner)
@@ -3334,15 +3334,20 @@ messages:
             }
          }
 		 
-		 if (Send(what,@GetTarget) = self)
+		 if what <> $ AND self <> $ AND what <> self
 		 {
-			return MM_AGGRO_SELF | MM_MONSTER;
+			 oTargetClass = Send(what,@GetTarget);
+			 
+			 if Send(what,@GetTarget) = self
+			 {
+				return MM_AGGRO_SELF | MM_MONSTER;
+			 }
+			 else if IsClass(oTargetClass, &Player)
+			 {
+				return MM_AGGRO_OTHER | MM_MONSTER;
+			 }
 		 }
-		 else if (IsClass(Send(what,@GetTarget), &Player))
-		 {
-			return MM_AGGRO_OTHER | MM_MONSTER;
-		 }
-
+		 
          return MM_MONSTER;
       }
 

@@ -1285,9 +1285,8 @@ messages:
 
          piVigor = 200;
 		 
-         //Send(self,@GainBaseMaxHealth,#amount=MAX_CALCULATED_HP);
-         //Send(self,@ResetXPToLevel);
-		 Send(self,@SetXP,#amount=MAX_XP);
+         Send(self,@GainBaseMaxHealth,#amount=MAX_HP);
+         Send(self,@ResetXPToLevel);
          Send(self,@NewMaxMana,#amount=MAX_MANA-piMax_mana);
 
          if Send(self,@CheckLog)
@@ -1296,7 +1295,7 @@ messages:
                   piBase_max_health,piMax_health);
          }
 
-         Send(self,@GainHealth,#amount=MAX_CALCULATED_HP,#precision=TRUE);
+         Send(self,@GainHealth,#amount=MAX_HP,#precision=TRUE);
          Send(self,@GainMana,#amount=piMax_mana-piMana);
 		 Send(self,@EvaluatePKStatus);
          Send(self,@PlayerIsIntriguing);
