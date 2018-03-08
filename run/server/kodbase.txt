@@ -1,4 +1,4 @@
-T 16176 32456
+T 16177 32456
 C UtilityFunctions 10001 0
 Y	plTemp 1
 M	UtilGoNearSquare 10012
@@ -49681,6 +49681,7 @@ M	CanPhaseTimer 14967
 M	GetLastAttackedByPlayerTime 14968
 M	GetTimeLastMurder 14969
 M	FixDefaultResources 14970
+M	CheckFunctions 16177
 C User 1 10298 Player
 R	user_name_rsc 25679
 R	user_garbage_collecting 25680

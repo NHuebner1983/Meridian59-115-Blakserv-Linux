@@ -10054,6 +10054,11 @@ messages:
       return;
    }
 
+   CheckFunctions()
+   {
+	   return Send(self,@GetBaseMaxHealth);
+   }
+   
    SetDeathCost(DeathCost = $, bOverride = FALSE)
    {
       // Don't raise the cost of death, unless we want to override it.
