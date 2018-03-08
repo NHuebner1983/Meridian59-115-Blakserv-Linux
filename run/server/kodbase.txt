@@ -6917,28 +6917,6 @@ P		override 12262
 M	CreateStandardObjects 13268
 M	CreateStandardExits 13269
 M	CreateYellZoneList 13270
-C EastTos 10460 13508 TosRoom
-R	name_EastTos 22014
-R	room_EastTos 22015
-R	EastTos_music 22016
-R	wind_sound_easttos 22017
-R	wind1_sound_easttos 22018
-V	vrName 0
-V	viPermanent_flags 21
-V	viTerrain_Type 22
-V	viTeleport_row 18
-V	viTeleport_col 19
-V	viWeatherMask 28
-Y	prRoom 10
-Y	piRoom_num 12
-Y	prMusic 20
-Y	piBaseLight 21
-Y	piDirectional_percent 23
-Y	pbSnowGroundTexture 27
-M	Constructed 10065
-M	CreatePeriodicSounds 13265
-M	CreateStandardObjects 13268
-M	CreateStandardExits 13269
 C TosApoth 10459 13508 TosRoom
 R	room_name_tosapoth 22019
 R	tosapoth_book_name 22020
@@ -51120,3 +51098,25 @@ P		value 10723
 M	UserSay 15273
 P		string 14
 P		type 31
+C EastTos 10460 13508 TosRoom
+R	name_EastTos 22014
+R	room_EastTos 22015
+R	EastTos_music 22016
+R	wind_sound_easttos 22017
+R	wind1_sound_easttos 22018
+V	vrName 0
+V	viPermanent_flags 21
+V	viTerrain_Type 22
+V	viTeleport_row 18
+V	viTeleport_col 19
+V	viWeatherMask 28
+Y	prRoom 10
+Y	piRoom_num 12
+Y	prMusic 20
+Y	piBaseLight 21
+Y	piDirectional_percent 23
+Y	pbSnowGroundTexture 27
+M	Constructed 10065
+M	CreatePeriodicSounds 13265
+M	CreateStandardObjects 13268
+M	CreateStandardExits 13269

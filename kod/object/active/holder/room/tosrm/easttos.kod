@@ -68,27 +68,27 @@ messages:
       plExits = Cons([ 2,53, ROOM_LOCKED_DOOR ],plExits);
 
 
-      plExits = Cons([ 33, 3, RID_TOS_HALL, 9, 2, ROTATE_180 ],plExits);
+      plExits = Cons([ 40, 9, RID_TOS_HALL, 9, 2, ROTATE_180 ],plExits);
 
-      plExits = Cons([ 13, 2, RID_TOS_BANK, 6, 8, ROTATE_NONE ],plExits);
+      plExits = Cons([ 19, 8, RID_TOS_BANK, 6, 8, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 1, 41, RID_GUILDH5, 32, 17, ROTATE_NONE ],plExits);
-      plExits = Cons([ 1, 42, RID_GUILDH5, 32, 18, ROTATE_NONE ],plExits);
+      plExits = Cons([ 7, 35, RID_GUILDH5, 32, 17, ROTATE_NONE ],plExits);
+      plExits = Cons([ 7, 36, RID_GUILDH5, 32, 18, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 26, 1, RID_TOS, 56, 39, ROTATE_NONE ],plExits);
+      plExits = Cons([ 28, 4, RID_TOS, 56, 39, ROTATE_NONE ],plExits);
       
 
-      plExits = Cons([ 26, 26, RID_TOS_ARENA2, 26, 28, ROTATE_NONE ],plExits);
-      plExits = Cons([ 27, 26, RID_TOS_ARENA2, 27, 28, ROTATE_NONE ],plExits);
+      plExits = Cons([ 29, 24, RID_TOS_ARENA2, 29, 24, ROTATE_NONE ],plExits);
+      plExits = Cons([ 30, 24, RID_TOS_ARENA2, 30, 24, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 38, 36, RID_TOS_ARENA2, 36, 36, ROTATE_NONE ],plExits);
-      plExits = Cons([ 38, 37, RID_TOS_ARENA2, 36, 37, ROTATE_NONE ],plExits);
+      plExits = Cons([ 40, 36, RID_TOS_ARENA2, 40, 36, ROTATE_NONE ],plExits);
+      plExits = Cons([ 40, 37, RID_TOS_ARENA2, 40, 37, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 15, 36, RID_TOS_ARENA2, 17, 36, ROTATE_NONE ],plExits);
-      plExits = Cons([ 15, 37, RID_TOS_ARENA2, 17, 37, ROTATE_NONE ],plExits);
+      plExits = Cons([ 17, 35, RID_TOS_ARENA2, 17, 35, ROTATE_NONE ],plExits);
+      plExits = Cons([ 17, 36, RID_TOS_ARENA2, 17, 36, ROTATE_NONE ],plExits);
 
       plEdge_Exits = $;
-      plEdge_Exits = Cons([ LEAVE_SOUTH, RID_I6, 2, 43, ANGLE_SOUTH ], plEdge_exits); 
+      plEdge_Exits = Cons([ LEAVE_SOUTH, RID_I6, 1, 47, ANGLE_SOUTH ], plEdge_exits); 
 
       propagate;
    }
