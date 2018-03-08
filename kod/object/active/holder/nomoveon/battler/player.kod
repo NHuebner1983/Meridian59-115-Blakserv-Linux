@@ -3240,7 +3240,7 @@ messages:
 
       iStamina = Send(self,@GetStamina);
 
-      return bound(MIN_HP, piMax_health + iStamina, MAX_CALCULATED_HP);
+      return bound(piMax_health + iStamina, MIN_HP, MAX_CALCULATED_HP);
    }
 
    GetUncappedBaseMaxHealth()
