@@ -90,7 +90,7 @@ messages:
       plEdge_Exits = $;
 	  
 	  // Exit to Badlands
-      plEdge_Exits = Cons([ LEAVE_SOUTH, RID_I6, 1, 47, ROTATE_NONE ], plEdge_exits); 
+      plEdge_Exits = Cons([ LEAVE_SOUTH, RID_I6, 1, 47, ANGLE_SOUTH ], plEdge_exits); 
 
       propagate;
    }
