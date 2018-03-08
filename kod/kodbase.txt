@@ -48441,7 +48441,6 @@ R	player_killed_player 23347
 R	player_wanted_now 23348
 R	player_haunted_on 23349
 R	player_haunted_off 23350
-R	player_training_debug 32456
 R	player_training_inform 23351
 R	player_reached_maxtraining 23352
 R	player_gained_training 23353

@@ -229,9 +229,7 @@ resources:
    player_wanted_now = "You are now wanted for the murder of %s%s."
    player_haunted_on = "%s%s's violent death summons forth a revenant."
    player_haunted_off = "The revenant is satisfied."
-   
-   player_training_debug = "Base HP: %i Stamina: %i Max Health: %i Training Points Awarded: %i"
-   player_training_inform = "You now have ~B~s%i~v~B training points."
+   player_training_inform = "You now have ~B~s%i~v~B training points with %i Max Health."
    player_reached_maxtraining = \
       "You now have ~B~s%i~v~B training points and can not gain any more!  "
       "Cast the Meditate spell and say the name of a spell or skill out loud "
@@ -9214,14 +9212,7 @@ messages:
 
             piTraining_points += iTrainingPointsAwarded
                + (Send(what,@GetBoostedLevel)
-               / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));
-
-			Send(self,@MsgSendUser,#message_rsc=player_training_debug,
-                  #parm1=HP_BASE_MAX_ONE_STAMINA,
-				  #parm2=Send(self,@GetStamina),
-				  #parm3=iMaxHealth,
-				  #parm4=iTrainingPointsAwarded);
-			   
+               / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));			   
          }
 		 
          // Let the player know how many training points they have, if they
@@ -9239,7 +9230,7 @@ messages:
                AND piInform
          {
             Send(self,@MsgSendUser,#message_rsc=player_training_inform,
-                  #parm1=piTraining_points);
+                  #parm1=piTraining_points,#parm2=iMaxHealth);
          }
 
          // Draw the training points bar.
