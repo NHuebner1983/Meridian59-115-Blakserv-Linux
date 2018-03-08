@@ -1,0 +1,766 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+////////////////////////////////////////////////////////////////////////////////
+RadiusEnchantment is Spell
+
+// Radius Enchantments are spells that apply an effect to players within a certain distance of the caster.
+// Caster must typically maintain a trance, but requirements to keep the trance are variable.
+//
+// Internally, the spell maintains an instanced state of 7 entries, of the form:
+// [source, mana drain time, periodic effect time, enchanted object list, power, range, original room].
+// This should not be altered. It is used to track the radius, who should be affected, who the caster was,
+// when to drain mana, and when to employ periodic effects.
+// Power and Range have their own Calculate functions if they need to be modified.
+// For example, a spell may have a Power range 1-20, or a Power range not based on spellpower at all.
+//
+// EnterRadius and LeaveRadius add or remove from an object's plRadiusEnchantments list.
+// Each element is of the form [spell object, spellpower, caster].
+// These states should be used when effects are actually being performed,
+// and should be called by the objects themselves. For example, a player swinging a mace will
+// check his plRadiusEnchantments list for spells that affect mace swings, and call them appropriately.
+//
+// Useful Radius enchantment functions to call (these are in Object.kod):
+// IsAffectedByRadiusEnchantment(what=$,byClass=&RadiusEnchantment)  -- returns TRUE or FALSE
+// GetMostPowerfulRadiusEnchantmentState(byClass=&RadiusEnchantment) -- returns [spell object, power, caster] with highest power
+// GetRadiusEnchantments()                                           -- returns object's list of [spell object, power, caster]
+
+constants:
+
+   include blakston.khd
+   
+   RADIUS_CHECK_TIME = 250   // Time between checks for who is affected, no worse than an active object lag-wise
+
+resources:
+
+   include radiusench.lkod
+
+   radius_ench_default_cast = "A circle of magic expands outward from you."
+   radius_ench_default_starts = "A circle of magic expands outward from %s."
+   radius_ench_default_ends = "The circle of magic maintained by %s collapses."
+   radius_ench_default_caster_ends = "Your circle of magic collapses."
+   radius_ench_default_caster_enter = "You feel your circle of magic having an effect."
+   radius_ench_default_enter = "You enter a circle of magical effect maintained by %s."
+   radius_ench_default_leave = "You leave a circle of magical effect maintained by %s."
+   radius_ench_no_newbie = \
+      "Your guardian angel tells you, \"You are not ready to cast spells "
+      "which may hinder other players.\""
+      
+   radius_ench_default_already_cast = "You are already maintaining that radius enchantment."
+
+   radius_ench_need_instrument = "You need an instrument!"
+
+   radius_ench_old_style_aleady_cast = "You are already under the effects of that magic."
+
+   radius_ench_cant_fight_here = "You can't fight here."
+
+classvars:
+
+   radius_ench_already_cast = radius_ench_default_already_cast
+
+   radius_ench_cast = radius_ench_default_cast
+   radius_ench_starts = radius_ench_default_starts
+   radius_ench_ends = radius_ench_default_ends
+   radius_ench_caster_ends = radius_ench_default_caster_ends
+   radius_ench_caster_enter = radius_ench_default_caster_enter
+   radius_ench_enter = radius_ench_default_enter
+   radius_ench_leave = radius_ench_default_leave
+
+   viSchool = SS_JALA
+   viNeedInstrument = FALSE
+
+   viMana = 5
+   viManaDrain = 3
+   viDrainTime = 5000
+   viPeriodicEffect = FALSE     // If true, will call PeriodicEffect()
+   viPostCast_time = 1
+   viBaseRange = 5
+
+   viLightColor = LIGHT_SPECTRAL
+   viBaseLightIntensity = 60
+
+   viChance_To_Increase = 15
+
+   viAffectsCasterOnly = FALSE  // Override for self-only spell
+   viAffectsEveryone = FALSE    // Override for affect all
+
+   viAffectsCaster = TRUE       // Caster is affected by the spell
+   viAffectsGuildmates = FALSE  // Guildmates of caster
+   viAffectsAllies = FALSE      // Members of guilds allied with caster's guild
+   viAffectsEnemies = FALSE     // Hostile, can cause outlaw status
+   viAffectsInnocents = FALSE   // Unaffiliated white characters
+   viAffectsNewbies = FALSE     // Angeled characters
+
+   viCasterPersist = FALSE      // If true, spell will 'follow' caster between rooms
+
+   viAffectsItems = FALSE       // If true, will apply effects to items in the room, such as a mace on the ground
+                                // It is possible for an item to be the source of a radius enchantment
+
+   vbIsAreaEffect = TRUE
+
+properties:
+
+   plCurrentEnchantments = $    // Each radius spell keeps track of every instance of its own application
+                                
+   ptRecalculationTimer = $     // Each radius spell checks boundaries and effects every RADIUS_CHECK_TIME if active
+
+messages:
+
+   ResetReagents()
+   {
+      return;
+   }
+
+   GetNumSpellTargets()
+   {
+      // Enchantment is applied by radius, not by target
+      return 0;
+   }
+
+   CanPayCosts(who=$, lTargets=$)
+   {
+      local i, each_obj, oRoom;
+
+      oRoom = Send(who,@GetOwner);
+      if oRoom = $
+         OR NOT IsClass(oRoom,&Room)
+      {
+         // Don't cast without a room, may create hanging objects
+         return FALSE;
+      }
+
+      if viNeedInstrument
+      {
+         if IsClass(who,&User)
+            AND Send(who,@GetInstrumentLevel) = 0
+         {
+            Send(who,@MsgSendUser,#message_rsc=radius_ench_need_instrument);
+
+            return FALSE;
+         }
+      }
+
+      foreach i in plCurrentEnchantments
+      {
+         if First(i) = who
+         {
+            Send(self,@BreakTrance,#who=who,#event=EVENT_STEER);
+            return FALSE;
+         }
+      }
+
+      if Send(oRoom,@CheckRoomFlag,#flag=ROOM_NO_COMBAT)
+         AND viAffectsEnemies
+      {
+         if IsClass(who,&User)
+         {
+            Send(who,@MsgSendUser,#message_rsc=radius_ench_cant_fight_here);
+         }
+         return FALSE;
+      }
+
+      propagate;
+   }
+
+   CastSpell(who=$, iSpellPower=0)
+   {
+      local i, oObj, oRoom, oUser;
+
+      oRoom = Send(who,@GetOwner);
+      if oRoom = $
+         OR NOT IsClass(oRoom,&Room)
+      {
+         propagate;
+      }
+
+      foreach oObj in Send(oRoom,@GetPlActive)
+      {
+         oUser = Send(oRoom,@HolderExtractObject,#data=oObj);
+
+         if IsClass(oUser,&User)
+         {
+            if oUser = who
+            {
+               Send(oUser,@MsgSendUser,#message_rsc=radius_ench_cast);
+
+               Send(oUser,@SetFlickerFlag);
+            }
+            else
+            {
+               Send(oUser,@MsgSendUser,#message_rsc=radius_ench_starts,#parm1=Send(who,@GetName));
+            }
+         }
+      }
+
+      Send(self,@InitiateNewRadiusEnchantment,#source=who,#iSpellPower=iSpellPower);
+
+      propagate;
+   }
+
+   InitiateNewRadiusEnchantment(source=$, iSpellPower=0, iPower=0, iRange=0, iDuration=$)
+   {
+      local oRoom;
+
+      if iPower = 0
+      {
+         iPower = Send(self,@CalculatePower,#iSpellPower=iSpellPower);
+      }
+
+      if iRange = 0
+      {
+         iRange = Send(self,@CalculateRange,#iSpellPower=iSpellPower);
+      }
+
+      oRoom = Send(source,@GetOwner);
+      if oRoom = $
+         OR NOT IsClass(oRoom,&Room)
+      {
+         return 0;
+      }
+
+      plCurrentEnchantments = Cons([source,0,0,$,iPower,iRange,iDuration,oRoom],plCurrentEnchantments);
+
+      Send(self,@RecalculateActiveEnchantments);
+
+      return 1;
+   }
+
+   RecalculateActiveEnchantmentsTimer(timer = $)
+   {
+      ptRecalculationTimer = $;
+      Send(self,@RecalculateActiveEnchantments);
+
+      return;
+   }
+
+   RecalculateActiveEnchantments()
+   {
+      local i, source, iDrain, iPeriodic, lEnchanted, iPower, iRange, iDuration,
+      iDistance, oObject, oRoom, oActive, oPassive, oCrystalizeMana,
+      iCrystalizeManaAbility, lSqDist;
+
+      if ptRecalculationTimer <> $
+      {
+         DeleteTimer(ptRecalculationTimer);
+         ptRecalculationTimer = $;
+      }
+
+      foreach i in plCurrentEnchantments
+      {
+         source = Nth(i,1);
+         iDrain = Nth(i,2);
+         iPeriodic = Nth(i,3);
+         lEnchanted = Nth(i,4);
+         iPower = Nth(i,5);
+         iRange = Nth(i,6);
+         iDuration = Nth(i,7);
+
+         oRoom = Send(source,@GetOwner);
+
+         if oRoom = $
+            or NOT IsClass(oRoom,&Room)
+         {
+            Debug("Radius check went off without a proper room!",self);
+         }
+
+         // Check for active objects that have entered the radius of effect
+         foreach oActive in Send(oRoom,@GetPlActive)
+         {
+            oObject = Send(oRoom,@HolderExtractObject,#data=oActive);
+
+            lSqDist = Send(source,@SquaredDistanceTo,#what=oObject);
+
+            if (lEnchanted = $ OR FindListElem(lEnchanted,oObject) = 0)
+               AND (lSqDist <> $ AND lSqDist <= (iRange * iRange))
+            {
+               if Send(self,@TargetIsValid,#target=oObject,#source=source)
+               {
+                  Send(self,@EnterRadius,#what=oObject,#iPower=iPower,#source=source);
+                  lEnchanted = Cons(oObject,lEnchanted);
+               }
+            }
+         }
+
+         // Check for passive objects that have entered the radius of effect
+         if viAffectsItems
+         {
+            foreach oPassive in Send(oRoom,@GetPlPassive)
+            {
+               oObject = Send(oRoom,@HolderExtractObject,#data=oPassive);
+
+               lSqDist = Send(source,@SquaredDistanceTo,#what=oObject);
+
+               if (lEnchanted = $ OR FindListElem(lEnchanted,oObject) = 0)
+                  AND (lSqDist <> $ AND lSqDist <= (iRange * iRange))
+               {
+                  if Send(self,@TargetIsValid,#target=oObject,#source=source)
+                  {
+                     Send(self,@EnterRadius,#what=oObject,#iPower=iPower,#source=source);
+                     lEnchanted = Cons(oObject,lEnchanted);
+                  }
+               }
+            }
+         }
+
+         // Check for objects that have left the radius of effect
+         foreach oObject in lEnchanted
+         {
+            iDistance = Send(source,@SquaredDistanceTo,#what=oObject);
+            if (iDistance = $
+               OR iDistance > (iRange * iRange))
+               OR NOT Send(self,@TargetIsValid,#target=oObject,#source=source)
+            {
+               Send(self,@LeaveRadius,#what=oObject,#iPower=iPower,#source=source);
+               lEnchanted = DelListElem(lEnchanted,oObject);
+            }
+         }
+
+         // Perform periodic effects
+         if viPeriodicEffect
+            AND iPeriodic > Send(self,@CalculatePeriodicEffectTime,#iPower=iPower)
+         {
+            Send(self,@PeriodicEffect,#lEnchanted=lEnchanted,#iPower=iPower,#iRange=iRange,#source=source);
+            iPeriodic = iPeriodic - Send(self,@CalculatePeriodicEffectTime,#iPower=iPower);
+         }
+
+         if IsClass(source,&User)
+            AND iDrain >= (viDrainTime / viManaDrain)
+         {
+            if Send(source,@GetMana) >= 1
+            {
+               Send(source,@LoseMana,#amount=1);
+               iDrain = iDrain - (viDrainTime / viManaDrain);
+            }
+            else
+            {
+               iCrystalizeManaAbility = Send(source,@GetSpellAbility,#spell_num=SID_CRYSTALIZE_MANA);
+               if iCrystalizeManaAbility > 0
+                  AND NOT Send(source,@IsCrystalizeManaSurging)
+               {
+                  oCrystalizeMana = Send(SYS,@FindSpellByNum,#num=SID_CRYSTALIZE_MANA);
+                  Send(oCrystalizeMana,@DoManaSurge,#who=source,#triggered=TRUE);
+                  if Send(source,@GetMana) >= 1
+                  {
+                     Send(source,@LoseMana,#amount=1);
+                     iDrain = iDrain - (viDrainTime / viManaDrain);
+                  }
+               }
+               else
+               {
+                  Post(self,@CancelRadiusEnchantment,#source=source);
+                  continue;
+               }
+            }
+         }
+
+         if IsClass(source,&User)
+         {
+            SetNth(i,2,iDrain + RADIUS_CHECK_TIME);
+         }
+
+         if viPeriodicEffect
+         {
+            SetNth(i,3,iPeriodic + RADIUS_CHECK_TIME);
+         }
+
+         SetNth(i,4,lEnchanted);
+
+         if iDuration <> $
+         {
+            iDuration = iDuration - RADIUS_CHECK_TIME;
+            if iDuration <= 0
+            {
+               Post(self,@CancelRadiusEnchantment,#source=source);
+               continue;
+            }
+            SetNth(i,7,iDuration);
+         }
+      }
+
+      if plCurrentEnchantments <> $
+      {
+         ptRecalculationTimer = CreateTimer(self,@RecalculateActiveEnchantmentsTimer,RADIUS_CHECK_TIME);
+      }
+
+      return;
+   }
+
+   TargetIsValid(target=$,source=$)
+   {
+      local oRoom, oWatcher, oTargetGuild, oSourceGuild;
+
+      if target = $
+         OR source = $
+      {
+         return FALSE;
+      }
+
+      if NOT (IsClass(target,&NoMoveOn)
+              OR IsClass(target,&Item))
+      {
+         return FALSE;
+      }
+
+      if IsClass(target,&Player)
+         AND Send(target,@IsInCannotInteractMode)
+      {
+         return FALSE;
+      }
+
+      // Arena checks.
+      oRoom = Send(SYS,@UtilGetRoomRecurse,#what=target);
+
+      if oRoom <> $
+      {
+         if Send(oRoom,@IsArena)
+         {
+            oWatcher = Send(oRoom,@GetWatcher);
+
+            // If a fight isn't in session, attack fails.
+            if NOT Send(oWatcher,@FightInSession)
+            {
+               return FALSE;
+            }
+
+            // If the target is not a combatant, attack fails.
+            if IsClass(target,&Battler)
+               AND NOT Send(oWatcher,@IsCombatant,#who=target)
+            {
+               return FALSE;
+            }
+
+            // If the source is not a combatant, attack fails.
+            if Send(source,@GetOwner) = oRoom
+            AND NOT Send(oWatcher,@IsCombatant,#who=source)
+            {
+               return FALSE;
+            }
+         }
+      }
+
+      if viAffectsCasterOnly
+      {
+         return target = source;
+      }
+
+      if viAffectsEveryone
+      {
+         return TRUE;
+      }
+
+      if target = source
+      {
+         return viAffectsCaster;
+      }
+
+      if IsClass(target,&User)
+         AND IsClass(source,&User)
+      {
+         oSourceGuild = Send(source,@GetGuild);
+         oTargetGuild = Send(target,@GetGuild);
+
+         if oTargetGuild <> $
+         {
+            if viAffectsGuildmates
+               AND oTargetGuild = oSourceGuild
+            {
+               return TRUE;
+            }
+
+            if viAffectsAllies
+               AND Send(oTargetGuild,@IsAlly,#otherguild=oSourceGuild)
+            {
+               return TRUE;
+            }
+         }
+      }
+
+      if viAffectsEnemies
+         AND IsClass(target,&Battler)
+         AND IsClass(source,&Battler)
+         AND Send(source,@AllowBattlerAttack,#victim=target,#report=FALSE,
+                  #stroke_obj=self)
+      {
+         return TRUE;
+      }
+
+      if viAffectsNewbies
+         AND IsClass(target,&User)
+         AND NOT Send(target,@CheckPlayerFlag,#flag=PFLAG_PKILL_ENABLE)
+      {
+         return TRUE;
+      }
+
+      if viAffectsInnocents
+         AND IsClass(target,&User)
+         AND Send(target,@CheckPlayerFlag,#flag=PFLAG_PKILL_ENABLE)
+         AND NOT Send(target,@CheckPlayerFlag,#flag=PFLAG_OUTLAW)
+         AND NOT Send(target,@CheckPlayerFlag,#flag=PFLAG_MURDERER)
+      {
+         return TRUE;
+      }
+
+      return FALSE;
+   }
+
+   EnterRadius(what=$,iPower=0,source=$)
+   {
+      Send(what,@AddRadiusEnchantment,#what=self,#iPower=iPower,#source=source);
+
+      if IsClass(what,&User)
+      {
+         if what = source
+         {
+            Send(what,@MsgSendUser,#message_rsc=radius_ench_caster_enter);
+         }
+         else
+         {
+            Send(what,@MsgSendUser,#message_rsc=radius_ench_enter,#parm1=Send(source,@GetName));
+         }
+      }
+
+      Send(self,@StartSpecialEffect,#what=what,#iPower=iPower,#source=source);
+
+      return;
+   }
+
+   LeaveRadius(what=$,iPower=0,source=$)
+   {
+      Send(what,@RemoveRadiusEnchantment,#what=self,#iPower=iPower,#source=source);
+      
+      if IsClass(what,&User)
+      {
+         if what = source
+         {
+            Send(what,@MsgSendUser,#message_rsc=radius_ench_caster_ends);
+         }
+         else
+         {
+            Send(what,@MsgSendUser,#message_rsc=radius_ench_leave,#parm1=Send(source,@GetName));
+         }
+      }
+
+      Send(self,@EndSpecialEffect,#what=what,#iPower=iPower,#source=source);
+
+      return;
+   }
+
+   StartSpecialEffect(what=$,iPower=0,source=$)
+   {
+      return;
+   }
+
+   EndSpecialEffect(what=$,iPower=0,source=$)
+   {
+      return;
+   }
+
+   PeriodicEffect(lEnchanted=$,iPower=0,iRange=0,source=$)
+   {
+      return;
+   }
+
+   CalculatePeriodicEffectTime(iPower=0)
+   {
+      return 5000;
+   }
+
+   RemoveEnchantment(who = $, state=$)
+   "Remove enchantment effects on this occupant"
+   {
+      return;
+   }
+
+   BreakTrance(who=$, event=$)
+   {
+      local oRoom;
+
+      // The spell keeps going if you get damaged, move, cast, use an item, or make an attack.
+      // Players must rest to end most radius spells.
+      if event = EVENT_DAMAGE
+         OR event = EVENT_ATTACK
+         OR event = EVENT_RUN
+         OR event = EVENT_DISRUPT
+         OR event = EVENT_CAST
+         OR event = EVENT_USE
+      {
+         return FALSE;
+      }
+
+      oRoom = Send(who,@GetOwner);
+
+      // Only cancel Persist spells if they are offensive & caster is entering a non-combat room
+      if viCasterPersist
+         AND (event = EVENT_NEWOWNER
+             OR event = EVENT_REQNEWOWNER)
+      {
+         if oRoom <> $
+            AND NOT (viAffectsEnemies
+                     AND Send(oRoom,@CheckRoomFlag,#flag=ROOM_NO_COMBAT))
+         {
+            return FALSE;
+         }
+      }
+
+      Send(self,@CancelRadiusEnchantment,#source=who,#event=event);
+
+      propagate;
+   }
+
+   CancelRadiusEnchantment(source=$, event=$)
+   {
+      local i, n, oUser, oObj, iDrain, iPeriodic, lEnchanted, iPower, iRange, oRoom;
+
+      foreach i in plCurrentEnchantments
+      {
+         if Nth(i,1) = source
+         {
+            source = Nth(i,1);
+            iDrain = Nth(i,2);
+            iPeriodic = Nth(i,3);
+            lEnchanted = Nth(i,4);
+            iPower = Nth(i,5);
+            iRange = Nth(i,6);
+
+            foreach oObj in lEnchanted
+            {
+               Send(self,@LeaveRadius,#what=oObj,#iPower=iPower,#source=source);
+            }
+
+            oRoom = Send(source,@GetOwner);
+
+            if oRoom <> $
+               AND IsClass(oRoom,&Room)
+            {
+               foreach n in Send(oRoom,@GetPlActive)
+               {
+                  oUser = Send(oRoom,@HolderExtractObject,#data=n);
+                  
+                  if IsClass(oUser,&User)
+                  {
+                     if oUser = source
+                     {
+                        Send(oUser,@RecalcFlickerFlag);
+                     }
+                     else
+                     {
+                        Send(oUser,@MsgSendUser,#message_rsc=radius_ench_ends,#parm1=Send(source,@GetName));
+                     }
+                  
+                  }
+               }
+            }
+
+            SetNth(i,1,$);
+            SetNth(i,2,0);
+            SetNth(i,3,0);
+            SetNth(i,4,$);
+            SetNth(i,5,0);
+            SetNth(i,6,0);
+            SetNth(i,7,$);
+            
+            plCurrentEnchantments = DelListElem(plCurrentEnchantments,i);
+         }
+      }
+
+      return;
+   }
+
+   RemoveEnchantmentEffects()
+   "Need to override spell.kod's thing, since we do this ourselves specially."
+   {
+      return;
+   }
+
+   // Replace this to modify power calculations - currently on 0 to 99 scale
+   CalculatePower(who=$, iSpellPower=25)
+   {
+      return iSpellPower;
+   }
+
+   // Replace this to modify range by spellpower calculations
+   CalculateRange(who=$, iSpellPower=25)
+   {
+      local iRange;
+
+      // Default is up to twice base range
+      iRange = viBaseRange + ((viBaseRange*iSpellPower)/99);
+      
+      return iRange;
+   }
+
+   CalculateLightIntensity(iSpellPower=25)
+   {
+      return viBaseLightIntensity * ((iSpellpower*2) / 99);
+   }
+   
+   GetLightColor()
+   {
+      return viLightColor;
+   }
+
+   GetLightIntensity()
+   {
+      return viBaseLightIntensity;
+   }
+
+   GetDuration(iSpellPower=0)
+   {
+      return ((50 + iSpellpower)*1000);
+   }
+
+   ////// Effect Functions
+
+   ModifyDefensePower(attacker=$,iPower=0,caster=$,defense_power=0)
+   {
+      return defense_power;
+   }
+
+   ModifyResistance(attacker=$,atype=-ATCK_SPELL_ALL,iPower=0,caster=$,resistance=$)
+   {
+      return resistance;
+   }
+
+   ModifyHitRoll(who = $,what = $,hit_roll = $)
+   {
+      return hit_roll;
+   }
+
+   ModifyDamage(who = $,what = $,damage = $)
+   {
+      return damage;
+   }
+
+   ModifySpellPower(who=$,state=$,oSpell=$,iSpellPower=0)
+   {
+      return iSpellPower;
+   }
+
+   GetAlteredChance(chance=0,what=$,lRadiusState=0)
+   {
+      return chance;
+   }
+
+   AdjustHealthTime(time=0, lRadiusState=0)
+   {
+      return time;
+   }
+
+   AdjustVigorTime(time=0, lRadiusState=0)
+   {
+      return time;
+   }
+
+   AdjustManaTime(time=0, lRadiusState=0)
+   {
+      return time;
+   }
+
+end
+////////////////////////////////////////////////////////////////////////////////
