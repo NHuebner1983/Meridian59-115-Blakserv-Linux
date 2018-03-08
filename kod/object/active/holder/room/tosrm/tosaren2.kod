@@ -81,15 +81,17 @@ messages:
       plExits = Cons([ 30, 36, RID_TOS_ARENA, 21, 7, ROTATE_NONE ],plExits);
       plExits = Cons([ 30, 37, RID_TOS_ARENA, 21, 7, ROTATE_NONE ],plExits);
 
+	  // Exit (Towards Streets)
+      plExits = Cons([ 26, 27, RID_EAST_TOS, 28, 25, ROTATE_NONE ],plExits);
+      plExits = Cons([ 27, 27, RID_EAST_TOS, 28, 25, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 26, 27, RID_EAST_TOS, 26, 25, ROTATE_NONE ],plExits);
-      plExits = Cons([ 27, 27, RID_EAST_TOS, 27, 25, ROTATE_NONE ],plExits);
+	  // Exit (Towards Badlands)
+      plExits = Cons([ 37, 36, RID_EAST_TOS, 40, 35, ROTATE_NONE ],plExits);
+      plExits = Cons([ 37, 37, RID_EAST_TOS, 40, 35, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 37, 36, RID_EAST_TOS, 39, 36, ROTATE_NONE ],plExits);
-      plExits = Cons([ 37, 37, RID_EAST_TOS, 39, 37, ROTATE_NONE ],plExits);
-
-      plExits = Cons([ 16, 36, RID_EAST_TOS, 14, 36, ROTATE_NONE ],plExits);
-      plExits = Cons([ 16, 37, RID_EAST_TOS, 14, 37, ROTATE_NONE ],plExits);
+	  // Exit (Towards Guild Hall)
+      plExits = Cons([ 16, 36, RID_EAST_TOS, 16, 36, ROTATE_NONE ],plExits);
+      plExits = Cons([ 16, 37, RID_EAST_TOS, 16, 36, ROTATE_NONE ],plExits);
 
 
    propagate;

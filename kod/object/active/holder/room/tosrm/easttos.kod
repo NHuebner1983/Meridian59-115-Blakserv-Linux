@@ -31,8 +31,8 @@ classvars:
    viPermanent_flags = ROOM_GUILD_PK_ONLY | ROOM_LAMPS
    viTerrain_Type = TERRAIN_CITY | TERRAIN_ROAD
 
-   viTeleport_row = 27
-   viTeleport_col = 16
+   viTeleport_row = 28
+   viTeleport_col = 9
 
    viWeatherMask = WEATHER_MASK_DEFAULT
 
@@ -55,39 +55,39 @@ messages:
    CreateStandardExits()
    {
       plExits = $;
-      plExits = Cons([ 47,3, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 40,1, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 20,3, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 5,3 , ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,6 , ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,14, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,19, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,27, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,34, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,48, ROOM_LOCKED_DOOR ],plExits);
-      plExits = Cons([ 2,53, ROOM_LOCKED_DOOR ],plExits);
-
-
-      plExits = Cons([ 40, 9, RID_TOS_HALL, 9, 2, ROTATE_180 ],plExits);
-
-      plExits = Cons([ 19, 8, RID_TOS_BANK, 6, 8, ROTATE_NONE ],plExits);
-
-      plExits = Cons([ 7, 35, RID_GUILDH5, 32, 17, ROTATE_NONE ],plExits);
-      plExits = Cons([ 7, 36, RID_GUILDH5, 32, 18, ROTATE_NONE ],plExits);
-
-      plExits = Cons([ 28, 4, RID_TOS, 56, 39, ROTATE_NONE ],plExits);
       
+	  // Adventurer's Hall
+      plExits = Cons([ 40, 8, RID_TOS_HALL, 9, 2, ROTATE_NONE ],plExits);
+	  
+	  // Bank
+      plExits = Cons([ 19, 7, RID_TOS_BANK, 6, 8, ROTATE_NONE ],plExits);
+	  
+	  // Guild Hall (Near Bank)
+      plExits = Cons([ 7, 34, RID_GUILDH5, 32, 17, ROTATE_NONE ],plExits);
+      plExits = Cons([ 7, 35, RID_GUILDH5, 32, 18, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 29, 24, RID_TOS_ARENA2, 29, 24, ROTATE_NONE ],plExits);
-      plExits = Cons([ 30, 24, RID_TOS_ARENA2, 30, 24, ROTATE_NONE ],plExits);
+ 	  // Guild Hall (Near Badlands)
+      plExits = Cons([ 28, 50, RID_GUILDH5, 32, 17, ROTATE_NONE ],plExits);
+      plExits = Cons([ 29, 50, RID_GUILDH5, 32, 18, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 40, 36, RID_TOS_ARENA2, 40, 36, ROTATE_NONE ],plExits);
-      plExits = Cons([ 40, 37, RID_TOS_ARENA2, 40, 37, ROTATE_NONE ],plExits);
+	  // Streets of Tos
+	  plExits = Cons([ 29, 3, RID_TOS, 56, 39, ROTATE_NONE ],plExits);
 
-      plExits = Cons([ 17, 35, RID_TOS_ARENA2, 17, 35, ROTATE_NONE ],plExits);
-      plExits = Cons([ 17, 36, RID_TOS_ARENA2, 17, 36, ROTATE_NONE ],plExits);
+	  // Main Arena Entrance
+      plExits = Cons([ 28, 25, RID_TOS_ARENA2, 26, 27, ROTATE_NONE ],plExits);
+      plExits = Cons([ 29, 25, RID_TOS_ARENA2, 27, 27, ROTATE_NONE ],plExits);
+
+	  // Arena Entrance near Badlands
+      plExits = Cons([ 40, 35, RID_TOS_ARENA2, 37, 37, ROTATE_NONE ],plExits);
+      plExits = Cons([ 40, 36, RID_TOS_ARENA2, 37, 36, ROTATE_NONE ],plExits);
+
+	  // Arena Entrance near Guild Hall
+      plExits = Cons([ 17, 35, RID_TOS_ARENA2, 16, 36, ROTATE_NONE ],plExits);
+      plExits = Cons([ 17, 36, RID_TOS_ARENA2, 16, 37, ROTATE_NONE ],plExits);
 
       plEdge_Exits = $;
+	  
+	  // Exit to Badlands
       plEdge_Exits = Cons([ LEAVE_SOUTH, RID_I6, 1, 47, ANGLE_SOUTH ], plEdge_exits); 
 
       propagate;
