@@ -2360,8 +2360,8 @@
    // 100 = allows a player with 50 stamina to go to 150
    HP_BASE_MAX_ONE_STAMINA = 150
    
-   // Max XP Per Level will prevent the XP needed to advanced to the next HP from being higher
-   // than this value.
+   // Max XP Per Level will cap XP required for each HP.
+   // Cap is reached by 158 HP
    MAX_XP_PER_LEVEL = 25000
    
    // Max XP assumes no more than MAX_XP_PER_LEVEL.
@@ -2409,6 +2409,15 @@
    // Prevents the player from earning more than this amount of 
    // training points per kill.
    MAX_TRAINING_POINTS_PER_KILL = 2500
+   
+   // Training Points to award before reaching the base HP (150)
+   TP_ALWAYS_AWARD_PER_KILL = 25
+   
+   // Training Points to award between base HP and Player's Max Stamina HP
+   TP_ADDITIONAL_ABOVE_BASE_HP = 25
+   
+   // Training Points to award after Player's Stamina Max HP
+   TP_ADDITIONAL_ABOVE_MAXED_HP = 50
    
    // These HP levels can be used to replace monster hard-coded values.
    // To give you an idea, Giant Rats would be Level_1_HP and so would a handful of others.

@@ -124,7 +124,7 @@ resources:
    include player.lkod
 
    player_cant_broadcast = \
-      "You can't broadcast a message--you don't have enough mana."
+      "You can't broadcast a message--you don't have enough mana..."
    player_squelched = "You are prevented from communicating for now."
    player_cant_send = \
       "You can't send this message--you don't have enough mana."
@@ -8973,11 +8973,13 @@ messages:
    "stamina, all the way down to half for those with high staminas."
    {
       local i, iMaxHealth, dodgeskill, oSkill, monster_level, iXP, oWeapon,
-            iItemBonus, iUnbound, iDist, iDifference, iXPNeeded, iXPBonus, iPrevTrainingPoints;
+            iItemBonus, iUnbound, iDist, iDifference, iXPNeeded, iXPBonus, iPrevTrainingPoints,
+			iTrainingPointsAwarded;
 
       iXP = 0;
       iItemBonus = 0;
 	  iXPBonus = 0;
+	  iTrainingPointsAwarded = 0;
 
       // Some things just never allow advancement.
       // Can advance in arena if realdeath is on in an arena.
@@ -9187,26 +9189,30 @@ messages:
 
 		 iPrevTrainingPoints = piTraining_points;
 		 
-         // Here, we work out if the player deserves a training point.
+         // Here, we work out if the player deserves training points.
          // They qualify if they got at least one gain point from the monster,
          // and also got the killing blow (no double points from single mobs).
          if iXP > 0
             AND killing_blow
             AND piTraining_points < MAX_TRAINING_POINTS
          {
-			// Give a 25 point bonus if you reach the base HP
+			 
+			// Give point bonus for a successful kill
+			iTrainingPointsAwarded = TP_ALWAYS_AWARD_PER_KILL;
+			
+			// Give point bonus if you reach the base HP
 			if iMaxHealth >= HP_BASE_MAX_ONE_STAMINA
 			{
-				piTraining_points += 25;
+				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_BASE_HP;
 			}
 			
-			// Give a 25 point bonus if you reach your max HP
-			if iMaxHealth >= (1 + HP_BASE_MAX_ONE_STAMINA + Send(self,@GetStamina))
+			// Give point bonus if you reach your max HP
+			if iMaxHealth >= (HP_BASE_MAX_ONE_STAMINA + Send(self,@GetStamina))
 			{
-				piTraining_points += 25;
+				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_MAXED_HP;
 			}
 			
-            piTraining_points = piTraining_points + 25
+            piTraining_points = piTraining_points + iTrainingPointsAwarded
                + (Send(what,@GetBoostedLevel)
                / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));
          }
