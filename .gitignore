@@ -1,0 +1,3 @@
+run/server/savegame/*
+*.log
+*.zip
