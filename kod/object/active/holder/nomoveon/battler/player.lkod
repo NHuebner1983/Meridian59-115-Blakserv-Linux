@@ -97,6 +97,7 @@ player_wanted_now = de \
    "Du wirst nun für die Ermordung von %s%s zum Gesetzlosen erklärt."
 player_haunted_on = de "%s%ss gewaltsamer Tod ruft einen Racheengel hervor."
 player_haunted_off = de "Der Racheengel ist zufrieden."
+player_training_debug = de "Base HP: %i Stamina: %i Max Health: %i Training Points Awarded: %i"
 player_training_inform = de "Du hast nun ~B%i~B Trainingspunkte!"
 player_reached_maxtraining = de \
    "~BDu hast ~B%i~B Trainingspunkte erreicht und kannst nicht mehr dazu "
