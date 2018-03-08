@@ -10056,7 +10056,7 @@ messages:
 
    CheckFunctions()
    {
-	   return Send(self,@GetBaseMaxHealth);
+	   return 99;
    }
    
    SetDeathCost(DeathCost = $, bOverride = FALSE)
