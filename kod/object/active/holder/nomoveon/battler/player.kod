@@ -9152,7 +9152,8 @@ messages:
          iXP = iXP * Bound(Send(SETTINGS_OBJECT,@GetXPPercent),50,500) / 100;
          // Add in XP bonus from items after this.
          iXP += iItemBonus;
-         // AddXP checks for HP gain and redraws the XP bar.
+         
+		 // AddXP checks for HP gain and redraws the XP bar.
          // NOTE: iMaxHealth could be wrong after this point.
          Send(self,@AddXP,#iAmount=iXP,#iXPBonus=iXPBonus);
 
@@ -9348,6 +9349,15 @@ messages:
       return piXP_total;
    }
 
+   SetXP(iAmount=0)
+   {
+	   piXP_total = iAmount;
+	   
+	   Send(self,@TryGainBaseMaxHealth);
+	   
+	   return;
+   }
+   
    AddXP(iAmount=0,iXPBonus=0,report=TRUE)
    "All code that adds or subtracts XP should go through this message. "
    "Handles resource display and toughers."
