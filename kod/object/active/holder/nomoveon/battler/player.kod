@@ -3240,7 +3240,9 @@ messages:
 
       iStamina = Send(self,@GetStamina);
 
-      return bound(MIN_HP, piMax_health + iStamina, MAX_CALCULATED_HP);
+      // Bound twice - once for max HP this player can get, once for
+      // max HP allowable by the game.
+      return Bound(Bound(piBase_max_health,MIN_HP,HP_BASE_MAX_ONE_STAMINA + iStamina),MIN_HP,MAX_CALCULATED_HP);
    }
 
    GetUncappedBaseMaxHealth()
@@ -10056,7 +10058,7 @@ messages:
 
    CheckFunctions()
    {
-	   return 88;
+	   return 77;
    }
    
    SetDeathCost(DeathCost = $, bOverride = FALSE)
