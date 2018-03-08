@@ -10056,7 +10056,7 @@ messages:
 
    CheckFunctions()
    {
-	   return 99;
+	   return 88;
    }
    
    SetDeathCost(DeathCost = $, bOverride = FALSE)
