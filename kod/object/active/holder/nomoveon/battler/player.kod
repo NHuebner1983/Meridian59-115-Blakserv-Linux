@@ -3240,7 +3240,7 @@ messages:
 
       iStamina = Send(self,@GetStamina);
 
-      return piBase_max_health + iStamina;
+      return (Send(self,@GetMaxHealth) + iStamina);
    }
 
    GetUncappedBaseMaxHealth()
@@ -4931,7 +4931,7 @@ messages:
       }
 
       // Holding a token?  Then don't let them attack
-      if send(self,@FindHolding,#class=&Token) <> $
+      if Send(self,@FindHolding,#class=&Token) <> $
       {
          return FALSE;
       }
@@ -9230,7 +9230,7 @@ messages:
                AND piInform
          {
             Send(self,@MsgSendUser,#message_rsc=player_training_inform,
-                  #parm1=piTraining_points,#parm2=iMaxHealth);
+                  #parm1=piTraining_points,#parm2=piMax_health);
          } 
 
          // Draw the training points bar.
