@@ -3240,7 +3240,7 @@ messages:
 
       iStamina = Send(self,@GetStamina);
 
-      return bound(piMax_health + iStamina, MIN_HP, MAX_CALCULATED_HP);
+      return piBase_max_health + iStamina;
    }
 
    GetUncappedBaseMaxHealth()
@@ -9231,7 +9231,7 @@ messages:
          {
             Send(self,@MsgSendUser,#message_rsc=player_training_inform,
                   #parm1=piTraining_points,#parm2=iMaxHealth);
-         }
+         } 
 
          // Draw the training points bar.
          Post(self,@DrawTraining);
@@ -9329,7 +9329,7 @@ messages:
 
          iMaxHealth = Send(self,@GetBaseMaxHealth);
 
-         if (iMaxHealth >= 100 + iStamina
+         if (iMaxHealth >= HP_BASE_MAX_ONE_STAMINA + iStamina
             OR iMaxHealth >= MAX_HP)
          {
             Send(self,@AddTrainingPoints,#points=iMaxHealth * 3,#bCap=FALSE);
@@ -9967,7 +9967,7 @@ messages:
 
             // Under 100HP and killed by a player? Receive a temporary angel.
             if bTempSafe
-               AND piBase_max_health <= 99
+               AND piBase_max_health < PKILL_ENABLE_HP
                AND NOT ((piFlags & PFLAG_MURDERER)
                   OR (piFlags & PFLAG_OUTLAW))
                AND (piPreferences & CF_TEMPSAFE)
