@@ -2368,19 +2368,19 @@
    MAX_XP_PER_LEVEL = 25000
    
    // Max XP assumes no more than MAX_XP_PER_LEVEL.
-   MAX_XP = MAX_HP * MAX_XP_PER_LEVEL
+   MAX_XP = 5000000
    
    // If the player somehow manages to kill a very tough monster
    // we will capt the MAX_XP_PER_KILL at the MAX_XP_PER_LEVEL x 2.
    // Prevents the player from being level 20 to level 100 in one kill.
-   MAX_XP_PER_KILL = MAX_XP_PER_LEVEL * 2
+   MAX_XP_PER_KILL = 50000
    
    // Max XP lost on death
    MAX_XP_DEATH_LOSS = 10000
    
    // Maximum amount of HP any monster can have
    // Even if the Monster's KOD is set above it.
-   MAX_MONSTER_HP = (MAX_STAMINA + HP_BASE_MAX_ONE_STAMINA) + MAX_CALCULATED_HP
+   MAX_MONSTER_HP = 1000
    
    // Percent of Player Health divided by Monster Health 
    // Multiplied by the Player's Health
