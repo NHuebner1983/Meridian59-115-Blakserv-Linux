@@ -2355,7 +2355,6 @@
    
    // Should be higher to allow for gifts/boons
    MAX_CALCULATED_HP = 300
-   
 
    // Original value: 100 (MAX_HP would need to be set to 150 if you set this to 100)
    // 150 = allows a player with 1 stamina to go to 150

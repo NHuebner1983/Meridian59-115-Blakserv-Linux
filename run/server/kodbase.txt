@@ -1,4 +1,4 @@
-T 16176 32455
+T 16176 32456
 C UtilityFunctions 10001 0
 Y	plTemp 1
 M	UtilGoNearSquare 10012
@@ -48595,6 +48595,7 @@ R	bad_line_of_sight 23499
 R	player_improved_wav_rsc 23500
 R	player_tougher_wav_rsc 23501
 R	player_missed_something_wave_rsc 23502
+R	player_training_debug 32456
 R	player_wave_hit 23503
 R	player_level_music 23504
 R	player_not_intriguing 23505

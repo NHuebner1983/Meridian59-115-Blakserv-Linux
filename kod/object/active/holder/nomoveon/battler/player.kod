@@ -230,6 +230,7 @@ resources:
    player_haunted_on = "%s%s's violent death summons forth a revenant."
    player_haunted_off = "The revenant is satisfied."
    
+   player_training_debug = "Base HP: %i Stamina: %i Max Health: %i Training Points Awarded: %i"
    player_training_inform = "You now have ~B~s%i~v~B training points."
    player_reached_maxtraining = \
       "You now have ~B~s%i~v~B training points and can not gain any more!  "
@@ -9210,10 +9211,17 @@ messages:
 			{
 				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_MAXED_HP;
 			}
-			
+
             piTraining_points += iTrainingPointsAwarded
                + (Send(what,@GetBoostedLevel)
                / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));
+
+			Send(self,@MsgSendUser,#message_rsc=player_training_debug,
+                  #parm1=HP_BASE_MAX_ONE_STAMINA,
+				  #parm2=Send(self,@GetStamina),
+				  #parm3=iMaxHealth,
+				  #parm4=iTrainingPointsAwarded);
+			   
          }
 		 
          // Let the player know how many training points they have, if they
