@@ -3241,9 +3241,7 @@ messages:
 
       iStamina = Send(self,@GetStamina);
 
-      // Bound twice - once for max HP this player can get, once for
-      // max HP allowable by the game.
-      return Bound(Bound(piBase_max_health,MIN_HP,HP_BASE_MAX_ONE_STAMINA + iStamina),MIN_HP,MAX_CALCULATED_HP);
+      return bound(MIN_HP, piMax_health + iStamina, MAX_CALCULATED_HP);
    }
 
    GetUncappedBaseMaxHealth()
@@ -6297,6 +6295,7 @@ messages:
       
       // Our max health, bound to max HP
       iMaxHealth = Send(self,@GetBaseMaxHealth);
+	  
       // Punish them more if they beat up someone weaker than they are.
       oChance = oChance + ((10 * iMaxHealth) / Send(target,@GetBaseMaxHealth));
 
@@ -9212,7 +9211,7 @@ messages:
 				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_MAXED_HP;
 			}
 			
-            piTraining_points = piTraining_points + iTrainingPointsAwarded
+            piTraining_points += iTrainingPointsAwarded
                + (Send(what,@GetBoostedLevel)
                / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));
          }

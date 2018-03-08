@@ -2353,6 +2353,10 @@
    MAX_HP = 200
    MAX_STAMINA = 50
    
+   // Should be higher to allow for gifts/boons
+   MAX_CALCULATED_HP = 300
+   
+
    // Original value: 100 (MAX_HP would need to be set to 150 if you set this to 100)
    // 150 = allows a player with 1 stamina to go to 150
    // 150 = allows a player with 50 stamina to go to 200
@@ -2374,10 +2378,6 @@
    
    // Max XP lost on death
    MAX_XP_DEATH_LOSS = 10000
-   
-   // This allows for special items / spells / effects which boost your HP past CAP.
-   // Set this HIGHER than MAX_HP.
-   MAX_CALCULATED_HP = 250
    
    // Maximum amount of HP any monster can have
    // Even if the Monster's KOD is set above it.
