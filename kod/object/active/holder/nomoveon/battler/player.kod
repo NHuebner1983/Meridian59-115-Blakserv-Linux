@@ -9199,13 +9199,13 @@ messages:
 			iTrainingPointsAwarded = TP_ALWAYS_AWARD_PER_KILL;
 			
 			// Give point bonus if you reach the base HP
-			if iMaxHealth >= HP_BASE_MAX_ONE_STAMINA
+			if Send(self,@GetMaxHealth) >= HP_BASE_MAX_ONE_STAMINA
 			{
 				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_BASE_HP;
 			}
 			
 			// Give point bonus if you reach your max HP
-			if iMaxHealth >= (HP_BASE_MAX_ONE_STAMINA + Send(self,@GetStamina))
+			if Send(self,@GetMaxHealth) >= (HP_BASE_MAX_ONE_STAMINA + Send(self,@GetStamina))
 			{
 				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_MAXED_HP;
 			}
@@ -9230,7 +9230,7 @@ messages:
                AND piInform
          {
             Send(self,@MsgSendUser,#message_rsc=player_training_inform,
-                  #parm1=piTraining_points,#parm2=piMax_health);
+                  #parm1=piTraining_points,#parm2=Send(self,@GetMaxHealth));
          } 
 
          // Draw the training points bar.
