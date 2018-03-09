@@ -1,6 +1,6 @@
  blakserv
 
- Timestamp is 5aa2e8ac (Fri Mar  9 14:03:56 2018)
+ Timestamp is 5aa31ea3 (Fri Mar  9 17:54:11 2018)
 
  Preferred load address is 00400000
 
@@ -49,15 +49,15 @@
 
   Address         Publics by Value              Rva+Base       Lib:Object
 
- 0000:00000000       ___guard_iat_table         00000000     <absolute>
  0000:00000000       __except_list              00000000     <absolute>
  0000:00000000       ___guard_fids_count        00000000     <absolute>
+ 0000:00000000       ___guard_longjmp_table     00000000     <absolute>
  0000:00000000       ___guard_iat_count         00000000     <absolute>
  0000:00000000       ___guard_longjmp_count     00000000     <absolute>
  0000:00000000       ___dynamic_value_reloc_table 00000000     <absolute>
- 0000:00000000       ___guard_longjmp_table     00000000     <absolute>
+ 0000:00000000       ___guard_iat_table         00000000     <absolute>
  0000:00000000       ___guard_fids_table        00000000     <absolute>
- 0000:00000018       ___safe_se_handler_count   00000018     <absolute>
+ 0000:00000019       ___safe_se_handler_count   00000019     <absolute>
  0000:00000100       ___guard_flags             00000100     <absolute>
  0000:00000000       ___ImageBase               00400000     <linker-defined>
  0001:0000a910       ?CRC32@@YAIPBDH@Z          0040b910 f   crc.obj
@@ -69,6 +69,9 @@
  0001:0000c250       ?MainReloadGameData@@YAXXZ 0040d250 f   main.obj
  0001:0000c2d0       ?GetLastErrorStr@@YAPADXZ  0040d2d0 f   main.obj
  0001:0000c370       ?SignalHandler@@YAXH@Z     0040d370 f   main.obj
+ 0001:0000c3db       __difftime32               0040d3db f   libucrt:difftime.obj
+ 0001:0000c40a       __difftime64               0040d40a f   libucrt:difftime.obj
+ 0001:0000c460       ?TimerHeapHeapify@@YAXH@Z  0040d460 f i timer.obj
  0001:0000c790       ??$__vcrt_va_start_verify_argument_type@QBD@@YAXXZ 0040d790 f i md5.obj
  0001:0000c7a0       ___local_stdio_printf_options 0040d7a0 f i md5.obj
  0001:0000c7b0       __vsnprintf_l              0040d7b0 f i md5.obj
@@ -123,12 +126,12 @@
  0001:0000f010       ?LookupAdminConstant@@YADPBDPAH@Z 00410010 f   admincons.obj
  0001:0000f070       ?AddAdminConstant@@YAXPADH@Z 00410070 f   admincons.obj
  0001:0000f1f0       ?SendSessionAdminText@@YAXHPBDZZ 004101f0 f   adminfn.obj
- 0001:0000f2d0       ?TryAdminCommand@@YAXHPAD@Z 004102d0 f   adminfn.obj
- 0001:0000f390       ?AdminBufferSend@@YAXPADH@Z 00410390 f   adminfn.obj
- 0001:0000f3c0       ?AdminDeleteEachUserObject@@YAXPAUuser_struct@@@Z 004103c0 f   adminfn.obj
- 0001:0000f430       ?AdminSendBufferList@@YAXXZ 00410430 f   adminfn.obj
- 0001:0000f560       ?SendAdminBuffer@@YAXPADH@Z 00410560 f   adminfn.obj
- 0001:0000f660       ?DoAdminCommand@@YAXPAD@Z  00410660 f   adminfn.obj
+ 0001:0000f2d0       ?DoAdminCommand@@YAXPAD@Z  004102d0 f   adminfn.obj
+ 0001:0000f330       ?TryAdminCommand@@YAXHPAD@Z 00410330 f   adminfn.obj
+ 0001:0000f3f0       ?AdminBufferSend@@YAXPADH@Z 004103f0 f   adminfn.obj
+ 0001:0000f420       ?AdminDeleteEachUserObject@@YAXPAUuser_struct@@@Z 00410420 f   adminfn.obj
+ 0001:0000f490       ?AdminSendBufferList@@YAXXZ 00410490 f   adminfn.obj
+ 0001:0000f5c0       ?SendAdminBuffer@@YAXPADH@Z 004105c0 f   adminfn.obj
  0001:0000f6c0       ?AdminTable@@YAXHQAUadmin_table_struct@@HPAD@Z 004106c0 f   adminfn.obj
  0001:0000ff10       ?AdminIsValidBlakParm@@YADTval_type@@@Z 00410f10 f   adminfn.obj
  0001:0000fff0       ?AdminHelp@@YAXHHQAUadmin_table_struct@@@Z 00410ff0 f   adminfn.obj
@@ -264,8 +267,8 @@
  0001:00018bd0       ?AdminSay@@YAXHQA_KHQAUparm_node@@@Z 00419bd0 f   adminfn.obj
  0001:00018c30       ?AdminSayEachAdminSession@@YAXPAUsession_node@@@Z 00419c30 f   adminfn.obj
  0001:00018d30       ?AdminRead@@YAXHQA_KHQAUparm_node@@@Z 00419d30 f   adminfn.obj
- 0001:00018ed0       ?AdminMark@@YAXHQA_KHQAUparm_node@@@Z 00419ed0 f   adminfn.obj
- 0001:00018f10       ?to_lowercase@@YAPADPAD@Z  00419f10 f   adminfn.obj
+ 0001:000190b0       ?AdminMark@@YAXHQA_KHQAUparm_node@@@Z 0041a0b0 f   adminfn.obj
+ 0001:000190f0       ?to_lowercase@@YAPADPAD@Z  0041a0f0 f   adminfn.obj
  0001:0001b6c0       ??$__vcrt_va_start_verify_argument_type@PBD@@YAXXZ 0041c6c0 f i adminfn.obj
  0001:0001b6d0       ??$min@H@std@@YAABHABH0@Z  0041c6d0 f i adminfn.obj
  0001:0001b720       ??$min@I@std@@YAABIABI0@Z  0041c720 f i adminfn.obj
@@ -1269,29 +1272,29 @@
  0001:0006f1c0       ?RelativeTimeStr@@YAPBDH@Z 004701c0 f   time.obj
  0001:0006f390       ?GetMilliCount@@YA_KXZ     00470390 f   time.obj
  0001:0006f460       ?GetMicroCountDouble@@YANXZ 00470460 f   time.obj
- 0001:0006f6e0       ?TimerHeapCheck@@YA_NHH@Z  004706e0 f   timer.obj
- 0001:0006f820       ?InitTimer@@YAXXZ          00470820 f   timer.obj
- 0001:0006f8d0       ?ResetTimer@@YAXXZ         004708d0 f   timer.obj
- 0001:0006f8f0       ?ClearTimer@@YAXXZ         004708f0 f   timer.obj
- 0001:0006f910       ?PauseTimers@@YAXXZ        00470910 f   timer.obj
- 0001:0006f950       ?UnpauseTimers@@YAXXZ      00470950 f   timer.obj
- 0001:0006fa00       ?CreateTimer@@YAHHHH@Z     00470a00 f   timer.obj
- 0001:0006faa0       ?LoadTimer@@YADHHPADH@Z    00470aa0 f   timer.obj
- 0001:0006fbb0       ?DeleteTimer@@YADH@Z       00470bb0 f   timer.obj
- 0001:0006fc10       ?ServiceTimers@@YAXXZ      00470c10 f   timer.obj
- 0001:0006fe60       ?GetTimerByID@@YAPAUtimer_struct@@H@Z 00470e60 f   timer.obj
- 0001:0006fec0       ?ForEachTimer@@YAXP6AXPAUtimer_struct@@@Z@Z 00470ec0 f   timer.obj
- 0001:0006ff20       ?ForEachTimerMatchingMsgID@@YAXP6AXPAUtimer_struct@@@ZH@Z 00470f20 f   timer.obj
- 0001:0006ffa0       ?ForEachTimerMatchingObjID@@YAXP6AXPAUtimer_struct@@@ZH@Z 00470fa0 f   timer.obj
- 0001:00070020       ?SetNumTimers@@YAXH@Z      00471020 f   timer.obj
- 0001:00070030       ?InMainLoop@@YADXZ         00471030 f   timer.obj
- 0001:00070040       ?GetNumActiveTimers@@YAHXZ 00471040 f   timer.obj
- 0001:00070050       ?ReallocTimerNodes@@YAXXZ  00471050 f   timer.obj
- 0001:00070110       ?ResetLastMessageTimes@@YAXPAUsession_node@@@Z 00471110 f   timer.obj
- 0001:000702b0       ?TimerHeapRemove@@YAXH@Z   004712b0 f   timer.obj
- 0001:00070310       ?TimerActivate@@YAXXZ      00471310 f   timer.obj
- 0001:000707f0       ?TimerAddNode@@YAXPAUtimer_struct@@@Z 004717f0 f i timer.obj
- 0001:00070950       ?TimerHeapHeapify@@YAXH@Z  00471950 f i timer.obj
+ 0001:0006f730       ?TimerHeapCheck@@YA_NHH@Z  00470730 f   timer.obj
+ 0001:0006f870       ?InitTimer@@YAXXZ          00470870 f   timer.obj
+ 0001:0006f920       ?ResetTimer@@YAXXZ         00470920 f   timer.obj
+ 0001:0006f940       ?ClearTimer@@YAXXZ         00470940 f   timer.obj
+ 0001:0006f960       ?PauseTimers@@YAXXZ        00470960 f   timer.obj
+ 0001:0006f9a0       ?UnpauseTimers@@YAXXZ      004709a0 f   timer.obj
+ 0001:0006fa50       ?CreateTimer@@YAHHHH@Z     00470a50 f   timer.obj
+ 0001:0006faf0       ?LoadTimer@@YADHHPADH@Z    00470af0 f   timer.obj
+ 0001:0006fc00       ?DeleteTimer@@YADH@Z       00470c00 f   timer.obj
+ 0001:0006fc60       ?ServiceTimers@@YAXXZ      00470c60 f   timer.obj
+ 0001:0006fff0       ?GetTimerByID@@YAPAUtimer_struct@@H@Z 00470ff0 f   timer.obj
+ 0001:00070050       ?ForEachTimer@@YAXP6AXPAUtimer_struct@@@Z@Z 00471050 f   timer.obj
+ 0001:000700b0       ?ForEachTimerMatchingMsgID@@YAXP6AXPAUtimer_struct@@@ZH@Z 004710b0 f   timer.obj
+ 0001:00070130       ?ForEachTimerMatchingObjID@@YAXP6AXPAUtimer_struct@@@ZH@Z 00471130 f   timer.obj
+ 0001:000701b0       ?SetNumTimers@@YAXH@Z      004711b0 f   timer.obj
+ 0001:000701c0       ?InMainLoop@@YADXZ         004711c0 f   timer.obj
+ 0001:000701d0       ?GetNumActiveTimers@@YAHXZ 004711d0 f   timer.obj
+ 0001:000701e0       ?ReallocTimerNodes@@YAXXZ  004711e0 f   timer.obj
+ 0001:000702a0       ?ResetLastMessageTimes@@YAXPAUsession_node@@@Z 004712a0 f   timer.obj
+ 0001:00070440       ?TimerHeapRemove@@YAXH@Z   00471440 f   timer.obj
+ 0001:000704a0       ?TimerActivate@@YAXXZ      004714a0 f   timer.obj
+ 0001:000707f0       ??A?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAADI@Z 004717f0 f i timer.obj
+ 0001:00070950       ?TimerAddNode@@YAXPAUtimer_struct@@@Z 00471950 f i timer.obj
  0001:00070b40       ?TrySyncInit@@YAXPAUsession_node@@@Z 00471b40 f   trysync.obj
  0001:00070b90       ?TrySyncExit@@YAXPAUsession_node@@@Z 00471b90 f   trysync.obj
  0001:00070ba0       ?TrySyncProcessSessionTimer@@YAXPAUsession_node@@@Z 00471ba0 f   trysync.obj
@@ -1457,8 +1460,8 @@
  0001:00073665       ??1exception@std@@UAE@XZ   00474665 f i LIBCMT:throw_bad_alloc.obj
  0001:0007367a       ??_Gbad_alloc@std@@UAEPAXI@Z 0047467a f i LIBCMT:throw_bad_alloc.obj
  0001:0007367a       ??_Ebad_alloc@std@@UAEPAXI@Z 0047467a f i LIBCMT:throw_bad_alloc.obj
- 0001:000736b2       ??_Ebad_array_new_length@std@@UAEPAXI@Z 004746b2 f i LIBCMT:throw_bad_alloc.obj
  0001:000736b2       ??_Gbad_array_new_length@std@@UAEPAXI@Z 004746b2 f i LIBCMT:throw_bad_alloc.obj
+ 0001:000736b2       ??_Ebad_array_new_length@std@@UAEPAXI@Z 004746b2 f i LIBCMT:throw_bad_alloc.obj
  0001:000736ea       ??_Eexception@std@@UAEPAXI@Z 004746ea f i LIBCMT:throw_bad_alloc.obj
  0001:000736ea       ??_Gexception@std@@UAEPAXI@Z 004746ea f i LIBCMT:throw_bad_alloc.obj
  0001:00073722       ?__scrt_throw_std_bad_alloc@@YAXXZ 00474722 f   LIBCMT:throw_bad_alloc.obj
@@ -1547,20 +1550,20 @@
  0001:00074cfb       ??1overflow_error@std@@UAE@XZ 00475cfb f i libcpmt:xthrow.obj
  0001:00074d10       ??1regex_error@std@@UAE@XZ 00475d10 f i libcpmt:xthrow.obj
  0001:00074d25       ??1runtime_error@std@@UAE@XZ 00475d25 f i libcpmt:xthrow.obj
- 0001:00074d3a       ??_Gbad_function_call@std@@UAEPAXI@Z 00475d3a f i libcpmt:xthrow.obj
  0001:00074d3a       ??_Ebad_function_call@std@@UAEPAXI@Z 00475d3a f i libcpmt:xthrow.obj
+ 0001:00074d3a       ??_Gbad_function_call@std@@UAEPAXI@Z 00475d3a f i libcpmt:xthrow.obj
  0001:00074d72       ??_Einvalid_argument@std@@UAEPAXI@Z 00475d72 f i libcpmt:xthrow.obj
  0001:00074d72       ??_Ginvalid_argument@std@@UAEPAXI@Z 00475d72 f i libcpmt:xthrow.obj
  0001:00074daa       ??_Elength_error@std@@UAEPAXI@Z 00475daa f i libcpmt:xthrow.obj
  0001:00074daa       ??_Glength_error@std@@UAEPAXI@Z 00475daa f i libcpmt:xthrow.obj
- 0001:00074de2       ??_Elogic_error@std@@UAEPAXI@Z 00475de2 f i libcpmt:xthrow.obj
  0001:00074de2       ??_Glogic_error@std@@UAEPAXI@Z 00475de2 f i libcpmt:xthrow.obj
- 0001:00074e1a       ??_Gout_of_range@std@@UAEPAXI@Z 00475e1a f i libcpmt:xthrow.obj
+ 0001:00074de2       ??_Elogic_error@std@@UAEPAXI@Z 00475de2 f i libcpmt:xthrow.obj
  0001:00074e1a       ??_Eout_of_range@std@@UAEPAXI@Z 00475e1a f i libcpmt:xthrow.obj
- 0001:00074e52       ??_Eoverflow_error@std@@UAEPAXI@Z 00475e52 f i libcpmt:xthrow.obj
+ 0001:00074e1a       ??_Gout_of_range@std@@UAEPAXI@Z 00475e1a f i libcpmt:xthrow.obj
  0001:00074e52       ??_Goverflow_error@std@@UAEPAXI@Z 00475e52 f i libcpmt:xthrow.obj
- 0001:00074e8a       ??_Gregex_error@std@@UAEPAXI@Z 00475e8a f i libcpmt:xthrow.obj
+ 0001:00074e52       ??_Eoverflow_error@std@@UAEPAXI@Z 00475e52 f i libcpmt:xthrow.obj
  0001:00074e8a       ??_Eregex_error@std@@UAEPAXI@Z 00475e8a f i libcpmt:xthrow.obj
+ 0001:00074e8a       ??_Gregex_error@std@@UAEPAXI@Z 00475e8a f i libcpmt:xthrow.obj
  0001:00074ec2       ??_Eruntime_error@std@@UAEPAXI@Z 00475ec2 f i libcpmt:xthrow.obj
  0001:00074ec2       ??_Gruntime_error@std@@UAEPAXI@Z 00475ec2 f i libcpmt:xthrow.obj
  0001:00074efa       ?_Stringify@regex_error@std@@CAPBDW4error_type@regex_constants@2@@Z 00475efa f i libcpmt:xthrow.obj
@@ -1700,8 +1703,8 @@
  0001:0007b419       ??0bad_exception@std@@QAE@XZ 0047c419 f i libvcruntime:frame.obj
  0001:0007b437       ??1bad_exception@std@@UAE@XZ 0047c437 f i libvcruntime:frame.obj
  0001:0007b44c       ??8type_info@@QBE_NABV0@@Z 0047c44c f i libvcruntime:frame.obj
- 0001:0007b471       ??_Ebad_exception@std@@UAEPAXI@Z 0047c471 f i libvcruntime:frame.obj
  0001:0007b471       ??_Gbad_exception@std@@UAEPAXI@Z 0047c471 f i libvcruntime:frame.obj
+ 0001:0007b471       ??_Ebad_exception@std@@UAEPAXI@Z 0047c471 f i libvcruntime:frame.obj
  0001:0007bec5       ?_CallMemberFunction0@@YGXQAX0@Z 0047cec5 f i libvcruntime:frame.obj
  0001:0007becc       ?_CallMemberFunction1@@YGXQAX00@Z 0047cecc f i libvcruntime:frame.obj
  0001:0007bed3       ?_CallMemberFunction2@@YGXQAX00H@Z 0047ced3 f i libvcruntime:frame.obj
@@ -3706,24 +3709,24 @@
  0001:000baf17       _set_terminate             004bbf17 f   libucrt:terminate.obj
  0001:000baf3f       _terminate                 004bbf3f f   libucrt:terminate.obj
  0001:000baf8a       ___ascii_stricmp           004bbf8a f   libucrt:stricmp.obj
- 0001:000bafd3       __stricmp                  004bbfd3 f   libucrt:stricmp.obj
  0001:000bafd3       _stricmp                   004bbfd3 f   libucrt:stricmp.obj
+ 0001:000bafd3       __stricmp                  004bbfd3 f   libucrt:stricmp.obj
  0001:000bb02d       __stricmp_l                004bc02d f   libucrt:stricmp.obj
  0001:000bb0ed       __strnicmp                 004bc0ed f   libucrt:strnicmp.obj
  0001:000bb0ed       _strnicmp                  004bc0ed f   libucrt:strnicmp.obj
  0001:000bb174       __strnicmp_l               004bc174 f   libucrt:strnicmp.obj
  0001:000bb258       ??$?RV<lambda_123407a5e2ac06da108355a851863b7a>@@AAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@V<lambda_ae55bdf541ad94d75914d381c370e64d>@@@?$__crt_seh_guarded_call@H@@QAEH$$QAV<lambda_123407a5e2ac06da108355a851863b7a>@@AAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@$$QAV<lambda_ae55bdf541ad94d75914d381c370e64d>@@@Z 004bc258 f i libucrt:close.obj
  0001:000bb2fa       ??$__acrt_lowio_lock_fh_and_call@V<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@@@YAHH$$QAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@@Z 004bc2fa f i libucrt:close.obj
- 0001:000bb44d       _close                     004bc44d f   libucrt:close.obj
  0001:000bb44d       __close                    004bc44d f   libucrt:close.obj
+ 0001:000bb44d       _close                     004bc44d f   libucrt:close.obj
  0001:000bb4eb       __close_nolock             004bc4eb f   libucrt:close.obj
  0001:000bb5ae       ??$__vcrt_va_start_verify_argument_type@$$CBH@@YAXXZ 004bc5ae f i libucrt:open.obj
  0001:000bb965       ??$tsopen_nolock@PAHABQAHABQBDABHABHABHABH@?$__crt_char_traits@D@@SAH$$QAPAHABQAHABQBDABH333@Z 004bc965 f i libucrt:open.obj
  0001:000bb9a3       ??$tsopen_nolock@PAHABQAHABQB_WABHABHABHABH@?$__crt_char_traits@_W@@SAH$$QAPAHABQAHABQB_WABH333@Z 004bc9a3 f i libucrt:open.obj
  0001:000bb9e1       ??$tsopen_nolock@PAHPAHABQBDABHHABHH@?$__crt_char_traits@D@@SAH$$QAPAH0ABQBDABH$$QAH23@Z 004bc9e1 f i libucrt:open.obj
  0001:000bba1f       ??$tsopen_nolock@PAHPAHABQB_WABHHABHH@?$__crt_char_traits@_W@@SAH$$QAPAH0ABQB_WABH$$QAH23@Z 004bca1f f i libucrt:open.obj
- 0001:000bc1ed       _open                      004bd1ed f   libucrt:open.obj
  0001:000bc1ed       __open                     004bd1ed f   libucrt:open.obj
+ 0001:000bc1ed       _open                      004bd1ed f   libucrt:open.obj
  0001:000bc20b       __sopen                    004bd20b f   libucrt:open.obj
  0001:000bc24d       __sopen_dispatch           004bd24d f   libucrt:open.obj
  0001:000bc25a       __sopen_nolock             004bd25a f   libucrt:open.obj
