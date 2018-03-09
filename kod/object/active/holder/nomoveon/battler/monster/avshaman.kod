@@ -80,7 +80,7 @@ classvars:
    viSpeed = SPEED_SLOW
    viDefault_behavior = \
       AI_FIGHT_AGGRESSIVE | AI_MOVE_OPTIMAL_RANGE | AI_FIGHT_MONSTERS
-   viLevel = 120
+   viLevel = LEVEL_13_HP
    viDifficulty = 8
    viVisionDistance = 22
 

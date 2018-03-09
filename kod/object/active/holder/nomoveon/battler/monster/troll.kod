@@ -45,7 +45,7 @@ classvars:
    viTreasure_type = TID_HIGH_HUMAN
    viSpeed = SPEED_AVERAGE
    viAttributes = 0
-   viLevel = 90
+   viLevel = LEVEL_9_HP
    viDifficulty = 8
    viVisionDistance = 18
    // Attack range of 192, or 3 row/col.

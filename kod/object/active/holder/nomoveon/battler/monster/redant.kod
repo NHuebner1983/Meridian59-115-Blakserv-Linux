@@ -47,7 +47,7 @@ classvars:
    viSpeed = SPEED_AVERAGE
    viAttack_type = ATCK_WEAP_BITE
    viAttributes = MOB_SPASM
-   viLevel = 65
+   viLevel = LEVEL_6_HP
    viDifficulty = 8
    viVisionDistance = 18
    // Attack range of 192, or 3 row/col.

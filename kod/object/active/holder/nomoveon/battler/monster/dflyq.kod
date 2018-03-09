@@ -78,7 +78,7 @@ classvars:
 
    viSpeed = SPEED_FAST
    viAttack_type = ATCK_WEAP_PIERCE
-   viLevel = 145
+   viLevel = LEVEL_15_HP
    viDifficulty = 6
    // Attack range of 192, or 3 row/col.
    viAttackRange = 192

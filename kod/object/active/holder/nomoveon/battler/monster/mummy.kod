@@ -47,7 +47,7 @@ classvars:
    viTreasure_type = TID_NEWBIE_AREA
    viSpeed = SPEED_SLIGHTLY_SLOW
    viAttributes = 0
-   viLevel = 30
+   viLevel = LEVEL_2_HP
    viDifficulty = 1
 
    // Larger distance since we want them to seek out the newbies.

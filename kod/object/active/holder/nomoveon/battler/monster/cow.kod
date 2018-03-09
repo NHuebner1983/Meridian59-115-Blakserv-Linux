@@ -49,7 +49,7 @@ classvars:
    viMove_delay_max = 10000
    viAttributes = MOB_NOFIGHT
    viSpeed = 8
-   viLevel = 200
+   viLevel = LEVEL_18_HP
    viCashmin = 0
    viCashmax = 0
 

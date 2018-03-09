@@ -67,7 +67,7 @@ properties:
    piBaseDifficulty = 4
 
    //Here so they can be set
-   viLevel = 60         // piBaseLevel
+   viLevel = LEVEL_6_HP         // piBaseLevel
    viDifficulty = 4     // piBaseDifficulty
 
    piBody_translations = 0

@@ -41,7 +41,7 @@ resources:
    vrKocName = XeoUnholy_koc_name_rsc
 
    viAttack_type = ATCK_WEAP_MAGIC
-   viLevel = 200
+   viLevel = LEVEL_19_HP
    viDifficulty = 9
    viSpeed = SPEED_FASTER
    vrSound_aware = XeoUnholy_sound_aware

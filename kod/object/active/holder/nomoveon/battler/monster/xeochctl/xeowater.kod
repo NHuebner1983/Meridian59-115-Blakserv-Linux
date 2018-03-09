@@ -41,7 +41,7 @@ resources:
    vrKocName = XeoWater_koc_name_rsc
 
    viAttack_type = ATCK_WEAP_MAGIC
-   viLevel = 190
+   viLevel = LEVEL_19_HP
    viDifficulty = 8
    viSpeed = SPEED_FASTER
    vrSound_aware = XeoWater_sound_aware

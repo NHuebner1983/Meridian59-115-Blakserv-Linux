@@ -50,10 +50,10 @@ classvars:
 
    viDifficulty = 8
    viVisionDistance = 20
-   viLevel = 250
+   viLevel = LEVEL_28_HP
    viKarma = 0
-   viCashmin = 25000
-   viCashmax = 50000
+   viCashmin = 125000
+   viCashmax = 250000
 
    viSpellChance = 3
 
@@ -66,8 +66,8 @@ properties:
    piMax_mana = 30
    piSpellPower = 40
 
-   // Spawns a new killer bunny every 30 sec by default.
-   piSpawnBunnyTime = 30000
+   // Spawns a new killer bunny every 2 min by default.
+   piSpawnBunnyTime = 120000
 
 messages:
 

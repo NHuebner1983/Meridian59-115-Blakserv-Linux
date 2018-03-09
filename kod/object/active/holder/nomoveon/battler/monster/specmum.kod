@@ -50,7 +50,7 @@ classvars:
 
    viTreasure_type = TID_MUMMY
    viSpeed = SPEED_SLOW
-   viLevel = 40
+   viLevel = LEVEL_3_HP
    viDifficulty = 5
    viVisionDistance = 8
    viKarma = 0

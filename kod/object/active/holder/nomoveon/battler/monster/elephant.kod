@@ -43,7 +43,7 @@ classvars:
    viIndefinite = ARTICLE_AN
    viSpeed = SPEED_SLOW
    viAttack_type = ATCK_WEAP_BITE
-   viLevel = 75
+   viLevel = LEVEL_7_HP
    viDifficulty = 8
    // Attack range of 192, or 3 row/col.
    viAttackRange = 192

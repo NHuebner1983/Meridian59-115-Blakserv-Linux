@@ -60,7 +60,7 @@ classvars:
    viAttack_type = ATCK_WEAP_SLASH
    viAttributes = MOB_NOMOVE | MOB_NOFIGHT | MOB_NOQUEST
    viMoveOn_type = MOVEON_NOTIFY
-   viLevel = 25
+   viLevel = LEVEL_1_HP
    viDifficulty = 4 
    viKarma = 0
    viDefault_behavior = AI_NOFIGHT | AI_NOMOVE

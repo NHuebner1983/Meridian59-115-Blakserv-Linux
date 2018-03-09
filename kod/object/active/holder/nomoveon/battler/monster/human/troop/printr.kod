@@ -49,7 +49,7 @@ properties:
    piBaseDifficulty = 2
 
    //Here so they can be set
-   viLevel = 50         // piBaseLevel
+   viLevel = LEVEL_5_HP         // piBaseLevel
    viDifficulty = 2     // piBaseDifficulty
 
    vrSound_aware = PrincessTroop_sound_aware

@@ -49,7 +49,7 @@ classvars:
    viSpeed = SPEED_AVERAGE
    viAttack_type = ATCK_WEAP_THRUST
    viAttributes = 0
-   viLevel = 60
+   viLevel = LEVEL_6_HP
    viDifficulty = 4
    viVisionDistance = 7
    viKarma = -70

@@ -54,7 +54,7 @@ classvars:
    viAttack_type = 0
    viAttack_spell = ATCK_SPELL_SHOCK
 
-   viLevel = 60
+   viLevel = LEVEL_6_HP
    viDifficulty = 5
    viVisionDistance = 15
    // Attack range of 192, or 3 row/col.

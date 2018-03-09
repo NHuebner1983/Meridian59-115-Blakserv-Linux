@@ -47,7 +47,7 @@ classvars:
    viSpeed = SPEED_FAST
    viAttack_type = ATCK_WEAP_BITE
 
-   viLevel = 30
+   viLevel = LEVEL_2_HP
    viDifficulty = 5
    viVisionDistance = 8
    viKarma = 25

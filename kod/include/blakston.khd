@@ -2431,33 +2431,34 @@
    // If you think this is whacky, just remember, sometimes up to 5 or more 
    // monsters may be in 1 Level, and nobody wants to update 100 monsters by hand.
    
-   LEVEL_1_HP = 30
-   LEVEL_2_HP = 40
-   LEVEL_3_HP = 50
-   LEVEL_4_HP = 60
-   LEVEL_5_HP = 70
-   LEVEL_6_HP = 80
-   LEVEL_7_HP = 90
+   LEVEL_0_HP = 20
+   LEVEL_1_HP = 35
+   LEVEL_2_HP = 45
+   LEVEL_3_HP = 55
+   LEVEL_4_HP = 65
+   LEVEL_5_HP = 75
+   LEVEL_6_HP = 85
+   LEVEL_7_HP = 95
    LEVEL_8_HP = 100
    LEVEL_9_HP = 110
-   LEVEL_10_HP = 120
-   LEVEL_11_HP = 130
-   LEVEL_12_HP = 140
-   LEVEL_13_HP = 150
-   LEVEL_14_HP = 160
-   LEVEL_15_HP = 170
-   LEVEL_16_HP = 180
-   LEVEL_17_HP = 190
+   LEVEL_10_HP = 125
+   LEVEL_11_HP = 135
+   LEVEL_12_HP = 145
+   LEVEL_13_HP = 155
+   LEVEL_14_HP = 165
+   LEVEL_15_HP = 175
+   LEVEL_16_HP = 185
+   LEVEL_17_HP = 195
    LEVEL_18_HP = 200
    LEVEL_19_HP = 210
-   LEVEL_20_HP = 220
-   LEVEL_21_HP = 230
-   LEVEL_22_HP = 240
-   LEVEL_23_HP = 250
-   LEVEL_24_HP = 260
-   LEVEL_25_HP = 270
-   LEVEL_26_HP = 280
-   LEVEL_27_HP = 290
+   LEVEL_20_HP = 225
+   LEVEL_21_HP = 235
+   LEVEL_22_HP = 245
+   LEVEL_23_HP = 255
+   LEVEL_24_HP = 265
+   LEVEL_25_HP = 275
+   LEVEL_26_HP = 285
+   LEVEL_27_HP = 295
    LEVEL_28_HP = 300
    
    // First set of flags (in piFlags)

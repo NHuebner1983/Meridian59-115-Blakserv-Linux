@@ -52,7 +52,7 @@ classvars:
    viIndefinite = ARTICLE_THE
    viGender = GENDER_NEUTER
 
-   viLevel = 200
+   viLevel = LEVEL_28_HP
    viDifficulty = 9
    viKarma = -100
    viDefault_behavior = AI_NOMOVE| AI_NOFIGHT| AI_NPC

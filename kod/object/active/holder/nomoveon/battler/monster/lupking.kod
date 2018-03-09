@@ -78,7 +78,7 @@ classvars:
    viTreasure_type = TID_LUPOGG_KING
    viSpeed = SPEED_SLOW
    viAttack_type = ATCK_WEAP_CLAW
-   viLevel = 200
+   viLevel = LEVEL_19_HP
    viDifficulty = 9
    viVisionDistance = 40
    // Attack range of 256, or 4 row/col.

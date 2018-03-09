@@ -42,7 +42,7 @@ classvars:
    viTreasure_type = TID_NONE
    viSpeed = SPEED_AVERAGE
    viAttributes = 0
-   viLevel = 200
+   viLevel = LEVEL_28_HP
    viDifficulty = 8
    viVisionDistance = 28
 

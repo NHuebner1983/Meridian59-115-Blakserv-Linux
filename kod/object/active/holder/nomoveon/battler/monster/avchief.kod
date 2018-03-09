@@ -83,7 +83,7 @@ classvars:
    viDefault_behavior = \
       AI_FIGHT_AGGRESSIVE | AI_MOVE_OPTIMAL_RANGE\
       | AI_FIGHT_WIZARD_KILLER | AI_FIGHT_MONSTERS
-   viLevel = 135
+   viLevel = LEVEL_17_HP
    viDifficulty = 9
    viVisionDistance = 28
 

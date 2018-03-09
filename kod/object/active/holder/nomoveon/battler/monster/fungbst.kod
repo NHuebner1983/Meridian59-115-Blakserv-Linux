@@ -56,7 +56,7 @@ classvars:
    viTreasure_type = TID_MEDIUM
    viSpeed = SPEED_VERY_SLOW
    viAttributes = MOB_SPASM
-   viLevel = 50
+   viLevel = LEVEL_5_HP
    viDifficulty = 3
    viVisionDistance = 10
    viKarma = 30

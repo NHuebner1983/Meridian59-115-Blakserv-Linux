@@ -64,7 +64,7 @@ classvars:
    viSpeed = SPEED_AVERAGE
    viAttack_type = ATCK_WEAP_BLUDGEON
    viAttributes = 0
-   viLevel = 80
+   viLevel = LEVEL_8_HP
    viDifficulty = 7
    viVisionDistance = 20
    // Attack range of 192, or 3 row/col.

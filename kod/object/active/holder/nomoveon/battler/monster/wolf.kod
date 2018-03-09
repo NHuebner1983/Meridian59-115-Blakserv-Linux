@@ -59,7 +59,7 @@ classvars:
 properties:
 
    viTreasure_type = TID_ZOMBIE
-   viLevel = 55
+   viLevel = LEVEL_5_HP
 
    piAnimation = ANIM_NONE
 

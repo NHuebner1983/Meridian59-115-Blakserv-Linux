@@ -51,7 +51,7 @@ classvars:
    viSpeed = SPEED_FAST
    viAttack_type = ATCK_WEAP_SLASH
    viAttributes = 0
-   viLevel = 20
+   viLevel = LEVEL_0_HP
    viDifficulty = 8
    viDamagePercent = 75
 

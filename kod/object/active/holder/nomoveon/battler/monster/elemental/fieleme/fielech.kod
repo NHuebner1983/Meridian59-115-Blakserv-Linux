@@ -37,7 +37,7 @@ classvars:
    viTreasure_type = TID_NONE
    viSpeed = SPEED_FAST
 
-   viLevel = 250
+   viLevel = LEVEL_28_HP
    viDifficulty = 9
 
    viCashmin = 3000

@@ -49,7 +49,7 @@ classvars:
 
    viAttributes = 0
 
-   viLevel = 100
+   viLevel = LEVEL_11_HP
    viDifficulty = 6
    viKarma = -75
    

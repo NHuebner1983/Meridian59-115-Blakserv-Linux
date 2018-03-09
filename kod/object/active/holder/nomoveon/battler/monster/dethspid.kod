@@ -56,7 +56,7 @@ classvars:
    viSpeed = SPEED_AVERAGE
    viAttack_type =  ATCK_WEAP_BITE
    viAttributes = MOB_SPASM
-   viLevel = 75
+   viLevel = LEVEL_7_HP
    viDifficulty = 5
    viVisionDistance = 12
    viKarma = -30

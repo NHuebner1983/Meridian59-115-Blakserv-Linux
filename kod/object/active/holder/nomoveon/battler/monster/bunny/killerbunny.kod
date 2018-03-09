@@ -44,7 +44,7 @@ classvars:
 
    viDifficulty = 6
    viVisionDistance = 20
-   viLevel = 80
+   viLevel = LEVEL_10_HP
    viKarma = 0
    viCashmin = 500
    viCashmax = 1200
