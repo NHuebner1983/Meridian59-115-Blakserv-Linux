@@ -1,6 +1,6 @@
  blakserv
 
- Timestamp is 5aa2d572 (Fri Mar  9 12:41:54 2018)
+ Timestamp is 5aa2d676 (Fri Mar  9 12:46:14 2018)
 
  Preferred load address is 00400000
 
@@ -747,29 +747,29 @@
  0001:000412d0       ?FatalErrorShow@@YAXPBDH0@Z 004422d0 f   interface_windows.obj
  0001:00041390       ?InterfaceThread@@YAXPAX@Z 00442390 f   interface_windows.obj
  0001:000415a0       ?InterfaceWindowProc@@YGJPAUHWND__@@IIJ@Z 004425a0 f   interface_windows.obj
- 0001:00041ac0       ?InterfaceSetTab@@YAXH@Z   00442ac0 f   interface_windows.obj
- 0001:00041b60       ?InterfaceTabChange@@YAXXZ 00442b60 f   interface_windows.obj
- 0001:00041c10       ?InterfaceSetup@@YAXXZ     00442c10 f   interface_windows.obj
- 0001:00042120       ?InterfaceCreateListControl@@YAXXZ 00443120 f   interface_windows.obj
- 0001:000422c0       ?InterfaceCreate@@YAXPAUHWND__@@IJ@Z 004432c0 f   interface_windows.obj
- 0001:000422f0       ?InterfaceCreateTabControl@@YAXPAUHWND__@@@Z 004432f0 f   interface_windows.obj
- 0001:000426a0       ?InterfaceCommand@@YAXPAUHWND__@@H0I@Z 004436a0 f   interface_windows.obj
- 0001:000428b0       ?InterfaceDrawText@@YAXPAUHWND__@@@Z 004438b0 f   interface_windows.obj
- 0001:00042bc0       ?InterfaceCheckChannels@@YAXXZ 00443bc0 f   interface_windows.obj
- 0001:00042e90       ?InterfaceSave@@YAXXZ      00443e90 f   interface_windows.obj
- 0001:00042f70       ?InterfaceReloadSystem@@YAXXZ 00443f70 f   interface_windows.obj
- 0001:00042ff0       ?CenterWindow@@YAXPAUHWND__@@0@Z 00443ff0 f   interface_windows.obj
- 0001:000431e0       ?InterfaceDialogMotd@@YGHPAUHWND__@@IIJ@Z 004441e0 f   interface_windows.obj
- 0001:000433b0       ?InterfaceDialogAbout@@YGHPAUHWND__@@IIJ@Z 004443b0 f   interface_windows.obj
- 0001:00043470       ?InterfaceDialogTabPage@@YGHPAUHWND__@@IIJ@Z 00444470 f   interface_windows.obj
- 0001:00043500       ?InterfaceTabPageCommand@@YAXPAUHWND__@@H0I@Z 00444500 f   interface_windows.obj
- 0001:00043610       ?InterfaceAdminInputProc@@YGJPAUHWND__@@IIJ@Z 00444610 f   interface_windows.obj
- 0001:000437a0       ?InterfaceAdminResponseProc@@YGJPAUHWND__@@IIJ@Z 004447a0 f   interface_windows.obj
- 0001:00043830       ?InterfaceAddAdminBuffer@@YAXPADH@Z 00444830 f   interface_windows.obj
- 0001:000438c0       ?InterfaceAddList@@YAXH@Z  004448c0 f   interface_windows.obj
- 0001:00043b80       ?InterfaceRemoveList@@YAXH@Z 00444b80 f   interface_windows.obj
- 0001:00043c40       ?InterfaceUpdateList@@YAXH@Z 00444c40 f   interface_windows.obj
- 0001:00043fb0       ?InterfaceUpdateAdmin@@YAXXZ 00444fb0 f   interface_windows.obj
+ 0001:00041a90       ?InterfaceSetTab@@YAXH@Z   00442a90 f   interface_windows.obj
+ 0001:00041b30       ?InterfaceTabChange@@YAXXZ 00442b30 f   interface_windows.obj
+ 0001:00041be0       ?InterfaceSetup@@YAXXZ     00442be0 f   interface_windows.obj
+ 0001:000420f0       ?InterfaceCreateListControl@@YAXXZ 004430f0 f   interface_windows.obj
+ 0001:00042290       ?InterfaceCreate@@YAXPAUHWND__@@IJ@Z 00443290 f   interface_windows.obj
+ 0001:000422c0       ?InterfaceCreateTabControl@@YAXPAUHWND__@@@Z 004432c0 f   interface_windows.obj
+ 0001:00042670       ?InterfaceCommand@@YAXPAUHWND__@@H0I@Z 00443670 f   interface_windows.obj
+ 0001:00042880       ?InterfaceDrawText@@YAXPAUHWND__@@@Z 00443880 f   interface_windows.obj
+ 0001:00042b90       ?InterfaceCheckChannels@@YAXXZ 00443b90 f   interface_windows.obj
+ 0001:00042e60       ?InterfaceSave@@YAXXZ      00443e60 f   interface_windows.obj
+ 0001:00042f40       ?InterfaceReloadSystem@@YAXXZ 00443f40 f   interface_windows.obj
+ 0001:00042fc0       ?CenterWindow@@YAXPAUHWND__@@0@Z 00443fc0 f   interface_windows.obj
+ 0001:000431b0       ?InterfaceDialogMotd@@YGHPAUHWND__@@IIJ@Z 004441b0 f   interface_windows.obj
+ 0001:00043380       ?InterfaceDialogAbout@@YGHPAUHWND__@@IIJ@Z 00444380 f   interface_windows.obj
+ 0001:00043440       ?InterfaceDialogTabPage@@YGHPAUHWND__@@IIJ@Z 00444440 f   interface_windows.obj
+ 0001:000434d0       ?InterfaceTabPageCommand@@YAXPAUHWND__@@H0I@Z 004444d0 f   interface_windows.obj
+ 0001:000435e0       ?InterfaceAdminInputProc@@YGJPAUHWND__@@IIJ@Z 004445e0 f   interface_windows.obj
+ 0001:00043770       ?InterfaceAdminResponseProc@@YGJPAUHWND__@@IIJ@Z 00444770 f   interface_windows.obj
+ 0001:00043800       ?InterfaceAddAdminBuffer@@YAXPADH@Z 00444800 f   interface_windows.obj
+ 0001:00043890       ?InterfaceAddList@@YAXH@Z  00444890 f   interface_windows.obj
+ 0001:00043b50       ?InterfaceRemoveList@@YAXH@Z 00444b50 f   interface_windows.obj
+ 0001:00043c10       ?InterfaceUpdateList@@YAXH@Z 00444c10 f   interface_windows.obj
+ 0001:00043f80       ?InterfaceUpdateAdmin@@YAXXZ 00444f80 f   interface_windows.obj
  0001:00044dc0       ?InitInterfaceLocks@@YAXXZ 00445dc0 f   intrlock.obj
  0001:00044e00       ?EnterServerLock@@YAXXZ    00445e00 f   intrlock.obj
  0001:00044e20       ?TryEnterServerLock@@YADXZ 00445e20 f   intrlock.obj
