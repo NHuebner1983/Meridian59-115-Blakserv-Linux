@@ -1,6 +1,6 @@
  blakserv
 
- Timestamp is 5aa2cd26 (Fri Mar  9 12:06:30 2018)
+ Timestamp is 5aa2d572 (Fri Mar  9 12:41:54 2018)
 
  Preferred load address is 00400000
 
@@ -49,14 +49,14 @@
 
   Address         Publics by Value              Rva+Base       Lib:Object
 
+ 0000:00000000       ___guard_iat_table         00000000     <absolute>
  0000:00000000       __except_list              00000000     <absolute>
- 0000:00000000       ___guard_longjmp_table     00000000     <absolute>
+ 0000:00000000       ___guard_fids_count        00000000     <absolute>
+ 0000:00000000       ___guard_iat_count         00000000     <absolute>
  0000:00000000       ___guard_longjmp_count     00000000     <absolute>
  0000:00000000       ___dynamic_value_reloc_table 00000000     <absolute>
- 0000:00000000       ___guard_iat_table         00000000     <absolute>
+ 0000:00000000       ___guard_longjmp_table     00000000     <absolute>
  0000:00000000       ___guard_fids_table        00000000     <absolute>
- 0000:00000000       ___guard_iat_count         00000000     <absolute>
- 0000:00000000       ___guard_fids_count        00000000     <absolute>
  0000:00000018       ___safe_se_handler_count   00000018     <absolute>
  0000:00000100       ___guard_flags             00000100     <absolute>
  0000:00000000       ___ImageBase               00400000     <linker-defined>
@@ -65,6 +65,10 @@
  0001:0000a9f0       ?MDString@@YAXPADPAE@Z     0040b9f0 f   md5.obj
  0001:0000aad0       ?MDFileHash@@YAXPAD0I@Z    0040bad0 f   md5.obj
  0001:0000aba0       ?MDStringBytes@@YAXPADPAEI@Z 0040bba0 f   md5.obj
+ 0001:0000c1b0       _WinMain@16                0040d1b0 f   main.obj
+ 0001:0000c250       ?MainReloadGameData@@YAXXZ 0040d250 f   main.obj
+ 0001:0000c2d0       ?GetLastErrorStr@@YAPADXZ  0040d2d0 f   main.obj
+ 0001:0000c370       ?SignalHandler@@YAXH@Z     0040d370 f   main.obj
  0001:0000c790       ??$__vcrt_va_start_verify_argument_type@QBD@@YAXXZ 0040d790 f i md5.obj
  0001:0000c7a0       ___local_stdio_printf_options 0040d7a0 f i md5.obj
  0001:0000c7b0       __vsnprintf_l              0040d7b0 f i md5.obj
@@ -884,10 +888,6 @@
  0001:0004da90       ?LoadDynamicRscName@@YADPAD@Z 0044ea90 f   loadrsc.obj
  0001:0004dda0       ?LoadRSBHash@@YAXPAD@Z     0044eda0 f   loadrsc.obj
  0001:0004e0c0       ?LoadBlakodStrings@@YADPAD@Z 0044f0c0 f   loadstr.obj
- 0001:0004e2d0       _WinMain@16                0044f2d0 f   main.obj
- 0001:0004e330       ?MainReloadGameData@@YAXXZ 0044f330 f   main.obj
- 0001:0004e3b0       ?GetLastErrorStr@@YAPADXZ  0044f3b0 f   main.obj
- 0001:0004e450       ?SignalHandler@@YAXH@Z     0044f450 f   main.obj
  0001:0004e480       ?MainServer@@YAXXZ         0044f480 f   main_windows.obj
  0001:0004e610       ?MainExitServer@@YAXXZ     0044f610 f   main_windows.obj
  0001:0004e740       ?MaintenanceInit@@YAXPAUsession_node@@@Z 0044f740 f   maintenance.obj
@@ -1455,8 +1455,8 @@
  0001:0007363b       ??1bad_alloc@std@@UAE@XZ   0047463b f i LIBCMT:throw_bad_alloc.obj
  0001:00073650       ??1bad_array_new_length@std@@UAE@XZ 00474650 f i LIBCMT:throw_bad_alloc.obj
  0001:00073665       ??1exception@std@@UAE@XZ   00474665 f i LIBCMT:throw_bad_alloc.obj
- 0001:0007367a       ??_Ebad_alloc@std@@UAEPAXI@Z 0047467a f i LIBCMT:throw_bad_alloc.obj
  0001:0007367a       ??_Gbad_alloc@std@@UAEPAXI@Z 0047467a f i LIBCMT:throw_bad_alloc.obj
+ 0001:0007367a       ??_Ebad_alloc@std@@UAEPAXI@Z 0047467a f i LIBCMT:throw_bad_alloc.obj
  0001:000736b2       ??_Ebad_array_new_length@std@@UAEPAXI@Z 004746b2 f i LIBCMT:throw_bad_alloc.obj
  0001:000736b2       ??_Gbad_array_new_length@std@@UAEPAXI@Z 004746b2 f i LIBCMT:throw_bad_alloc.obj
  0001:000736ea       ??_Eexception@std@@UAEPAXI@Z 004746ea f i LIBCMT:throw_bad_alloc.obj
@@ -1547,22 +1547,22 @@
  0001:00074cfb       ??1overflow_error@std@@UAE@XZ 00475cfb f i libcpmt:xthrow.obj
  0001:00074d10       ??1regex_error@std@@UAE@XZ 00475d10 f i libcpmt:xthrow.obj
  0001:00074d25       ??1runtime_error@std@@UAE@XZ 00475d25 f i libcpmt:xthrow.obj
- 0001:00074d3a       ??_Ebad_function_call@std@@UAEPAXI@Z 00475d3a f i libcpmt:xthrow.obj
  0001:00074d3a       ??_Gbad_function_call@std@@UAEPAXI@Z 00475d3a f i libcpmt:xthrow.obj
+ 0001:00074d3a       ??_Ebad_function_call@std@@UAEPAXI@Z 00475d3a f i libcpmt:xthrow.obj
  0001:00074d72       ??_Einvalid_argument@std@@UAEPAXI@Z 00475d72 f i libcpmt:xthrow.obj
  0001:00074d72       ??_Ginvalid_argument@std@@UAEPAXI@Z 00475d72 f i libcpmt:xthrow.obj
  0001:00074daa       ??_Elength_error@std@@UAEPAXI@Z 00475daa f i libcpmt:xthrow.obj
  0001:00074daa       ??_Glength_error@std@@UAEPAXI@Z 00475daa f i libcpmt:xthrow.obj
  0001:00074de2       ??_Elogic_error@std@@UAEPAXI@Z 00475de2 f i libcpmt:xthrow.obj
  0001:00074de2       ??_Glogic_error@std@@UAEPAXI@Z 00475de2 f i libcpmt:xthrow.obj
- 0001:00074e1a       ??_Eout_of_range@std@@UAEPAXI@Z 00475e1a f i libcpmt:xthrow.obj
  0001:00074e1a       ??_Gout_of_range@std@@UAEPAXI@Z 00475e1a f i libcpmt:xthrow.obj
+ 0001:00074e1a       ??_Eout_of_range@std@@UAEPAXI@Z 00475e1a f i libcpmt:xthrow.obj
  0001:00074e52       ??_Eoverflow_error@std@@UAEPAXI@Z 00475e52 f i libcpmt:xthrow.obj
  0001:00074e52       ??_Goverflow_error@std@@UAEPAXI@Z 00475e52 f i libcpmt:xthrow.obj
- 0001:00074e8a       ??_Eregex_error@std@@UAEPAXI@Z 00475e8a f i libcpmt:xthrow.obj
  0001:00074e8a       ??_Gregex_error@std@@UAEPAXI@Z 00475e8a f i libcpmt:xthrow.obj
- 0001:00074ec2       ??_Gruntime_error@std@@UAEPAXI@Z 00475ec2 f i libcpmt:xthrow.obj
+ 0001:00074e8a       ??_Eregex_error@std@@UAEPAXI@Z 00475e8a f i libcpmt:xthrow.obj
  0001:00074ec2       ??_Eruntime_error@std@@UAEPAXI@Z 00475ec2 f i libcpmt:xthrow.obj
+ 0001:00074ec2       ??_Gruntime_error@std@@UAEPAXI@Z 00475ec2 f i libcpmt:xthrow.obj
  0001:00074efa       ?_Stringify@regex_error@std@@CAPBDW4error_type@regex_constants@2@@Z 00475efa f i libcpmt:xthrow.obj
  0001:00074fea       ?_Xbad_alloc@std@@YAXXZ    00475fea f   libcpmt:xthrow.obj
  0001:0007500e       ?_Xbad_function_call@std@@YAXXZ 0047600e f   libcpmt:xthrow.obj
@@ -1928,8 +1928,8 @@
  0001:00084a29       __abnormal_termination     00485a29 f   libvcruntime:_exsup_.obj
  0001:00084a4c       __NLG_Notify1              00485a4c f   libvcruntime:_exsup_.obj
  0001:00084a55       __NLG_Notify               00485a55 f   libvcruntime:_exsup_.obj
- 0001:00084a6c       __NLG_Dispatch2            00485a6c     libvcruntime:_exsup_.obj
  0001:00084a6c       __NLG_Dispatch             00485a6c     libvcruntime:_exsup_.obj
+ 0001:00084a6c       __NLG_Dispatch2            00485a6c     libvcruntime:_exsup_.obj
  0001:00084a74       __NLG_Call                 00485a74 f   libvcruntime:_exsup_.obj
  0001:00084a76       __NLG_Return2              00485a76     libvcruntime:_exsup_.obj
  0001:00084add       __get_unexpected           00485add f   libvcruntime:unexpected.obj
@@ -3381,8 +3381,8 @@
  0001:000b178e       __wstat64                  004b278e f   libucrt:stat.obj
  0001:000b179b       __wstat64i32               004b279b f   libucrt:stat.obj
  0001:000b17a8       __invoke_watson_if_error   004b27a8 f i libucrt:strdup.obj
- 0001:000b17d2       _strdup                    004b27d2 f   libucrt:strdup.obj
  0001:000b17d2       __strdup                   004b27d2 f   libucrt:strdup.obj
+ 0001:000b17d2       _strdup                    004b27d2 f   libucrt:strdup.obj
  0001:000b183d       _free                      004b283d f   libucrt:free.obj
  0001:000b1842       ??$?RU__acrt_thread_parameter@@@__crt_internal_free_policy@@QBEXQBU__acrt_thread_parameter@@@Z 004b2842 f i libucrt:thread.obj
  0001:000b1992       ??0?$__crt_unique_heap_ptr@U__acrt_thread_parameter@@U__crt_internal_free_policy@@@@QAE@QAU__acrt_thread_parameter@@@Z 004b2992 f i libucrt:thread.obj
@@ -3706,24 +3706,24 @@
  0001:000baf17       _set_terminate             004bbf17 f   libucrt:terminate.obj
  0001:000baf3f       _terminate                 004bbf3f f   libucrt:terminate.obj
  0001:000baf8a       ___ascii_stricmp           004bbf8a f   libucrt:stricmp.obj
- 0001:000bafd3       _stricmp                   004bbfd3 f   libucrt:stricmp.obj
  0001:000bafd3       __stricmp                  004bbfd3 f   libucrt:stricmp.obj
+ 0001:000bafd3       _stricmp                   004bbfd3 f   libucrt:stricmp.obj
  0001:000bb02d       __stricmp_l                004bc02d f   libucrt:stricmp.obj
- 0001:000bb0ed       _strnicmp                  004bc0ed f   libucrt:strnicmp.obj
  0001:000bb0ed       __strnicmp                 004bc0ed f   libucrt:strnicmp.obj
+ 0001:000bb0ed       _strnicmp                  004bc0ed f   libucrt:strnicmp.obj
  0001:000bb174       __strnicmp_l               004bc174 f   libucrt:strnicmp.obj
  0001:000bb258       ??$?RV<lambda_123407a5e2ac06da108355a851863b7a>@@AAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@V<lambda_ae55bdf541ad94d75914d381c370e64d>@@@?$__crt_seh_guarded_call@H@@QAEH$$QAV<lambda_123407a5e2ac06da108355a851863b7a>@@AAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@$$QAV<lambda_ae55bdf541ad94d75914d381c370e64d>@@@Z 004bc258 f i libucrt:close.obj
  0001:000bb2fa       ??$__acrt_lowio_lock_fh_and_call@V<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@@@YAHH$$QAV<lambda_2fe9b910cf3cbf4a0ab98a02ba45b3ec>@@@Z 004bc2fa f i libucrt:close.obj
- 0001:000bb44d       __close                    004bc44d f   libucrt:close.obj
  0001:000bb44d       _close                     004bc44d f   libucrt:close.obj
+ 0001:000bb44d       __close                    004bc44d f   libucrt:close.obj
  0001:000bb4eb       __close_nolock             004bc4eb f   libucrt:close.obj
  0001:000bb5ae       ??$__vcrt_va_start_verify_argument_type@$$CBH@@YAXXZ 004bc5ae f i libucrt:open.obj
  0001:000bb965       ??$tsopen_nolock@PAHABQAHABQBDABHABHABHABH@?$__crt_char_traits@D@@SAH$$QAPAHABQAHABQBDABH333@Z 004bc965 f i libucrt:open.obj
  0001:000bb9a3       ??$tsopen_nolock@PAHABQAHABQB_WABHABHABHABH@?$__crt_char_traits@_W@@SAH$$QAPAHABQAHABQB_WABH333@Z 004bc9a3 f i libucrt:open.obj
  0001:000bb9e1       ??$tsopen_nolock@PAHPAHABQBDABHHABHH@?$__crt_char_traits@D@@SAH$$QAPAH0ABQBDABH$$QAH23@Z 004bc9e1 f i libucrt:open.obj
  0001:000bba1f       ??$tsopen_nolock@PAHPAHABQB_WABHHABHH@?$__crt_char_traits@_W@@SAH$$QAPAH0ABQB_WABH$$QAH23@Z 004bca1f f i libucrt:open.obj
- 0001:000bc1ed       __open                     004bd1ed f   libucrt:open.obj
  0001:000bc1ed       _open                      004bd1ed f   libucrt:open.obj
+ 0001:000bc1ed       __open                     004bd1ed f   libucrt:open.obj
  0001:000bc20b       __sopen                    004bd20b f   libucrt:open.obj
  0001:000bc24d       __sopen_dispatch           004bd24d f   libucrt:open.obj
  0001:000bc25a       __sopen_nolock             004bd25a f   libucrt:open.obj
@@ -3736,14 +3736,14 @@
  0001:000bce07       _read                      004bde07 f   libucrt:read.obj
  0001:000bce07       __read                     004bde07 f   libucrt:read.obj
  0001:000bcf5e       __read_nolock              004bdf5e f   libucrt:read.obj
- 0001:000bd400       _access                    004be400 f   libucrt:access.obj
  0001:000bd400       __access                   004be400 f   libucrt:access.obj
+ 0001:000bd400       _access                    004be400 f   libucrt:access.obj
  0001:000bd41e       __access_s                 004be41e f   libucrt:access.obj
- 0001:000bd488       __unlink                   004be488 f   libucrt:unlink.obj
  0001:000bd488       _unlink                    004be488 f   libucrt:unlink.obj
+ 0001:000bd488       __unlink                   004be488 f   libucrt:unlink.obj
  0001:000bd495       _remove                    004be495 f   libucrt:unlink.obj
- 0001:000bdc47       _write                     004bec47 f   libucrt:write.obj
  0001:000bdc47       __write                    004bec47 f   libucrt:write.obj
+ 0001:000bdc47       _write                     004bec47 f   libucrt:write.obj
  0001:000bdd6c       __write_nolock             004bed6c f   libucrt:write.obj
  0001:000be06b       _strcpy_s                  004bf06b f   libucrt:strcpy_s.obj
  0001:000be0db       ??$__crt_interlocked_exchange_pointer@X$$T@@YAPAXPDSAX$$T@Z 004bf0db f i libucrt:free_base.obj
