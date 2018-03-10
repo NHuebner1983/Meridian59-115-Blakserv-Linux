@@ -3338,7 +3338,12 @@ messages:
 		 {
 			 oTargetClass = Send(what,@GetTarget);
 			 
-			 if Send(what,@GetTarget) = self
+			 if oTargetClass <> $
+			 {
+				 return MM_MONSTER;
+			 }
+			 
+			 if oTargetClass = self
 			 {
 				return MM_AGGRO_SELF | MM_MONSTER;
 			 }

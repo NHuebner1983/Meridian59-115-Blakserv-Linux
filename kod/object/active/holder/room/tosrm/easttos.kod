@@ -61,6 +61,7 @@ messages:
 	  
 	  // Bank
       plExits = Cons([ 19, 7, RID_TOS_BANK, 6, 8, ROTATE_NONE ],plExits);
+	  plExits = Cons([ 18, 7, RID_TOS_BANK, 6, 8, ROTATE_NONE ],plExits);
 	  
 	  // Guild Hall (Near Bank)
       plExits = Cons([ 7, 34, RID_GUILDH5, 32, 17, ROTATE_NONE ],plExits);
