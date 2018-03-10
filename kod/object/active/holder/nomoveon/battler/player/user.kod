@@ -1,3 +1,13 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+////////////////////////////////////////////////////////////////////////////////
 User is Player
 
 constants:
@@ -3311,11 +3321,24 @@ messages:
             return MM_NPC;
          }
 		 
+         if IsClass(poOwner,&SurvivalRoom)
+         {
+            // Survival room specific dots.
+            if Send(poOwner,@IsMiniBoss,#what=what)
+            {
+               return MM_MINIBOSS;
+            }
+            if Send(poOwner,@IsBoss,#what=what)
+            {
+               return MM_BOSS;
+            }
+         }
+		 
 		 if Send(what,@GetTarget) = self
 		 {
 			return MM_AGGRO_SELF | MM_MONSTER;
 		 }
-		 else if IsClass(Send(what,@GetTarget), &Player)
+		 else if Send(what,@GetTarget) <> $ AND IsClass(Send(what,@GetTarget), &Player)
 		 {
 			return MM_AGGRO_OTHER | MM_MONSTER;
 		 }
