@@ -3326,11 +3326,11 @@ messages:
 		 
 		 if Send(what,@GetTarget) = self
 		 {
-			return MM_AGGRO_SELF | MM_MONSTER;
+			return MM_AGGRO_SELF;
 		 }
 		 else if IsClass(Send(what,@GetTarget), &Player)
 		 {
-			return MM_AGGRO_OTHER | MM_MONSTER;
+			return MM_AGGRO_OTHER;
 		 }
 		 
          return MM_MONSTER;
