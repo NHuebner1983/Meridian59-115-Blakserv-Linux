@@ -1,4 +1,4 @@
-T 16180 32465
+T 16181 32471
 C UtilityFunctions 10001 0
 Y	plTemp 1
 M	UtilGoNearSquare 10012
@@ -51190,3 +51190,37 @@ Y	vrName 13
 Y	vrDesc 14
 Y	prText 15
 M	SetBookContents 16127
+C HolyHammer 16181 11912 Weapon
+R	holyhammer_name_rsc 32466
+R	holyhammer_desc_rsc 32467
+R	holyhammer_icon_rsc 32469
+R	holyhammer_window_overlay_rsc 32470
+R	holyhammer_player_overlay 32471
+V	vrName 0
+V	vrIcon 1
+V	vrDesc 2
+V	viWeaponType 49
+V	viWeaponQuality 50
+V	viProficiency_Needed 51
+V	viValue_average 19
+V	viWeight 6
+V	viBulk 5
+V	vrWeapon_window_overlay 43
+V	vrWeapon_overlay 47
+V	viGround_group 20
+V	viInventory_group 21
+V	viBroken_group 22
+Y	piAttack_type 12
+Y	ptLongevity 17
+Y	piItem_flags 10
+Y	piHitBonus 15
+M	Constructor 10
+P		iLongevity 15819
+P		iToHitBonus 15820
+M	CanShatter 13017
+M	CanSwap 13019
+M	CanWeaken 13021
+M	CanEnchant 13024
+M	CanBeGivenToNPC 13028
+M	GetBaseSpellModifier 13051
+M	WeaponHitTarget 14650
