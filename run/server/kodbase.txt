@@ -49770,24 +49770,6 @@ M	FindItemClassByName 11926
 P		string 14
 M	FindTemplateItemByName 11927
 P		string 14
-C Throne1 10627 11856 MonsterRoom
-R	name_throne1 22478
-R	room_throne1 22479
-R	throne1_music 22480
-V	vrName 0
-V	viTeleport_row 18
-V	viTeleport_col 19
-V	viTerrain_type 22
-V	vbScaleSpawnRateWithPlayers 29
-Y	piBaseLight 21
-Y	prRoom 10
-Y	piRoom_num 12
-Y	prMusic 20
-Y	piOutside_factor 22
-Y	piReload_Wait_Time 58
-M	Constructed 10065
-M	CreateStandardObjects 13273
-M	CreateStandardExits 13274
 C User 1 10298 Player
 R	user_name_rsc 25695
 R	user_garbage_collecting 25696
@@ -51226,3 +51208,21 @@ P		value 10727
 M	UserSay 15283
 P		string 14
 P		type 31
+C Throne1 10627 11856 MonsterRoom
+R	name_throne1 22478
+R	room_throne1 22479
+R	throne1_music 22480
+V	vrName 0
+V	viTeleport_row 18
+V	viTeleport_col 19
+V	viTerrain_type 22
+V	vbScaleSpawnRateWithPlayers 29
+Y	piBaseLight 21
+Y	prRoom 10
+Y	piRoom_num 12
+Y	prMusic 20
+Y	piOutside_factor 22
+Y	piReload_Wait_Time 58
+M	Constructed 10065
+M	CreateStandardObjects 13273
+M	CreateStandardExits 13274
