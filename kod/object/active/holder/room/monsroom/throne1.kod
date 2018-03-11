@@ -32,10 +32,6 @@ classvars:
 
    viTerrain_type = TERRAIN_LAIR | TERRAIN_CASTLE
 
-   // Reduce spawn rate based on players
-   // Less players = less monsters.
-   vbScaleSpawnRateWithPlayers = TRUE
-   
 properties:
 
    piBaseLight = LIGHT_VERY_DARK / 2
@@ -53,7 +49,7 @@ messages:
 
    Constructed()
    {
-      plMonsters = [ [&TuskedSkeleton, 70], [&DaemonSkeleton, 30] ];
+      plMonsters = [ [&TuskedSkeleton, 99], [&DaemonSkeleton, 1] ];
 
       plGenerators = [ [5, 3], [9, 2], [13, 3],
                        [5, 9], [9, 10], [13, 9]];

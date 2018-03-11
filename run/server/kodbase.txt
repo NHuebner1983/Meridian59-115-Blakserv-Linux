@@ -51216,7 +51216,6 @@ V	vrName 0
 V	viTeleport_row 18
 V	viTeleport_col 19
 V	viTerrain_type 22
-V	vbScaleSpawnRateWithPlayers 29
 Y	piBaseLight 21
 Y	prRoom 10
 Y	piRoom_num 12
