@@ -2685,6 +2685,7 @@ messages:
          Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_QOR);
          Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_SHALILLE);
          Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_RIIJA);
+		 
       }
       if StringEqual(string,dm_get_misc_command)
       {
@@ -2775,12 +2776,20 @@ messages:
       lTemplate = Send(SYS,@GetItemTemplates);
       foreach i in lTemplate
       {
-         if Send(i,@IsItemType,#type=type)
-            AND NOT Send(i,@IsItemType,#type=ITEMTYPE_SPECIAL)
-         {
-            Send(self,@NewHold,#what=Create(GetClass(i),#number=iNumber,
-                                          #oDMCreator=self));
-         }
+		 if Send(i,@IsItemType,#type=type) 
+			AND Send(i,@IsItemType,#type=ITEMTYPE_ROBE)
+		 {
+			 Send(self,@NewHold,#what=&DiscipleRobe,#school=school);
+		 }
+		 else
+		 {
+			 if Send(i,@IsItemType,#type=type)
+				AND NOT Send(i,@IsItemType,#type=ITEMTYPE_SPECIAL)
+			 {
+				Send(self,@NewHold,#what=Create(GetClass(i),#number=iNumber,
+											  #oDMCreator=self));
+			 }
+		 }
       }
 
       return;
