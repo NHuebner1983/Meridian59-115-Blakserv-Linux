@@ -928,7 +928,12 @@ messages:
    "When something tries to unuse the Amulet, it will not come off, and will"
    "teach the user a lesson in the process."
    {
-      // if Send(poOwner,@PlayerIsImmortal) {return True;}
+      if Send(poOwner,@PlayerIsImmortal) 
+	  {
+		  // Allow immortals to unequip the item
+		  return True;
+	  }
+	  
       Post(self,@TortureOwner);
 
       return FALSE;
@@ -1331,8 +1336,18 @@ messages:
    }
 
    ReqDMDelete()
-   "Item will not be deleted by DM Clear Inventory command."
+   "Item will not be deleted by DM Clear Inventory command unless its unequipped."
    {
+	  if pbIn_Use
+	  {
+		  Debug("dm clear inventory (AO3 kept)");
+		  return FALSE;
+	  }
+	  
+	  // If the item is unequipped, send it back to brax.
+	  Post(Send(SYS,@GetNecromancerBalance),@PlaceAmulet,#what=self);	  
+	  Debug("dm clear inventory (AO3 returned to brax)");
+	  
       return FALSE;
    }
 

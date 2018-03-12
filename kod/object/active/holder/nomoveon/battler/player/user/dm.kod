@@ -1180,7 +1180,7 @@ messages:
       {
          foreach i in plActive
          {
-            if Send(i,@ReqDMDelete) AND NOT Send(i,@InUse)
+            if Send(i,@ReqDMDelete) AND NOT Send(i,@InUse) AND NOT Send(i,@IsColored)
             {
                Send(i,@Delete);
             }
@@ -1188,7 +1188,7 @@ messages:
 
          foreach i in plPassive
          {
-            if Send(i,@ReqDMDelete) AND NOT Send(i,@InUse)
+            if Send(i,@ReqDMDelete) AND NOT Send(i,@InUse) AND NOT Send(i,@IsColored)
             {
                Send(i,@Delete);
             }

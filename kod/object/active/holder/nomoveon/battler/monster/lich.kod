@@ -128,8 +128,8 @@ classvars:
    viTreasure_type = TID_LICH
    viSpeed = SPEED_FAST
    viAttack_spell = ATCK_SPELL_UNHOLY
-   viLevel = LEVEL_19_HP
-   viDifficulty = 9
+   viLevel = LEVEL_45_HP
+   viDifficulty = 1
    viVisionDistance = 60
    // Attack range of 192, or 3 row/col.
    viAttackRange = 192
@@ -160,9 +160,9 @@ properties:
    ptGoIllusioned = $
 
    piBlindAttackChance = 15    // Chance she'll attack with blind
-   piBlindCounterChance = 7    // Chance she'll counter a spell or arrow with blind
-   piBlindDurationMin = 20000  // Milliseconds.
-   piBlindDurationMax = 30000  // Milliseconds.
+   piBlindCounterChance = 100    // Chance she'll counter a spell or arrow with blind
+   piBlindDurationMin = 3000  // Milliseconds.
+   piBlindDurationMax = 6000  // Milliseconds.
 
    ptDeathSequence = $
    piDeathSequenceTimestep = 200  // milliseconds
@@ -174,7 +174,8 @@ messages:
    Constructed()
    {
       // Keep the scenario deactivated for now.
-      //Send(Send(SYS,@GetNecromancerBalance),@ActivateScenario);
+	  // TURNED ON FOR TESTING
+      Send(Send(SYS,@GetNecromancerBalance),@ActivateScenario);
 
       pimax_Hit_Points = pimax_hit_Points * 2;
       piHit_Points = pimax_hit_points * 100;

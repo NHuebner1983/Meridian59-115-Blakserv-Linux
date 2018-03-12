@@ -139,9 +139,12 @@ properties:
    // Support for players, monsters, and items
    plRadiusEnchantments = $
 
+   // Item in use (variations throughout system)
    piUsed = 2
-   
    pbIn_use = FALSE
+   
+   // Item is colored
+   pbColored = FALSE
    
 messages:
 
@@ -2706,6 +2709,11 @@ messages:
    InUse()
    {
 	   return (piUsed = 1 OR pbIn_use);
+   }
+   
+   IsColored()
+   {
+	   return pbColored;
    }
    
 end

@@ -5526,19 +5526,19 @@ messages:
 		  
 		  if viQuestID = QST_ID_SHALILLE_DISCIPLE
 		  {
-			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_SHALILLE);
+			  Send(who,@NewHold,#what=Create(&DiscipleRobe,#school=SS_SHALILLE));
 		  }
 		  if viQuestID = QST_ID_KRAANAN_DISCIPLE
 		  {
-			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_KRAANAN);
+			  Send(who,@NewHold,#what=Create(&DiscipleRobe,#school=SS_KRAANAN));
 		  }
 		  if viQuestID = QST_ID_FAREN_DISCIPLE
 		  {
-			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_FAREN);
+			  Send(who,@NewHold,#what=Create(&DiscipleRobe,#school=SS_FAREN));
 		  }
 		  if viQuestID = QST_ID_QOR_DISCIPLE
 		  {
-			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_QOR);
+			  Send(who,@NewHold,#what=Create(&DiscipleRobe,#school=SS_QOR));
 		  }
 	  }
 	  

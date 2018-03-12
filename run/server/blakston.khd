@@ -2461,6 +2461,28 @@
    LEVEL_26_HP = 285
    LEVEL_27_HP = 295
    LEVEL_28_HP = 300
+   LEVEL_29_HP = 350
+   LEVEL_30_HP = 400
+   LEVEL_31_HP = 450
+   LEVEL_32_HP = 500
+   LEVEL_33_HP = 550
+   LEVEL_34_HP = 600
+   LEVEL_35_HP = 650
+   LEVEL_36_HP = 700
+   LEVEL_37_HP = 750
+   LEVEL_38_HP = 800
+   LEVEL_39_HP = 850
+   LEVEL_40_HP = 900
+   LEVEL_41_HP = 1000
+   LEVEL_42_HP = 2000
+   LEVEL_43_HP = 3000
+   LEVEL_44_HP = 4000
+   LEVEL_45_HP = 5000
+   LEVEL_46_HP = 6000
+   LEVEL_47_HP = 7000
+   LEVEL_48_HP = 8000
+   LEVEL_49_HP = 9000
+   LEVEL_50_HP = 10000
    
    // First set of flags (in piFlags)
    // A mask of flags that are unaffected by ResetPlayerFlagList
