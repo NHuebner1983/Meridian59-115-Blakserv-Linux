@@ -19,11 +19,11 @@ resources:
 classvars:
 
    // Amount of shillings to distribute to EACH ATTACKER.
-   viMoneyAmount = 125000
+   viMoneyAmount = 1000000
 
-   viMax_Vigor = 50000
-   viMax_Health = 50000
-   viMax_Mana = 50000
+   viMax_Vigor = 100
+   viMax_Health = 5000
+   viMax_Mana = 10000
 
    viBulk_hold_max = 1000000
    viWeight_hold_max = 1000000
@@ -173,7 +173,7 @@ messages:
       piMight = 50;
       piIntellect = 50;
       piStamina = MAX_STAMINA;
-      piAgility = 50;
+      piAgility = 1;
       piMysticism = 50;
       piAim = 50;
 
