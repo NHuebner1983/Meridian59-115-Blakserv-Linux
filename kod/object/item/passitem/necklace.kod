@@ -27,6 +27,20 @@ properties:
 
 messages:
 
+   ReqUse()
+   {
+	   piUsed = 1;
+	   
+	   return TRUE;
+   }
+   
+   ReqUnuse()
+   {
+	   piUsed = 2;
+
+	   return TRUE;
+   }
+
    ReqUseSomething(what = $)
    {
       // Check for necklaces or Jala necklace.  The Jala necklace is an "instrument".

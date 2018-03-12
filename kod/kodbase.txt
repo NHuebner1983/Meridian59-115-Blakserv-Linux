@@ -42741,8 +42741,6 @@ M	InUse 15570
 C ActiveItem 16015 11681 Item
 M	GetObjectType 12917
 M	CanBeStoredInVault 13029
-C PassiveItem 13502 11681 Item
-M	GetObjectType 12917
 C GuildInvitation 15950 16015 ActiveItem
 R	invitation_name_rsc 30394
 R	invitation_desc_rsc 30395
@@ -42949,6 +42947,8 @@ M	TortureOwner 16028
 M	PostLichKilled 16029
 M	KillGM 16030
 P		oMaster 14135
+C PassiveItem 13502 11681 Item
+M	GetObjectType 12917
 C Arsenic 11556 13502 PassiveItem
 R	arsenic_use 30439
 R	arsenic_cant_use_on 30440
@@ -43476,6 +43476,8 @@ V	viItem_type 15
 V	viUse_Amount 16
 M	ReqUseSomething 12982
 P		what 10002
+M	ReqUse 12986
+M	ReqUnuse 12989
 C NeruditeOreChunk 11384 13502 PassiveItem
 R	NeruditeOreChunk_name_rsc 30561
 R	NeruditeOreChunk_desc_rsc 30562
