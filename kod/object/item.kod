@@ -139,6 +139,10 @@ properties:
    // Support for players, monsters, and items
    plRadiusEnchantments = $
 
+   piUsed = 0
+   
+   pbIn_use = FALSE
+   
 messages:
 
    Constructor(corpse=$, oDMCreator=$)
@@ -1576,9 +1580,9 @@ messages:
    }
 
    ReqDMDelete()
-   "Only delete if not used."
+   "By default this item can be removed."
    {
-      return (piUsed <> 1);
+      return TRUE;
    }
 
    // An item can format a text effect for players in the room to see,
@@ -2699,5 +2703,10 @@ messages:
       return;
    }
 
+   InUse()
+   {
+	   return (piUsed = 1 OR pbIn_use);
+   }
+   
 end
 ////////////////////////////////////////////////////////////////////////////////

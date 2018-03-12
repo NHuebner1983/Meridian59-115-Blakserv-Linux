@@ -3172,292 +3172,6 @@ C SpecialWand 12919 12918 Deleted
 C FireWand 12920 12918 Deleted
 C PassiveObject 12921 10064 Object
 M	GetObjectType 12917
-C Item 11681 10064 Object
-R	item_this 21176
-R	item_try_use_cursed_rsc 21177
-R	item_broken_battle 21178
-R	item_broken_battle_plural 21179
-R	item_broken_battle_clothing 21180
-R	item_broken_battle_clothing_plural 21181
-R	itematt_generic 21182
-R	item_condition_exc 21183
-R	item_condition_exc_mended 21184
-R	item_condition_good 21185
-R	item_condition_med 21186
-R	item_condition_poor 21187
-R	item_condition_broken 21188
-R	special_properties_header 21189
-R	item_stats_range 21190
-R	item_stats_offense 21191
-R	item_stats_armor 21192
-R	item_stats_defense 21193
-R	item_stats_melee 21194
-R	item_stats_base_dmg 21195
-R	item_stats_owner_dmg 21196
-R	item_stats_cond_dmg 21197
-R	item_stats_cond_owner_dmg 21198
-R	item_stats_dmg_bonus 21199
-R	item_stats_gen_sp 21200
-R	item_stats_faren_sp 21201
-R	item_stats_riija_sp 21202
-R	item_stats_jala_sp 21203
-R	item_stats_kran_sp 21204
-R	item_stats_shal_sp 21205
-R	item_stats_qor_sp 21206
-R	item_stats_jala_instrument_sp 21207
-R	item_stats_dmg_type 21208
-R	item_blank_template 21209
-R	item_desc_template 21210
-R	resource_blank 21211
-R	nakedleftarm_male 21212
-R	nakedrightarm_male 21213
-R	nakedleftarm_female 21214
-R	nakedrightarm_female 21215
-R	item_cond_master 21216
-R	item_stats_min_dmg 21217
-R	item_stats_resistance 21218
-V	viObject_flags 10
-V	vrItem_broken 12
-V	vrPoss_article 13
-V	viUse_type 14
-V	viItem_type 15
-V	viUse_amount 16
-V	viHits_init_min 17
-V	viHits_init_max 18
-V	viBulk 5
-V	viWeight 6
-V	viValue_average 19
-V	viGround_group 20
-V	viInventory_group 21
-V	viBroken_group 22
-V	viSpell_modifier 23
-V	vrIcon_male 24
-V	vrIcon_female 25
-V	vrLeftArm_male 26
-V	vrLeftArm_female 27
-V	vrRightArm_male 28
-V	vrRightArm_female 29
-V	vrLegs_male 30
-V	vrLegs_female 31
-V	vbShow_condition 32
-V	vrCondition_exc 33
-V	vrCondition_exc_mended 34
-V	vrCondition_good 35
-V	vrCondition_med 36
-V	vrCondition_poor 37
-V	vrCondition_broken 38
-V	viUnrevealedColor 39
-V	viRevealedColor 40
-Y	viObject_flags 6
-Y	piHits_init 7
-Y	piHits 8
-Y	plItem_attributes 9
-Y	piItem_flags 10
-Y	plRadiusEnchantments 11
-M	UserLogon 2
-M	Constructor 10
-P		corpse 12359
-P		oDMCreator 12922
-M	Delete 29
-M	ShowDesc 10069
-P		who 10147
-P		bShowAll 12956
-M	ReqNewOwner 10090
-P		what 10002
-M	ReqLeaveOwner 10092
-M	NewOwner 10093
-P		what 10002
-M	DestroyDisposable 10097
-M	SendAnimation 10108
-M	SendLookAnimation 10109
-M	OwnerKilled 10198
-P		what 10002
-M	ObjectCorpseFading 10199
-P		corpse 12359
-M	UserLogoff 10318
-M	PrintWeight 11896
-M	GetAttributes 12016
-M	GetValue 12435
-M	GetInitValue 12436
-M	GetPaletteTranslation 12926
-M	SetPaletteTranslation 12927
-P		translation 12928
-M	SetItemPlayerFlag 12929
-P		who 10147
-M	AppendStatsDesc 12930
-M	GetRange 12931
-M	GetHitBonus 12932
-M	GetDamageReduction 12933
-M	GetDefenseBonus 12934
-M	GetMeleeDamageBonus 12935
-M	GetMinDamage 12936
-M	GetMaxDamage 12937
-M	GetMinDamageWithOwnerStats 12938
-M	GetMaxDamageWithOwnerStats 12939
-M	GetMinSpecialDamage 12940
-M	GetMaxSpecialDamage 12941
-M	GetMinSpecialDamageWithOwnerStats 12942
-M	GetMaxSpecialDamageWithOwnerStats 12943
-M	GetDamageBonus 12944
-M	GetSpellModifier 12945
-P		oSpell 10148
-M	GetCurrentResistances 12948
-M	GetAttackType 12949
-M	GetAttackSpell 12950
-M	GetNumFromCompound 12951
-P		compound 10043
-M	GetResistanceModifiers 12954
-M	DoBaseDesc 12955
-M	HasAttribute 12957
-P		ItemAtt 12958
-M	GetAttributeData 12960
-P		index 11204
-P		ItemAtt 12958
-M	GetIDStatusFromCompound 12961
-P		compound 10043
-M	AppendDesc 12962
-M	AppendItemCondition 12964
-M	ReqRepair 12965
-M	GetItemUseType 12966
-M	GetItemUseAmount 12967
-M	GetMaxHits 12970
-M	GetHits 12971
-M	SetMaxHits 12972
-P		number 10059
-M	SetHits 12973
-P		number 10059
-M	RemoveAttribute 12974
-P		ItemAtt 12958
-M	IsCursed 12979
-M	ReqUseSomething 12982
-P		what 10002
-M	NewUsed 12983
-M	DoPlayerArt 12984
-M	ReqUse 12986
-M	ReqUnuse 12989
-M	NewUnused 12991
-M	UndoPlayerArt 12992
-M	ReqNewOwnerAttributes 12994
-P		type 31
-P		who 10147
-M	SendInventoryAnimation 12996
-M	SendInventoryOverlays 12997
-M	SendOverlayInformation 12998
-M	GetNumberOverlays 13002
-M	ModifyDefensePower 13005
-P		defense_power 13004
-M	DefendingHit 13006
-P		what 10002
-P		who 10147
-M	ItemBrokenInBattle 13007
-M	AdjustsMaxHealth 13010
-M	AdjustsMaxMana 13011
-M	IsItemType 13012
-P		type 31
-M	DoShatter 13013
-M	ClearAllItemAttributes 13014
-M	CanIdentify 13015
-M	CanShatter 13017
-M	CanSwap 13019
-M	CanWeaken 13021
-M	CanMend 13023
-M	CanEnchant 13024
-P		oSpell 10148
-M	DropOnDeath 13026
-M	CanBeGivenToNPC 13028
-M	CanBeStoredInVault 13029
-M	ReqDMDelete 13030
-M	RoomMessage 13033
-P		parm1 10071
-P		range 10159
-P		message_rsc 10306
-P		parm2 10337
-P		parm3 10338
-P		parm4 10339
-P		parm5 10406
-P		parm6 10407
-P		parm7 10408
-P		parm8 11761
-P		except 13031
-P		except_rsc 13032
-M	SquaredDistanceTo 13034
-P		what 10002
-M	HasAnyAttribute 13035
-M	CanUserAddSpecialAttributes 13036
-M	RevealHiddenAttributes 13038
-M	AddAttributeSpecifics 13040
-P		litemAtt 13039
-M	RemoveItemAttIfPresent 13041
-P		iNum 10326
-M	RemoveAttributeSpecifics 13042
-P		oItemAtt 11061
-P		index 11204
-P		ItemAtt 12958
-M	AttributeTimer 13044
-P		timer 30
-M	BuildDescName 13046
-M	SetTimer 13050
-P		timer_duration 13049
-M	GetBaseSpellModifier 13051
-P		oSpell 10148
-M	GetItemXPBonus 13056
-M	GetHeatDamage 13058
-M	GetShirtIcon 13059
-P		who 10147
-M	GetLeftArm 13060
-P		who 10147
-M	OverrideArmsForGauntlets 13061
-M	OverrideArms 13063
-M	GetOverrideLeftArm 13064
-M	GetOverrideRightArm 13065
-M	GetRightArm 13066
-P		who 10147
-M	GetNakedLeftArm 13067
-P		who 10147
-M	GetNakedRightArm 13068
-P		who 10147
-M	GetLegs 13069
-P		who 10147
-M	HasSkinTones 13070
-M	ShowShirt 13071
-M	ResetSkinColor 13072
-M	ResetXLATsToShirt 13076
-M	SetArms 13082
-M	SetIcon 13083
-M	SetLegs 13084
-M	ItemChangesArms 13085
-M	SetNakedArms 13086
-M	IsPlural 13094
-M	GetUnrevealedColor 13095
-M	GetRevealedColor 13096
-M	RevealHiddenColor 13097
-M	ModifyResistance 13098
-P		resistance_list 11883
-M	AddRadiusEnchantment 13101
-P		what 10002
-P		iPower 13099
-P		source 13100
-M	RemoveRadiusEnchantment 13102
-P		what 10002
-P		iPower 13099
-P		source 13100
-M	IsAffectedByRadiusEnchantment 13105
-P		what 10002
-P		byClass 12157
-P		caster 13103
-M	GetMostPowerfulRadiusEnchantmentState 13106
-P		byClass 12157
-M	GetRadiusEnchantments 13107
-M	IsInSameRoom 13108
-P		what 10002
-M	SquaredDistanceToLocation 13109
-P		row 10026
-P		col 10027
-M	AddMagicFlag 13110
-M	RemoveMagicFlag 13111
-M	ReportDMCreated 13113
-M	RemoveDMCreated 13114
-M	CanSweep 13115
 C Holder 10241 12916 ActiveObject
 V	viBulk_hold_max 12
 V	viWeight_hold_max 13
@@ -42325,6 +42039,295 @@ Y	piReload_Wait_Time 58
 M	Constructed 10065
 M	CreateStandardObjects 13273
 M	CreateStandardExits 13274
+C Item 11681 10064 Object
+R	item_this 21176
+R	item_try_use_cursed_rsc 21177
+R	item_broken_battle 21178
+R	item_broken_battle_plural 21179
+R	item_broken_battle_clothing 21180
+R	item_broken_battle_clothing_plural 21181
+R	itematt_generic 21182
+R	item_condition_exc 21183
+R	item_condition_exc_mended 21184
+R	item_condition_good 21185
+R	item_condition_med 21186
+R	item_condition_poor 21187
+R	item_condition_broken 21188
+R	special_properties_header 21189
+R	item_stats_range 21190
+R	item_stats_offense 21191
+R	item_stats_armor 21192
+R	item_stats_defense 21193
+R	item_stats_melee 21194
+R	item_stats_base_dmg 21195
+R	item_stats_owner_dmg 21196
+R	item_stats_cond_dmg 21197
+R	item_stats_cond_owner_dmg 21198
+R	item_stats_dmg_bonus 21199
+R	item_stats_gen_sp 21200
+R	item_stats_faren_sp 21201
+R	item_stats_riija_sp 21202
+R	item_stats_jala_sp 21203
+R	item_stats_kran_sp 21204
+R	item_stats_shal_sp 21205
+R	item_stats_qor_sp 21206
+R	item_stats_jala_instrument_sp 21207
+R	item_stats_dmg_type 21208
+R	item_blank_template 21209
+R	item_desc_template 21210
+R	resource_blank 21211
+R	nakedleftarm_male 21212
+R	nakedrightarm_male 21213
+R	nakedleftarm_female 21214
+R	nakedrightarm_female 21215
+R	item_cond_master 21216
+R	item_stats_min_dmg 21217
+R	item_stats_resistance 21218
+V	viObject_flags 10
+V	vrItem_broken 12
+V	vrPoss_article 13
+V	viUse_type 14
+V	viItem_type 15
+V	viUse_amount 16
+V	viHits_init_min 17
+V	viHits_init_max 18
+V	viBulk 5
+V	viWeight 6
+V	viValue_average 19
+V	viGround_group 20
+V	viInventory_group 21
+V	viBroken_group 22
+V	viSpell_modifier 23
+V	vrIcon_male 24
+V	vrIcon_female 25
+V	vrLeftArm_male 26
+V	vrLeftArm_female 27
+V	vrRightArm_male 28
+V	vrRightArm_female 29
+V	vrLegs_male 30
+V	vrLegs_female 31
+V	vbShow_condition 32
+V	vrCondition_exc 33
+V	vrCondition_exc_mended 34
+V	vrCondition_good 35
+V	vrCondition_med 36
+V	vrCondition_poor 37
+V	vrCondition_broken 38
+V	viUnrevealedColor 39
+V	viRevealedColor 40
+Y	viObject_flags 6
+Y	piHits_init 7
+Y	piHits 8
+Y	plItem_attributes 9
+Y	piItem_flags 10
+Y	plRadiusEnchantments 11
+Y	piUsed 12
+Y	pbIn_use 13
+M	UserLogon 2
+M	Constructor 10
+P		corpse 12359
+P		oDMCreator 12922
+M	Delete 29
+M	ShowDesc 10069
+P		who 10147
+P		bShowAll 12956
+M	ReqNewOwner 10090
+P		what 10002
+M	ReqLeaveOwner 10092
+M	NewOwner 10093
+P		what 10002
+M	DestroyDisposable 10097
+M	SendAnimation 10108
+M	SendLookAnimation 10109
+M	OwnerKilled 10198
+P		what 10002
+M	ObjectCorpseFading 10199
+P		corpse 12359
+M	UserLogoff 10318
+M	PrintWeight 11896
+M	GetAttributes 12016
+M	GetValue 12435
+M	GetInitValue 12436
+M	GetPaletteTranslation 12926
+M	SetPaletteTranslation 12927
+P		translation 12928
+M	SetItemPlayerFlag 12929
+P		who 10147
+M	AppendStatsDesc 12930
+M	GetRange 12931
+M	GetHitBonus 12932
+M	GetDamageReduction 12933
+M	GetDefenseBonus 12934
+M	GetMeleeDamageBonus 12935
+M	GetMinDamage 12936
+M	GetMaxDamage 12937
+M	GetMinDamageWithOwnerStats 12938
+M	GetMaxDamageWithOwnerStats 12939
+M	GetMinSpecialDamage 12940
+M	GetMaxSpecialDamage 12941
+M	GetMinSpecialDamageWithOwnerStats 12942
+M	GetMaxSpecialDamageWithOwnerStats 12943
+M	GetDamageBonus 12944
+M	GetSpellModifier 12945
+P		oSpell 10148
+M	GetCurrentResistances 12948
+M	GetAttackType 12949
+M	GetAttackSpell 12950
+M	GetNumFromCompound 12951
+P		compound 10043
+M	GetResistanceModifiers 12954
+M	DoBaseDesc 12955
+M	HasAttribute 12957
+P		ItemAtt 12958
+M	GetAttributeData 12960
+P		index 11204
+P		ItemAtt 12958
+M	GetIDStatusFromCompound 12961
+P		compound 10043
+M	AppendDesc 12962
+M	AppendItemCondition 12964
+M	ReqRepair 12965
+M	GetItemUseType 12966
+M	GetItemUseAmount 12967
+M	GetMaxHits 12970
+M	GetHits 12971
+M	SetMaxHits 12972
+P		number 10059
+M	SetHits 12973
+P		number 10059
+M	RemoveAttribute 12974
+P		ItemAtt 12958
+M	IsCursed 12979
+M	ReqUseSomething 12982
+P		what 10002
+M	NewUsed 12983
+M	DoPlayerArt 12984
+M	ReqUse 12986
+M	ReqUnuse 12989
+M	NewUnused 12991
+M	UndoPlayerArt 12992
+M	ReqNewOwnerAttributes 12994
+P		type 31
+P		who 10147
+M	SendInventoryAnimation 12996
+M	SendInventoryOverlays 12997
+M	SendOverlayInformation 12998
+M	GetNumberOverlays 13002
+M	ModifyDefensePower 13005
+P		defense_power 13004
+M	DefendingHit 13006
+P		what 10002
+P		who 10147
+M	ItemBrokenInBattle 13007
+M	AdjustsMaxHealth 13010
+M	AdjustsMaxMana 13011
+M	IsItemType 13012
+P		type 31
+M	DoShatter 13013
+M	ClearAllItemAttributes 13014
+M	CanIdentify 13015
+M	CanShatter 13017
+M	CanSwap 13019
+M	CanWeaken 13021
+M	CanMend 13023
+M	CanEnchant 13024
+P		oSpell 10148
+M	DropOnDeath 13026
+M	CanBeGivenToNPC 13028
+M	CanBeStoredInVault 13029
+M	ReqDMDelete 13030
+M	RoomMessage 13033
+P		parm1 10071
+P		range 10159
+P		message_rsc 10306
+P		parm2 10337
+P		parm3 10338
+P		parm4 10339
+P		parm5 10406
+P		parm6 10407
+P		parm7 10408
+P		parm8 11761
+P		except 13031
+P		except_rsc 13032
+M	SquaredDistanceTo 13034
+P		what 10002
+M	HasAnyAttribute 13035
+M	CanUserAddSpecialAttributes 13036
+M	RevealHiddenAttributes 13038
+M	AddAttributeSpecifics 13040
+P		litemAtt 13039
+M	RemoveItemAttIfPresent 13041
+P		iNum 10326
+M	RemoveAttributeSpecifics 13042
+P		oItemAtt 11061
+P		index 11204
+P		ItemAtt 12958
+M	AttributeTimer 13044
+P		timer 30
+M	BuildDescName 13046
+M	SetTimer 13050
+P		timer_duration 13049
+M	GetBaseSpellModifier 13051
+P		oSpell 10148
+M	GetItemXPBonus 13056
+M	GetHeatDamage 13058
+M	GetShirtIcon 13059
+P		who 10147
+M	GetLeftArm 13060
+P		who 10147
+M	OverrideArmsForGauntlets 13061
+M	OverrideArms 13063
+M	GetOverrideLeftArm 13064
+M	GetOverrideRightArm 13065
+M	GetRightArm 13066
+P		who 10147
+M	GetNakedLeftArm 13067
+P		who 10147
+M	GetNakedRightArm 13068
+P		who 10147
+M	GetLegs 13069
+P		who 10147
+M	HasSkinTones 13070
+M	ShowShirt 13071
+M	ResetSkinColor 13072
+M	ResetXLATsToShirt 13076
+M	SetArms 13082
+M	SetIcon 13083
+M	SetLegs 13084
+M	ItemChangesArms 13085
+M	SetNakedArms 13086
+M	IsPlural 13094
+M	GetUnrevealedColor 13095
+M	GetRevealedColor 13096
+M	RevealHiddenColor 13097
+M	ModifyResistance 13098
+P		resistance_list 11883
+M	AddRadiusEnchantment 13101
+P		what 10002
+P		iPower 13099
+P		source 13100
+M	RemoveRadiusEnchantment 13102
+P		what 10002
+P		iPower 13099
+P		source 13100
+M	IsAffectedByRadiusEnchantment 13105
+P		what 10002
+P		byClass 12157
+P		caster 13103
+M	GetMostPowerfulRadiusEnchantmentState 13106
+P		byClass 12157
+M	GetRadiusEnchantments 13107
+M	IsInSameRoom 13108
+P		what 10002
+M	SquaredDistanceToLocation 13109
+P		row 10026
+P		col 10027
+M	AddMagicFlag 13110
+M	RemoveMagicFlag 13111
+M	ReportDMCreated 13113
+M	RemoveDMCreated 13114
+M	CanSweep 13115
+M	InUse 15570
 C DM 32 1 User
 R	dm_login 25963
 R	dm_mortal 25964
@@ -42763,10 +42766,10 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viUse_type 14
-Y	poInductor 12
-Y	poInductee 13
-Y	poGuild 14
-Y	ptJoin 15
+Y	poInductor 14
+Y	poInductee 15
+Y	poGuild 16
+Y	ptJoin 17
 Y	piHits 8
 M	Constructor 10
 P		inductor 15656
@@ -42806,11 +42809,11 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viUse_type 14
-Y	poInductor 12
-Y	poInductee 13
-Y	poInductorGuild 14
-Y	poInducteeGuild 15
-Y	ptRatify 16
+Y	poInductor 14
+Y	poInductee 15
+Y	poInductorGuild 16
+Y	poInducteeGuild 17
+Y	ptRatify 18
 M	Constructor 10
 P		inductor 15656
 P		inductee 15657
@@ -42871,20 +42874,20 @@ V	viUse_Amount 16
 V	viDamage_min 41
 V	viDamage_max 42
 V	viLight_change 43
-Y	plStatmods 12
+Y	plStatmods 14
 Y	pbIn_use 13
-Y	pbWarned 14
-Y	piHunger 15
-Y	piFineHunger 16
-Y	ptHungerTimer 17
-Y	ptHoldingDamage 18
-Y	piHoldingDamageInterval 19
-Y	piHpWorthyThreshold 20
-Y	piKarmaWorthyThreshold 21
-Y	pbIllusioned 22
-Y	piSavedSkinColor 23
-Y	pbOrderDisbanded 24
-Y	pbCounted 25
+Y	pbWarned 15
+Y	piHunger 16
+Y	piFineHunger 17
+Y	ptHungerTimer 18
+Y	ptHoldingDamage 19
+Y	piHoldingDamageInterval 20
+Y	piHpWorthyThreshold 21
+Y	piKarmaWorthyThreshold 22
+Y	pbIllusioned 23
+Y	piSavedSkinColor 24
+Y	pbOrderDisbanded 25
+Y	pbCounted 26
 M	Constructor 10
 M	Delete 29
 M	ReqNewOwner 10090
@@ -43002,15 +43005,15 @@ V	viItem_type 15
 V	viUse_type 14
 V	viPoisonPercent 41
 V	viGoBadDamage 42
-Y	vrName 12
-Y	vrIcon 13
-Y	piGoBadTime 14
+Y	vrName 14
+Y	vrIcon 15
+Y	piGoBadTime 16
 Y	piItem_flags 10
-Y	piSchool 15
-Y	piLevel 16
-Y	piHealth 17
-Y	piHealthCap 18
-Y	pbGiveHealth 19
+Y	piSchool 17
+Y	piLevel 18
+Y	piHealth 19
+Y	piHealthCap 20
+Y	pbGiveHealth 21
 M	Constructor 10
 P		level 10416
 P		school 10417
@@ -43086,8 +43089,8 @@ V	vrItem_broken 12
 V	viDefense_base 41
 V	viDamage_base 42
 V	viLayer 43
-Y	piDefense_bonus 12
-Y	piDamage_reduce 13
+Y	piDefense_bonus 14
+Y	piDamage_reduce 15
 M	DefaultValues 10066
 M	GetDamageReduction 12933
 M	GetDefenseBonus 12934
@@ -43128,8 +43131,8 @@ V	viWeight 6
 V	viBulk 5
 V	viGround_group 20
 V	viFaction 41
-Y	ptTeleportIdle 12
-Y	pbCounted 13
+Y	ptTeleportIdle 14
+Y	pbCounted 15
 M	Constructor 10
 M	Delete 29
 M	ReqNewOwner 10090
@@ -43157,7 +43160,7 @@ V	vrIcon 1
 V	vrDesc 2
 V	viUse_type 14
 V	viItem_type 15
-Y	poSocketedObject 12
+Y	poSocketedObject 14
 Y	viObject_flags 6
 M	Delete 29
 M	AttributeDesc 12963
@@ -43197,8 +43200,8 @@ V	viUse_amount 16
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	poGiftGiver 12
-Y	poContents 13
+Y	poGiftGiver 14
+Y	poContents 15
 M	Constructor 10
 P		contents 15219
 P		giver 15220
@@ -43215,8 +43218,8 @@ R	healer_desc_rsc 30487
 R	healer_use 30488
 R	healer_cant_use_on 30489
 V	viUse_type 14
-Y	piHeal_min 12
-Y	piHeal_max 13
+Y	piHeal_min 14
+Y	piHeal_max 15
 M	ReqNewApply 14618
 P		what 10002
 P		apply_on 10143
@@ -43234,7 +43237,7 @@ V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
 V	viColor 41
-Y	ptRespawn 12
+Y	ptRespawn 14
 M	Constructor 10
 M	Delete 29
 M	NewOwner 10093
@@ -43257,8 +43260,8 @@ V	vrIcon 1
 V	vrDesc 2
 V	viUse_type 14
 V	viUse_amount 16
-Y	psInscription 12
-Y	poLastInscriber 13
+Y	psInscription 14
+Y	poLastInscriber 15
 M	ShowDesc 10069
 M	CanEditInscription 10202
 M	HasInscription 10203
@@ -43326,13 +43329,13 @@ V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
 V	viGround_group 20
-Y	vrName 12
-Y	vrDesc 13
-Y	vrIcon 14
-Y	viValue_average 15
-Y	viWeight 16
-Y	viBulk 17
-Y	viGround_group 18
+Y	vrName 14
+Y	vrDesc 15
+Y	vrIcon 16
+Y	viValue_average 17
+Y	viWeight 18
+Y	viBulk 19
+Y	viGround_group 20
 M	Constructor 10
 P		junknum 16039
 M	SendAnimation 10108
@@ -43357,10 +43360,10 @@ V	viItem_type 15
 V	viUse_type 14
 V	viPoisonPercent 41
 V	viGoBadDamage 42
-Y	vrDesc 12
-Y	vrName 13
+Y	vrDesc 14
+Y	vrName 15
 Y	piItem_flags 10
-Y	piKarma 14
+Y	piKarma 16
 M	Constructor 10
 P		karma 12893
 P		model 14396
@@ -43399,10 +43402,10 @@ V	vrDesc 2
 V	viUse_type 14
 V	viBulk 5
 V	viWeight 6
-Y	piStoredMana 12
-Y	piColorTranslation 13
-Y	plTranslations 14
-Y	poCaster 15
+Y	piStoredMana 14
+Y	piColorTranslation 15
+Y	plTranslations 16
+Y	poCaster 17
 M	Constructor 10
 P		oCaster 13053
 M	ReqNewOwner 10090
@@ -43431,10 +43434,10 @@ V	vrModule 41
 V	viMaxPlayers 42
 V	viUse_type 14
 V	viItem_type 15
-Y	piNumPlayers 12
-Y	plPlayers 13
-Y	plObservers 14
-Y	psState 15
+Y	piNumPlayers 14
+Y	plPlayers 15
+Y	plObservers 16
+Y	psState 17
 Y	viObject_flags 6
 M	Constructor 10
 M	Delete 29
@@ -43496,7 +43499,7 @@ V	vrName_plural 44
 V	viUse_type 14
 V	viIndefinite_plural 45
 V	viItem_type 15
-Y	piNumber 12
+Y	piNumber 14
 Y	viObject_flags 6
 M	Constructor 10
 P		number 10059
@@ -43587,10 +43590,10 @@ V	viForget_school 41
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	poApply_target 12
-Y	ptQuaff 13
-Y	piCount 14
-Y	pbWarned 15
+Y	poApply_target 14
+Y	ptQuaff 15
+Y	piCount 16
+Y	pbWarned 17
 M	Delete 29
 M	NewOwner 10093
 M	CanSwap 13019
@@ -43652,15 +43655,15 @@ V	vrPrismProjectile 41
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	vrIcon 12
-Y	poSpell 13
-Y	piSpellPowerNeeded 14
-Y	piSpellPowerSoFar 15
-Y	plCasters 16
-Y	plTargets 17
-Y	piNumSides 18
-Y	piGlowing 19
-Y	plLocation 20
+Y	vrIcon 14
+Y	poSpell 15
+Y	piSpellPowerNeeded 16
+Y	piSpellPowerSoFar 17
+Y	plCasters 18
+Y	plTargets 19
+Y	piNumSides 20
+Y	piGlowing 21
+Y	plLocation 22
 M	Constructor 10
 P		numSides 16048
 M	Delete 29
@@ -43713,7 +43716,7 @@ V	vrDesc 2
 V	viValue_average 19
 V	viBulk_hold_max 41
 V	viWeight_hold_max 42
-Y	plReagents 12
+Y	plReagents 14
 Y	viObject_flags 6
 M	Constructor 10
 P		owner 16054
@@ -43759,8 +43762,8 @@ V	viUse_Amount 16
 V	viItem_type 15
 V	vrRealName 41
 V	vrRealDesc 42
-Y	vrName 12
-Y	vrDesc 13
+Y	vrName 14
+Y	vrDesc 15
 M	GetTrueName 10098
 M	ReqUseSomething 12982
 P		what 10002
@@ -43791,8 +43794,8 @@ V	vrFailSound 47
 V	vrSuccess 48
 V	vrSuccessSound 49
 V	viRodUseDelay 50
-Y	vrDesc 12
-Y	piRodUseDelay 13
+Y	vrDesc 14
+Y	piRodUseDelay 15
 M	Constructed 10065
 M	ReqNewOwner 10090
 P		what 10002
@@ -43834,7 +43837,7 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viUse_type 14
-Y	piRID 12
+Y	piRID 14
 M	Constructor 10
 P		iRID 10441
 M	ReqNewOwner 10090
@@ -43953,15 +43956,15 @@ V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
 V	viGround_group 20
-Y	psOverheard 12
-Y	poOverheard 13
-Y	piSilenced 14
-Y	ptBabble 15
-Y	piStatKills 16
-Y	piStatImprovements 17
-Y	piStatToughers 18
-Y	piStatDealt 19
-Y	piStatReceived 20
+Y	psOverheard 14
+Y	poOverheard 15
+Y	piSilenced 16
+Y	ptBabble 17
+Y	piStatKills 18
+Y	piStatImprovements 19
+Y	piStatToughers 20
+Y	piStatDealt 21
+Y	piStatReceived 22
 M	Delete 29
 M	DamageTaken 14659
 P		what 10002
@@ -44026,7 +44029,7 @@ V	viUse_amount 16
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	poContents 12
+Y	poContents 14
 M	Constructor 10
 M	Delete 29
 M	GetBulk 10076
@@ -44069,7 +44072,7 @@ V	viUse_amount 16
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	poContents 12
+Y	poContents 14
 M	Constructor 10
 M	Delete 29
 M	GetBulk 10076
@@ -44130,20 +44133,20 @@ V	viInventory_group 21
 V	viHits_init_min 17
 V	viHits_init_max 18
 V	vbDisabled 55
-Y	vrName 12
+Y	vrName 14
 Y	viObject_flags 6
-Y	piSpellPower 13
-Y	pbBad 14
-Y	ptGoBadTimer 15
-Y	piGoBadTime 16
-Y	piMinSpellPower 17
-Y	piMaxSpellPower 18
-Y	pbMade 19
-Y	poMaker 20
-Y	piSkill 21
-Y	piLabelColor 22
-Y	pbCheckKarma 23
-Y	pbCanSplit 24
+Y	piSpellPower 15
+Y	pbBad 16
+Y	ptGoBadTimer 17
+Y	piGoBadTime 18
+Y	piMinSpellPower 19
+Y	piMaxSpellPower 20
+Y	pbMade 21
+Y	poMaker 22
+Y	piSkill 23
+Y	piLabelColor 24
+Y	pbCheckKarma 25
+Y	pbCanSplit 26
 M	Constructor 10
 P		iSpellpower 13205
 P		model 14396
@@ -44239,7 +44242,7 @@ V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
 V	viInventory_group 21
-Y	poQuester 12
+Y	poQuester 14
 M	Constructor 10
 P		quester 14482
 M	Delete 29
@@ -44275,12 +44278,12 @@ V	viVigorDrop 41
 V	viInitialTimeval 42
 V	viItem_type 15
 V	vrTokenOverlay 43
-Y	pbIn_use 12
-Y	pbRejectedOffer 13
-Y	piVigorRestThresholdChange 14
-Y	ptTortureTimer 15
-Y	ptLazyTimer 16
-Y	ptGenerationTimer 17
+Y	pbIn_use 13
+Y	pbRejectedOffer 14
+Y	piVigorRestThresholdChange 15
+Y	ptTortureTimer 16
+Y	ptLazyTimer 17
+Y	ptGenerationTimer 18
 M	Constructor 10
 M	Delete 29
 M	NewOwner 10093
@@ -44378,9 +44381,9 @@ V	viItem_type 15
 V	viUse_Amount 16
 V	viWeight 6
 V	viBulk 5
-Y	piSide 12
-Y	vrDesc 13
-Y	pbUsed 14
+Y	piSide 14
+Y	vrDesc 15
+Y	pbUsed 16
 M	Constructor 10
 P		side 12506
 M	ReqNewOwner 10090
@@ -44432,11 +44435,11 @@ V	vrCondition_med 36
 V	vrCondition_poor 37
 V	vrCondition_broken 38
 V	viRange 52
-Y	piAttack_type 12
-Y	piAttack_spell 13
-Y	piDamageBonus 14
-Y	piHitBonus 15
-Y	piUsed 16
+Y	piAttack_type 14
+Y	piAttack_spell 15
+Y	piDamageBonus 16
+Y	piHitBonus 17
+Y	piUsed 12
 M	Constructed 10065
 M	SendAnimation 10108
 M	SendLookAnimation 10109
@@ -44523,7 +44526,7 @@ R	bardletter_icon_rsc 30790
 V	vrName 0
 V	vrIcon 1
 V	vrDesc 2
-Y	psInscription 12
+Y	psInscription 14
 M	Constructor 10
 P		desc 11151
 M	DoBaseDesc 12955
@@ -44567,25 +44570,25 @@ V	viUse_amount 16
 V	viWeight 6
 V	viBulk 5
 Y	viObject_flags 6
-Y	vrIcon 12
-Y	poQormas 13
-Y	poRecipient 14
-Y	pbRose 15
-Y	pbBonkStick 16
-Y	pbSeduceWand 17
-Y	pbShrunkenHead 18
-Y	pbCowMask 19
-Y	pbDaemonMask 20
-Y	pbMummyMask 21
-Y	pbFeyMask 22
-Y	pbShrunkenHeadMask 23
-Y	pbXeoMask 24
-Y	pbSkullMask 25
-Y	pbRatMask 26
-Y	pbAntMask 27
-Y	pbTrollMask 28
-Y	pbKriipaMask 29
-Y	pbMaskPossible 30
+Y	vrIcon 14
+Y	poQormas 15
+Y	poRecipient 16
+Y	pbRose 17
+Y	pbBonkStick 18
+Y	pbSeduceWand 19
+Y	pbShrunkenHead 20
+Y	pbCowMask 21
+Y	pbDaemonMask 22
+Y	pbMummyMask 23
+Y	pbFeyMask 24
+Y	pbShrunkenHeadMask 25
+Y	pbXeoMask 26
+Y	pbSkullMask 27
+Y	pbRatMask 28
+Y	pbAntMask 29
+Y	pbTrollMask 30
+Y	pbKriipaMask 31
+Y	pbMaskPossible 32
 M	Constructor 10
 P		mask 12865
 P		qormas_obj 12866
@@ -44648,12 +44651,12 @@ V	viManaAmount 44
 V	viVigorAmount 45
 V	viFilling 46
 V	viSpellPower 47
-Y	vrIcon 12
-Y	piEggType 13
-Y	piResourceAmount 14
-Y	viSpellEffect 15
-Y	viNutrition 16
-Y	piSpellPower 17
+Y	vrIcon 14
+Y	piEggType 15
+Y	piResourceAmount 16
+Y	viSpellEffect 17
+Y	viNutrition 18
+Y	piSpellPower 19
 M	Constructor 10
 P		iType 12457
 P		iColor 13576
@@ -44701,10 +44704,10 @@ V	viTotalBooks 41
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piBookNum 12
-Y	vrName 13
-Y	vrDesc 14
-Y	prText 15
+Y	piBookNum 14
+Y	vrName 15
+Y	vrDesc 16
+Y	prText 17
 M	Constructor 10
 P		Num 10052
 P		random_book 15617
@@ -44750,13 +44753,13 @@ V	vbDoubleManaCost 42
 V	viAttack_bonus 43
 V	vbScaleHitrollBonus 44
 V	viRechargeFactor 45
-Y	vrDesc 12
-Y	viItem_type 13
-Y	piAnimation 14
-Y	piManaLossJewel 15
-Y	pbDoubleManaCost 16
-Y	piAttack_bonus 17
-Y	pbScaleHitrollBonus 18
+Y	vrDesc 14
+Y	viItem_type 15
+Y	piAnimation 16
+Y	piManaLossJewel 17
+Y	pbDoubleManaCost 18
+Y	piAttack_bonus 19
+Y	pbScaleHitrollBonus 20
 M	Constructor 10
 M	SendAnimation 10108
 M	SendLookAnimation 10109
@@ -44827,9 +44830,9 @@ V	vrCondition_broken 38
 V	viDefense_base 41
 V	viAttack_base 42
 V	viDamage_base 43
-Y	piDefense_bonus 12
-Y	piAttack_bonus 13
-Y	piDamage_bonus 14
+Y	piDefense_bonus 14
+Y	piAttack_bonus 15
+Y	piDamage_bonus 16
 M	DefaultValues 10066
 M	GetHitBonus 12932
 M	GetDefenseBonus 12934
@@ -44883,7 +44886,7 @@ V	vrCondition_med 36
 V	vrCondition_poor 37
 V	vrCondition_broken 38
 V	viLayer 43
-Y	pbColored 14
+Y	pbColored 16
 M	SendAnimation 10108
 M	SendLookAnimation 10109
 M	SetPaletteTranslation 12927
@@ -44912,8 +44915,8 @@ V	vrCondition_med 36
 V	vrCondition_poor 37
 V	vrCondition_broken 38
 V	viLayer 43
-Y	piUsed 14
-Y	piBlockBonus 15
+Y	piUsed 12
+Y	piBlockBonus 16
 M	ReqRepair 12965
 M	ReqUseSomething 12982
 P		what 10002
@@ -45088,8 +45091,8 @@ V	viWeight 6
 V	viBulk 5
 V	viDefense_base 41
 V	viDamage_base 42
-Y	vrIcon_male 15
-Y	vrIcon_female 16
+Y	vrIcon_male 17
+Y	vrIcon_female 18
 M	GetResistanceModifiers 12954
 M	GetHeatDamage 13058
 M	ShowShirt 13071
@@ -45272,24 +45275,24 @@ V	viSpell_modifier 23
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viXLAT_immortal 15
-Y	viXLAT_no_knowledge 16
-Y	viXLAT_level_one 17
-Y	viXLAT_level_two 18
-Y	viXLAT_level_three 19
-Y	viXLAT_level_four 20
-Y	viXLAT_qor_master 21
-Y	viXLAT_shalille_master 22
-Y	viXLAT_faren_master 23
-Y	viXLAT_kraanan_master 24
-Y	viXLAT_riija_master 25
-Y	viXLAT_jala_master 26
-Y	piSchool 27
-Y	piLevel 28
-Y	prInsignia_male 29
-Y	prInsignia_female 30
-Y	piDefense_bonus 12
-Y	pbImmortalColor 31
+Y	viXLAT_immortal 17
+Y	viXLAT_no_knowledge 18
+Y	viXLAT_level_one 19
+Y	viXLAT_level_two 20
+Y	viXLAT_level_three 21
+Y	viXLAT_level_four 22
+Y	viXLAT_qor_master 23
+Y	viXLAT_shalille_master 24
+Y	viXLAT_faren_master 25
+Y	viXLAT_kraanan_master 26
+Y	viXLAT_riija_master 27
+Y	viXLAT_jala_master 28
+Y	piSchool 29
+Y	piLevel 30
+Y	prInsignia_male 31
+Y	prInsignia_female 32
+Y	piDefense_bonus 14
+Y	pbImmortalColor 33
 M	Constructor 10
 P		school 10417
 M	GetSchool 10422
@@ -45520,17 +45523,17 @@ V	viWeight 6
 V	viBulk 5
 V	viDefense_base 41
 V	viDamage_base 42
-Y	vrDesc 16
-Y	vrIcon 17
-Y	vrShield_overlay 18
-Y	prShield_emblem_held 19
-Y	prShield_emblem_drop 20
-Y	vrShield_window_overlay 21
-Y	piInsigniaType 22
-Y	viGround_group 23
-Y	viInventory_group 24
-Y	viBroken_group 25
-Y	piShield_shape 26
+Y	vrDesc 17
+Y	vrIcon 18
+Y	vrShield_overlay 19
+Y	prShield_emblem_held 20
+Y	prShield_emblem_drop 21
+Y	vrShield_window_overlay 22
+Y	piInsigniaType 23
+Y	viGround_group 24
+Y	viInventory_group 25
+Y	viBroken_group 26
+Y	piShield_shape 27
 M	Constructor 10
 P		color1 10031
 P		color2 10032
@@ -45612,14 +45615,14 @@ V	vrRank3 55
 V	vrRank4 56
 V	vrRank5 57
 V	viLayer 43
-Y	piFactionRank 16
-Y	piDaysUntilRankLoss 17
-Y	piFactionKills 18
-Y	poLastEnemyToAttack 19
-Y	piOverlayHotspot 20
-Y	vrShield_window_overlay 21
-Y	viUse_amount 22
-Y	vrShield_overlay 23
+Y	piFactionRank 17
+Y	piDaysUntilRankLoss 18
+Y	piFactionKills 19
+Y	poLastEnemyToAttack 20
+Y	piOverlayHotspot 21
+Y	vrShield_window_overlay 22
+Y	viUse_amount 23
+Y	vrShield_overlay 24
 M	Constructor 10
 M	Delete 29
 M	ReqNewOwner 10090
@@ -45712,7 +45715,7 @@ V	viValue_average 19
 V	viGround_group 20
 V	viBroken_group 22
 V	viInventory_group 21
-Y	pbIn_use 16
+Y	pbIn_use 13
 Y	ptBurn 17
 Y	vrShield_window_overlay 18
 Y	vrShield_overlay 19
@@ -45758,8 +45761,8 @@ V	viFaction 46
 V	viColor 47
 V	vrArmyName 52
 V	vrWelcomeMessage 51
-Y	piIntellectChange 24
-Y	piMysticismChange 25
+Y	piIntellectChange 25
+Y	piMysticismChange 26
 M	GetSpellManaReduction 15576
 M	UpdateRankPowers 16143
 M	RemoveStats 16144
@@ -45780,8 +45783,8 @@ V	viFaction 46
 V	viColor 47
 V	vrArmyName 52
 V	vrWelcomeMessage 51
-Y	piStaminaChange 24
-Y	piAgilityChange 25
+Y	piStaminaChange 25
+Y	piAgilityChange 26
 M	GetBaseSpellModifier 13051
 P		oSpell 10148
 M	UpdateRankPowers 16143
@@ -45804,8 +45807,8 @@ V	viFaction 46
 V	viColor 47
 V	vrArmyName 52
 V	vrWelcomeMessage 51
-Y	piMightChange 24
-Y	piAimChange 25
+Y	piMightChange 25
+Y	piAimChange 26
 M	ModifyDefenseDamage 14325
 P		what 10002
 P		who 10147
@@ -45831,8 +45834,8 @@ V	viFaction 46
 V	viColor 47
 V	vrArmyName 52
 V	vrWelcomeMessage 51
-Y	piStaminaChange 24
-Y	piAgilityChange 25
+Y	piStaminaChange 25
+Y	piAgilityChange 26
 M	Constructor 10
 M	GetBaseSpellModifier 13051
 P		oSpell 10148
@@ -45886,8 +45889,8 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viDefense_base 41
 V	viLayer 43
-Y	piMana_change 14
-Y	piHealth_change 15
+Y	piMana_change 16
+Y	piHealth_change 17
 M	NewUsed 12983
 M	NewUnused 12991
 M	GetOverlay 12999
@@ -45917,8 +45920,8 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viDefense_base 41
 V	viLayer 43
-Y	piMana_change 14
-Y	piHealth_change 15
+Y	piMana_change 16
+Y	piHealth_change 17
 M	GetResistanceModifiers 12954
 M	ReqUse 12986
 M	GetOverlay 12999
@@ -46081,11 +46084,11 @@ R	FeyMask_evil_icon_female_rsc 31180
 V	vrIcon 1
 V	vrName 0
 V	vrDesc 2
-Y	vrIcon 14
-Y	vrMaleGoodIcon 15
-Y	vrMaleEvilIcon 16
-Y	vrFemaleGoodIcon 17
-Y	vrFemaleEvilIcon 18
+Y	vrIcon 16
+Y	vrMaleGoodIcon 17
+Y	vrMaleEvilIcon 18
+Y	vrFemaleGoodIcon 19
+Y	vrFemaleEvilIcon 20
 M	NewUsed 12983
 M	GetOverlay 12999
 P		animation 13359
@@ -46099,8 +46102,8 @@ V	vrDesc 2
 V	vrIcon 1
 V	vrMaleIcon 44
 V	vrFemaleIcon 45
-Y	prSaveNose 14
-Y	prSaveMouth 15
+Y	prSaveNose 16
+Y	prSaveMouth 17
 M	NewUsed 12983
 M	NewUnused 12991
 C XeoMask 11451 15091 FaceMask
@@ -46125,9 +46128,9 @@ V	vrDesc 2
 V	vrIcon 1
 V	vrMaleIcon 44
 V	vrFemaleIcon 45
-Y	prSaveEyes 14
-Y	prSaveNose 15
-Y	prSaveMouth 16
+Y	prSaveEyes 16
+Y	prSaveNose 17
+Y	prSaveMouth 18
 M	ReqUseSomething 12982
 P		what 10002
 M	NewUsed 12983
@@ -46265,11 +46268,11 @@ V	vrIcon_female 25
 V	viHits_init_min 17
 V	viHits_init_max 18
 V	viValue_average 19
-Y	vrDesc 14
-Y	vrName 15
-Y	vrIcon 16
-Y	vrIcon_male 17
-Y	vrIcon_female 18
+Y	vrDesc 16
+Y	vrName 17
+Y	vrIcon 18
+Y	vrIcon_male 19
+Y	vrIcon_female 20
 M	NewUsed 12983
 M	ModifyDefensePower 13005
 P		what 10002
@@ -46332,8 +46335,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 M	Constructor 10
 M	GetType 12863
 M	AppendDesc 12962
@@ -46372,7 +46375,7 @@ V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
 V	viSchool 41
-Y	piPowerStrength 13
+Y	piPowerStrength 15
 M	Constructor 10
 M	GetSchool 10422
 M	AppendDesc 12962
@@ -46392,8 +46395,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemShockResistance 11443 16149 GemResistance
 R	gem_shock_resist_name_rsc 31263
 R	gem_shock_resist_desc_rsc 31264
@@ -46404,8 +46407,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemAcidResistance 11444 16149 GemResistance
 R	gem_acid_resist_name_rsc 31266
 R	gem_acid_resist_desc_rsc 31267
@@ -46416,8 +46419,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemThrustResistance 11446 16149 GemResistance
 R	gem_thrust_resist_name_rsc 31269
 R	gem_thrust_resist_desc_rsc 31270
@@ -46428,8 +46431,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemPierceResistance 11448 16149 GemResistance
 R	gem_pierce_resist_name_rsc 31272
 R	gem_pierce_resist_desc_rsc 31273
@@ -46440,8 +46443,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemSlashResistance 11445 16149 GemResistance
 R	gem_slash_resist_name_rsc 31275
 R	gem_slash_resist_desc_rsc 31276
@@ -46452,8 +46455,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemBludgeonResistance 11447 16149 GemResistance
 R	gem_bludgeon_resist_name_rsc 31278
 R	gem_bludgeon_resist_desc_rsc 31279
@@ -46464,8 +46467,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemFireResistance 11442 16149 GemResistance
 R	gem_fire_resist_name_rsc 31281
 R	gem_fire_resist_desc_rsc 31282
@@ -46476,8 +46479,8 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piResistStrength 13
-Y	piResistType 14
+Y	piResistStrength 15
+Y	piResistType 16
 C GemShalillePower 11438 16151 GemSpellpower
 R	gem_shalpower_name_rsc 31284
 R	gem_shalpower_desc_rsc 31285
@@ -46557,8 +46560,8 @@ V	viWeight 6
 V	viValue_average 19
 V	viItem_type 15
 V	viFilling 41
-Y	piHeal_min 12
-Y	piHeal_max 13
+Y	piHeal_min 14
+Y	piHeal_max 15
 M	IsBeverage 14009
 M	ReqNewApply 14618
 P		apply_on 10143
@@ -46673,9 +46676,9 @@ V	viHits_init_max 18
 V	viValue_average 19
 V	viBulk 5
 V	viWeight 6
-Y	piState 14
-Y	pbIn_use 15
-Y	viInventory_group 16
+Y	piState 16
+Y	pbIn_use 13
+Y	viInventory_group 17
 M	ShowDesc 10069
 M	SendAnimation 10108
 M	CanEditInscription 10202
@@ -46707,7 +46710,7 @@ V	vrName 0
 V	vrIcon 1
 V	vrDesc 2
 V	viWeight 6
-Y	ptDestroy 14
+Y	ptDestroy 16
 M	Delete 29
 M	ShowDesc 10069
 M	ReqNewOwner 10090
@@ -46799,7 +46802,7 @@ V	vrDesc 2
 V	vrModule 41
 V	viValue_average 19
 V	viBulk 5
-Y	vrIcon 16
+Y	vrIcon 18
 M	SetAppearance 16041
 C ShadowAmulet 11419 15906 Necklace
 R	shadowAmulet_name_rsc 31363
@@ -46819,7 +46822,7 @@ V	viDamage_min 41
 V	viDamage_max 42
 V	viDefense_change 43
 V	viLight_change 44
-Y	pbIn_use 12
+Y	pbIn_use 13
 M	ReqNewOwner 10090
 P		what 10002
 M	ReqLeaveOwner 10092
@@ -46855,10 +46858,10 @@ V	viBulk 5
 V	viWeight 6
 V	viMax_Disp_hits 41
 V	viGround_group 20
-Y	pbIn_use 12
-Y	piMight_change 13
-Y	piAim_change 14
-Y	piDisp_hits 15
+Y	pbIn_use 13
+Y	piMight_change 14
+Y	piAim_change 15
+Y	piDisp_hits 16
 M	Constructor 10
 M	NewOwner 10093
 M	DestroyDisposable 10097
@@ -46882,10 +46885,10 @@ V	viBulk 5
 V	viWeight 6
 V	viMax_Disp_hits 41
 V	viGround_group 20
-Y	pbIn_use 12
-Y	piMight_change 13
-Y	piAgility_change 14
-Y	piDisp_hits 15
+Y	pbIn_use 13
+Y	piMight_change 14
+Y	piAgility_change 15
+Y	piDisp_hits 16
 M	Constructor 10
 M	NewOwner 10093
 M	DestroyDisposable 10097
@@ -46907,10 +46910,10 @@ V	viBulk 5
 V	viWeight 6
 V	viMax_Disp_hits 41
 V	viGround_group 20
-Y	pbIn_use 12
-Y	piIntellect_change 13
-Y	piStamina_change 14
-Y	piDisp_hits 15
+Y	pbIn_use 13
+Y	piIntellect_change 14
+Y	piStamina_change 15
+Y	piDisp_hits 16
 M	Constructor 10
 M	NewOwner 10093
 M	DestroyDisposable 10097
@@ -46932,10 +46935,10 @@ V	viBulk 5
 V	viWeight 6
 V	viMax_Disp_hits 41
 V	viGround_group 20
-Y	pbIn_use 12
-Y	piIntellect_change 13
-Y	piAgility_change 14
-Y	piDisp_hits 15
+Y	pbIn_use 13
+Y	piIntellect_change 14
+Y	piAgility_change 15
+Y	piDisp_hits 16
 M	Constructor 10
 M	NewOwner 10093
 M	DestroyDisposable 10097
@@ -46957,10 +46960,10 @@ V	viBulk 5
 V	viWeight 6
 V	viMax_Disp_hits 41
 V	viGround_group 20
-Y	pbIn_use 12
-Y	piStamina_change 13
-Y	piAim_change 14
-Y	piDisp_hits 15
+Y	pbIn_use 13
+Y	piStamina_change 14
+Y	piAim_change 15
+Y	piDisp_hits 16
 M	Constructor 10
 M	NewOwner 10093
 M	DestroyDisposable 10097
@@ -47026,9 +47029,9 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viMinDamage 47
 V	viMaxDamage 48
-Y	piNumber 12
-Y	piAttack_type 13
-Y	piAttack_spell 14
+Y	piNumber 14
+Y	piAttack_type 15
+Y	piAttack_spell 16
 Y	viObject_flags 6
 M	GetMinDamage 12936
 M	GetMaxDamage 12937
@@ -47071,9 +47074,9 @@ V	viIndefinite 3
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	Constructor 10
 C Snack 11603 11920 Food
 R	snack_name_rsc 31404
@@ -47090,9 +47093,9 @@ V	viWeight 6
 V	viBulk 5
 V	viValue_average 19
 V	viItem_type 15
-Y	viNutrition 13
-Y	viFilling 14
-Y	piNumber 12
+Y	viNutrition 15
+Y	viFilling 16
+Y	piNumber 14
 M	Constructor 10
 C Waterskin 11600 11920 Food
 R	waterskin_name_rsc 31408
@@ -47110,9 +47113,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	SendAnimation 10108
 M	AppendDesc 12962
 M	SendInventoryAnimation 12996
@@ -47131,9 +47134,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 C Apple 11614 11920 Food
 R	apple_name_rsc 31418
 R	apple_desc_rsc 31419
@@ -47156,9 +47159,9 @@ V	viIndefinite 3
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viNutrition 13
-Y	viFilling 14
-Y	piNumber 12
+Y	viNutrition 15
+Y	viFilling 16
+Y	piNumber 14
 M	NewHoldMessage 15706
 P		who 10147
 P		disp 15707
@@ -47176,9 +47179,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viNutrition 13
-Y	viFilling 14
-Y	piNumber 12
+Y	viNutrition 15
+Y	viFilling 16
+Y	piNumber 14
 C Mug 11599 11920 Food
 R	mug_name_rsc 31430
 R	mug_desc_rsc 31431
@@ -47203,9 +47206,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	IsBeverage 14009
 M	IsAlcohol 15089
 M	NewHoldMessage 15706
@@ -47235,9 +47238,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	SendTaste 16122
 P		what 10002
 P		apply_on 10143
@@ -47261,9 +47264,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 C Pork 11606 11920 Food
 R	pork_name_rsc 31455
 R	pork_desc_rsc 31456
@@ -47285,9 +47288,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	NewHoldMessage 15706
 P		who 10147
 P		disp 15707
@@ -47311,9 +47314,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 C FortuneCookie 11604 11920 Food
 R	fortunecookie_name_rsc 31470
 R	fortunecookie_desc_rsc 31471
@@ -47336,9 +47339,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	NewHoldMessage 15706
 P		who 10147
 P		disp 15707
@@ -47366,9 +47369,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	NewHoldMessage 15706
 P		who 10147
 P		disp 15707
@@ -47397,9 +47400,9 @@ V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	IsBeverage 14009
 M	IsAlcohol 15089
 M	NewHoldMessage 15706
@@ -47425,9 +47428,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	IsBeverage 14009
 M	IsAlcohol 15089
 M	SendTaste 16122
@@ -47450,9 +47453,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	SendTaste 16122
 P		what 10002
 P		apply_on 10143
@@ -47474,9 +47477,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	IsBeverage 14009
 M	IsAlcohol 15089
 M	SendTaste 16122
@@ -47506,9 +47509,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	vrEat_wav 48
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	IsBeverage 14009
 M	IsAlcohol 15089
 M	NewHoldMessage 15706
@@ -47531,9 +47534,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viNutrition 13
-Y	viFilling 14
-Y	piNumber 12
+Y	viNutrition 15
+Y	viFilling 16
+Y	piNumber 14
 C Mint 11601 11920 Food
 R	Mint_name_rsc 31530
 R	Mint_desc_rsc 31531
@@ -47549,9 +47552,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	NewApplied 14619
 P		what 10002
 P		apply_on 10143
@@ -47572,9 +47575,9 @@ V	vrName_plural 44
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 C ChaosFood 12894 11920 Food
 R	chaosfd_name_rsc 31539
 R	chaosfd_name_plural_rsc 31540
@@ -47591,9 +47594,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 Y	piItem_flags 10
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	Constructor 10
 M	NewApplied 14619
 P		what 10002
@@ -47613,9 +47616,9 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viGround_group 20
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 C Pear 11616 11920 Food
 R	pear_name_rsc 31548
 R	pear_desc_rsc 31549
@@ -47638,9 +47641,9 @@ V	viIndefinite 3
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	NewHoldMessage 15706
 P		who 10147
 P		disp 15707
@@ -47666,9 +47669,9 @@ V	viIndefinite 3
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viFilling 13
-Y	viNutrition 14
-Y	piNumber 12
+Y	viFilling 15
+Y	viNutrition 16
+Y	piNumber 14
 M	NewHoldMessage 15706
 P		who 10147
 P		disp 15707
@@ -47687,9 +47690,9 @@ V	viIndefinite 3
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	viNutrition 13
-Y	viFilling 14
-Y	piNumber 12
+Y	viNutrition 15
+Y	viFilling 16
+Y	piNumber 14
 M	Constructor 10
 C Arrow 11648 11921 Ammo
 R	arrow_name_rsc 31568
@@ -47705,7 +47708,7 @@ V	viInventory_group 21
 V	viBroken_group 22
 V	viBulk 5
 V	viWeight 6
-Y	piNumber 12
+Y	piNumber 14
 M	GetProjectileIcon 13956
 M	GetProjectileSpeed 13957
 M	SendProjectileAnimation 13958
@@ -47720,7 +47723,7 @@ V	viAmmo_type 46
 V	viValue_average 19
 V	viBulk 5
 V	viWeight 6
-Y	piNumber 12
+Y	piNumber 14
 C SilverArrow 11647 11921 Ammo
 R	silver_arrow_name_rsc 31574
 R	silver_arrow_desc_rsc 31575
@@ -47740,8 +47743,8 @@ V	viMinDamage 47
 V	viMaxDamage 48
 V	viMinUndeadDamage 49
 V	viMaxUndeadDamage 50
-Y	piNumber 12
-Y	piAttack_type 13
+Y	piNumber 14
+Y	piAttack_type 15
 M	GetMinSpecialDamage 12940
 M	GetMaxSpecialDamage 12941
 M	GetProjectileIcon 13956
@@ -47769,8 +47772,8 @@ V	viMinDamage 47
 V	viMaxDamage 48
 V	viMinShatterDamage 49
 V	viMaxShatterDamage 50
-Y	piNumber 12
-Y	piAttack_type 13
+Y	piNumber 14
+Y	piAttack_type 15
 M	GetMinSpecialDamage 12940
 M	GetMaxSpecialDamage 12941
 M	GetProjectileIcon 13956
@@ -47798,8 +47801,8 @@ V	viMinDamage 47
 V	viMaxDamage 48
 V	viMinFireDamage 49
 V	viMaxFireDamage 50
-Y	piNumber 12
-Y	piAttack_spell 14
+Y	piNumber 14
+Y	piAttack_spell 16
 M	GetMinSpecialDamage 12940
 M	GetMaxSpecialDamage 12941
 M	GetProjectileIcon 13956
@@ -47827,8 +47830,8 @@ V	viMinDamage 47
 V	viMaxDamage 48
 V	viMiniceDamage 49
 V	viMaxiceDamage 50
-Y	piNumber 12
-Y	piAttack_spell 14
+Y	piNumber 14
+Y	piAttack_spell 16
 M	GetMinSpecialDamage 12940
 M	GetMaxSpecialDamage 12941
 M	GetProjectileIcon 13956
@@ -47853,8 +47856,8 @@ V	viBulk 5
 V	viWeight 6
 V	viMinDamage 47
 V	viMaxDamage 48
-Y	piNumber 12
-Y	piAttack_spell 14
+Y	piNumber 14
+Y	piAttack_spell 16
 M	GetProjectileIcon 13956
 M	GetProjectileSpeed 13957
 M	SendProjectileAnimation 13958
@@ -47874,8 +47877,8 @@ V	viBulk 5
 V	viWeight 6
 V	viMinDamage 47
 V	viMaxDamage 48
-Y	piNumber 12
-Y	piAttack_type 13
+Y	piNumber 14
+Y	piAttack_type 15
 M	GetProjectileIcon 13956
 M	GetProjectileSpeed 13957
 M	SendProjectileAnimation 13958
@@ -47891,7 +47894,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C BlueMushroom 11589 11922 Reagent
 R	bluemushroom_name_rsc 31600
@@ -47905,7 +47908,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C PurpleMushroom 11588 11922 Reagent
 R	purplemushroom_name_rsc 31604
@@ -47919,7 +47922,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C RedMushroom 11590 11922 Reagent
 R	redmushroom_name_rsc 31608
@@ -47933,7 +47936,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C Herbs 11594 11922 Reagent
 R	Herbs_name_rsc 31612
@@ -47947,7 +47950,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C ElderBerry 11593 11922 Reagent
 R	Elderberry_name_rsc 31616
 R	Elderberry_desc_rsc 31617
@@ -47961,7 +47964,7 @@ V	viIndefinite 3
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C OrcTooth 11583 11922 Reagent
 R	orctooth_name_rsc 31620
 R	orctooth_desc_rsc 31621
@@ -47975,7 +47978,7 @@ V	viIndefinite 3
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C BlueDragonScale 11580 11922 Reagent
 R	bluedragonscale_name_rsc 31624
 R	bluedragonscale_desc_rsc 31625
@@ -47988,7 +47991,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C DarkAngelFeather 11581 11922 Reagent
 R	darkangelfeather_name_rsc 31628
 R	darkangelfeather_desc_rsc 31629
@@ -48001,7 +48004,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C FairyWing 11582 11922 Reagent
 R	fairywing_name_rsc 31632
 R	fairywing_desc_rsc 31633
@@ -48014,7 +48017,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viBulk 5
 V	viWeight 6
-Y	piNumber 12
+Y	piNumber 14
 C Diamond 11576 11922 Reagent
 R	diamond_name_rsc 31636
 R	diamond_desc_rsc 31637
@@ -48029,7 +48032,7 @@ V	viWeight 6
 V	viValue_average 19
 V	viItem_type 15
 V	viGround_group 20
-Y	piNumber 12
+Y	piNumber 14
 C Emerald 11579 11922 Reagent
 R	emerald_name_rsc 31640
 R	emerald_desc_rsc 31641
@@ -48045,7 +48048,7 @@ V	viWeight 6
 V	viValue_average 19
 V	viItem_type 15
 V	viGround_group 20
-Y	piNumber 12
+Y	piNumber 14
 C Sapphire 11578 11922 Reagent
 R	sapphire_name_rsc 31644
 R	sapphire_desc_rsc 31645
@@ -48061,7 +48064,7 @@ V	viValue_average 19
 V	viItem_type 15
 V	viGround_group 20
 V	viInventory_group 21
-Y	piNumber 12
+Y	piNumber 14
 C Ruby 11577 11922 Reagent
 R	ruby_name_rsc 31648
 R	ruby_desc_rsc 31649
@@ -48076,7 +48079,7 @@ V	viWeight 6
 V	viValue_average 19
 V	viItem_type 15
 V	viGround_group 20
-Y	piNumber 12
+Y	piNumber 14
 C EntrootBerry 11592 11922 Reagent
 R	entrootberry_name_rsc 31652
 R	entrootberry_desc_rsc 31653
@@ -48090,7 +48093,7 @@ V	viIndefinite 3
 V	viValue_average 19
 V	viBulk 5
 V	viWeight 6
-Y	piNumber 12
+Y	piNumber 14
 C FireSand 11571 11922 Reagent
 R	FireSand_name_rsc 31656
 R	FireSand_desc_rsc 31657
@@ -48105,8 +48108,8 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
-Y	pbGathered 13
+Y	piNumber 14
+Y	pbGathered 15
 M	Constructor 10
 P		Gathered 15778
 M	GetName 10051
@@ -48127,7 +48130,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C KriipaClaw 11572 11922 Reagent
 R	KriipaClaw_name_rsc 31666
 R	KriipaClaw_desc_rsc 31667
@@ -48140,7 +48143,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C Solagh 11575 11922 Reagent
 R	Solagh_name_rsc 31670
 R	Solagh_desc_rsc 31671
@@ -48153,7 +48156,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	SendAnimation 10108
 C RainbowFern 10330 11922 Reagent
 R	rainbowfern_name_rsc 31674
@@ -48167,7 +48170,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructed 10065
 M	SendAnimation 10108
 M	ChangeColor 10331
@@ -48186,7 +48189,7 @@ V	viIndefinite 3
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	SendAnimation 10108
 M	SendLookAnimation 10109
 M	SendInventoryAnimation 12996
@@ -48204,8 +48207,8 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
-Y	pbGathered 13
+Y	piNumber 14
+Y	pbGathered 15
 M	Constructor 10
 P		Gathered 15778
 M	GetName 10051
@@ -48226,7 +48229,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	SendAnimation 10108
 M	SendLookAnimation 10109
 M	SendInventoryAnimation 12996
@@ -48244,8 +48247,8 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
-Y	pbGathered 13
+Y	piNumber 14
+Y	pbGathered 15
 M	Constructor 10
 P		Gathered 15778
 M	GetName 10051
@@ -48267,7 +48270,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 C GrayMushroom 11584 11922 Reagent
 R	graymushroom_name_rsc 31702
 R	graymushroom_desc_rsc 31703
@@ -48280,7 +48283,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C GreenMushroom 11587 11922 Reagent
 R	greenmushroom_name_rsc 31706
@@ -48294,7 +48297,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C YellowMushroom 11586 11922 Reagent
 R	yellowmushroom_name_rsc 31710
@@ -48308,7 +48311,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C CyanMushroom 11585 11922 Reagent
 R	cyanmushroom_name_rsc 31714
@@ -48322,7 +48325,7 @@ V	vrName_plural 44
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piNumber 12
+Y	piNumber 14
 M	Constructor 10
 C OfferingRiija 11395 15785 Offering
 R	offeringRiija_name_rsc 31718
@@ -48343,7 +48346,7 @@ V	vrIcon 1
 V	vrDesc 2
 V	vrAllegiance 41
 V	viIndefinite 3
-Y	viGround_group 12
+Y	viGround_group 14
 C OfferingShalille 11398 15785 Offering
 R	OfferingShalille_name_rsc 31724
 R	OfferingShalille_desc_rsc 31725
@@ -48489,7 +48492,7 @@ V	vrDesc 2
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	vrName 12
+Y	vrName 14
 M	Constructor 10
 C LabeledWand 13581 16053 QuestItem
 R	LabeledWand_name0_rsc 31780
@@ -48518,7 +48521,7 @@ V	vrDesc 2
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	vrName 12
+Y	vrName 14
 M	Constructor 10
 C Letter 11401 16053 QuestItem
 R	letter_name_rsc 31800
@@ -48668,10 +48671,10 @@ V	viUse_type 14
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	piState 12
-Y	viInventory_group 13
-Y	vrDescOpen 14
-Y	vrDesc 15
+Y	piState 14
+Y	viInventory_group 15
+Y	vrDescOpen 16
+Y	vrDesc 17
 M	Constructor 10
 M	AppendDesc 12962
 M	NewUsed 12983
@@ -48692,9 +48695,9 @@ V	viIndefinite 3
 V	viValue_average 19
 V	viWeight 6
 V	viBulk 5
-Y	pbTemporary 12
-Y	piDaysRemaining 13
-Y	pbTradeable 14
+Y	pbTemporary 14
+Y	piDaysRemaining 15
+Y	pbTradeable 16
 M	Constructor 10
 P		temporary 11434
 P		tradeable 15616
@@ -48728,8 +48731,8 @@ V	viHits_init_max 18
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	pbIn_use 14
-Y	ptCharge 15
+Y	pbIn_use 13
+Y	ptCharge 16
 M	Delete 29
 M	SendLookAnimation 10109
 M	UserLogoff 10318
@@ -48759,8 +48762,8 @@ V	viValue_average 19
 V	viVigorDrop 43
 V	viRevealedColor 40
 V	viUnrevealedColor 39
-Y	pbIn_use 14
-Y	piVigorRestThresholdChange 15
+Y	pbIn_use 13
+Y	piVigorRestThresholdChange 16
 M	ReqLeaveOwner 10092
 M	DoBaseDesc 12955
 M	IsCursed 12979
@@ -48815,8 +48818,8 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viUnrevealedColor 39
-Y	piResistanceType 14
-Y	piResistanceChange 15
+Y	piResistanceType 16
+Y	piResistanceChange 17
 M	GetResistanceModifiers 12954
 M	AppendDesc 12962
 M	NewUsed 12983
@@ -48851,10 +48854,10 @@ V	viHits_init_max 18
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	vrName 12
-Y	vrDesc 13
-Y	poFirstHeld 14
-Y	poSecondHeld 15
+Y	vrName 14
+Y	vrDesc 15
+Y	poFirstHeld 16
+Y	poSecondHeld 17
 M	DestroyDisposable 10097
 M	AppendDesc 12962
 M	NewUsed 12983
@@ -48888,10 +48891,10 @@ V	viHits_init_max 18
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	vrName 12
-Y	vrDesc 13
-Y	poRingOwner 14
-Y	ptLazyTimer 15
+Y	vrName 14
+Y	vrDesc 15
+Y	poRingOwner 16
+Y	ptLazyTimer 17
 M	Constructor 10
 P		mob 12003
 M	Delete 29
@@ -48917,11 +48920,11 @@ V	viHits_init_max 18
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	vrName 12
-Y	vrDesc 13
+Y	vrName 14
+Y	vrDesc 15
 Y	piItem_flags 10
-Y	piCharges 14
-Y	pbIn_use 15
+Y	piCharges 16
+Y	pbIn_use 13
 M	Constructor 10
 M	Delete 29
 M	AppendDesc 12962
@@ -48952,8 +48955,8 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viDefense_bonus 43
-Y	vrName 12
-Y	vrDesc 13
+Y	vrName 14
+Y	vrDesc 15
 M	GetDefenseBonus 12934
 M	NewUsed 12983
 P		what 10002
@@ -48980,8 +48983,8 @@ V	vrRealDesc 42
 V	vrUseMessage 43
 V	vrDeadMessage 44
 V	viRevealedColor 40
-Y	piResistanceType 14
-Y	piResistanceChange 15
+Y	piResistanceType 16
+Y	piResistanceChange 17
 C ColdRing 11518 16158 ResistRing
 R	ColdRing_name_rsc 31914
 R	ColdRing_desc_rsc 31915
@@ -48992,8 +48995,8 @@ V	vrRealDesc 42
 V	vrUseMessage 43
 V	vrDeadMessage 44
 V	viRevealedColor 40
-Y	piResistanceType 14
-Y	piResistanceChange 15
+Y	piResistanceType 16
+Y	piResistanceChange 17
 C FireRing 11517 16158 ResistRing
 R	FireRing_name_rsc 31918
 R	FireRing_desc_rsc 31919
@@ -49004,8 +49007,8 @@ V	vrRealDesc 42
 V	vrUseMessage 43
 V	vrDeadMessage 44
 V	viRevealedColor 40
-Y	piResistanceType 14
-Y	piResistanceChange 15
+Y	piResistanceType 16
+Y	piResistanceChange 17
 C ShockRing 11516 16158 ResistRing
 R	ShockRing_name_rsc 31922
 R	ShockRing_desc_rsc 31923
@@ -49016,8 +49019,8 @@ V	vrRealDesc 42
 V	vrUseMessage 43
 V	vrDeadMessage 44
 V	viRevealedColor 40
-Y	piResistanceType 14
-Y	piResistanceChange 15
+Y	piResistanceType 16
+Y	piResistanceChange 17
 C HealWand 11509 11914 Rod
 R	healWand_name_rsc 31926
 R	healWand_desc_rsc 31927
@@ -49031,8 +49034,8 @@ V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
 V	viInventory_group 21
-Y	piHeal_min 14
-Y	piHeal_max 15
+Y	piHeal_min 16
+Y	piHeal_max 17
 M	CastSpell 14073
 C VampireWand 11508 11914 Rod
 R	vampireRod_name_rsc 31930
@@ -49075,7 +49078,7 @@ V	vrFailSound 47
 V	vrFail 46
 V	vrSuccess 48
 V	vrSuccessSound 49
-Y	piSpellpower 14
+Y	piSpellpower 16
 M	CastSpell 14073
 C SpellRod 16161 11914 Rod
 R	SpellWand_name_rsc 31942
@@ -49084,8 +49087,8 @@ R	SpellWand_icon_rsc 31944
 V	vrName 0
 V	vrIcon 1
 V	vrGoodDesc 44
-Y	piSpellNum 14
-Y	piSpellpower 15
+Y	piSpellNum 16
+Y	piSpellpower 17
 M	CastSpell 14073
 M	FullyRecharge 14966
 C ShieldRod 11670 11914 Rod
@@ -49135,8 +49138,8 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viStartMaxHits 42
 V	viConsumesHits 43
-Y	piSpellNum 14
-Y	piSpellpower 15
+Y	piSpellNum 16
+Y	piSpellpower 17
 C BlessRod 11506 16161 SpellRod
 R	BlessRod_name_rsc 31957
 R	BlessRod_icon_rsc 31958
@@ -49145,8 +49148,8 @@ V	vrIcon 1
 V	viGround_group 20
 V	viInventory_group 21
 V	viConsumesHits 43
-Y	piSpellNum 14
-Y	piSpellpower 15
+Y	piSpellNum 16
+Y	piSpellpower 17
 C SuperStrengthRod 11505 16161 SpellRod
 R	SuperStrengthRod_name_rsc 31959
 R	SuperStrengthRod_icon_rsc 31960
@@ -49155,8 +49158,8 @@ V	vrIcon 1
 V	viGround_group 20
 V	viInventory_group 21
 V	viConsumesHits 43
-Y	piSpellNum 14
-Y	piSpellpower 15
+Y	piSpellNum 16
+Y	piSpellpower 17
 C DetectInvisibleRod 11504 16161 SpellRod
 R	DetectInvisibleRod_name_rsc 31961
 R	DetectInvisibleRod_icon_rsc 31962
@@ -49165,8 +49168,8 @@ V	vrIcon 1
 V	viGround_group 20
 V	viInventory_group 21
 V	viConsumesHits 43
-Y	piSpellNum 14
-Y	piSpellpower 15
+Y	piSpellNum 16
+Y	piSpellpower 17
 C RoomKey 11406 11405 RoomKeyCopy
 R	RoomKey_name_rsc 31963
 R	RoomKey_desc_rsc 31964
@@ -49180,7 +49183,7 @@ V	vrDesc 2
 V	viBulk 5
 V	viWeight 6
 V	viValue_average 19
-Y	plCopies 13
+Y	plCopies 15
 M	Delete 29
 M	ReqNewOwner 10090
 P		what 10002
@@ -49225,12 +49228,12 @@ V	vbNoBrokenView 54
 V	viGround_Group 20
 V	viHits_init_min 17
 V	viHits_init_max 18
-Y	vrName 12
-Y	vrIcon 25
-Y	vrBroken 26
-Y	piMinSpellPower 17
-Y	piMaxSpellPower 18
-Y	piGoBadTime 16
+Y	vrName 14
+Y	vrIcon 27
+Y	vrBroken 28
+Y	piMinSpellPower 19
+Y	piMaxSpellPower 20
+Y	piGoBadTime 18
 M	Constructor 10
 P		maker 15832
 M	IsBeverage 14009
@@ -49277,8 +49280,8 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viHits_init_min 17
 V	viHits_init_max 18
-Y	vrName 12
-Y	piGoBadTime 16
+Y	vrName 14
+Y	piGoBadTime 18
 M	DoFailure 16074
 P		what 10002
 C Wand 11924 13130 SpellItem
@@ -49312,10 +49315,10 @@ V	viInventory_group 21
 V	vbNoBrokenView 54
 V	viHits_init_min 17
 V	viHits_init_max 18
-Y	vrName 12
-Y	vrDesc 25
+Y	vrName 14
+Y	vrDesc 27
 Y	viObject_flags 6
-Y	piGoBadTime 16
+Y	piGoBadTime 18
 M	CastSpell 14073
 P		what 10002
 P		apply_on 10143
@@ -49362,7 +49365,7 @@ V	viSpellEffect 42
 V	viPoisonPercent 57
 V	viGoBadDamage 58
 V	viColor 43
-Y	pbCheckKarma 23
+Y	pbCheckKarma 25
 C CurePoisonPotion 11528 11923 Potion
 R	CurePoisonPotion_name_rsc 32016
 R	CurePoisonPotion_desc_rsc 32017
@@ -49466,7 +49469,7 @@ V	viSpellEffect 42
 V	viPoisonPercent 57
 V	viGoBadDamage 58
 V	viColor 43
-Y	vrName 12
+Y	vrName 14
 C DeflectPotion 11541 11923 Potion
 R	DeflectPotion_name_rsc 32040
 R	DeflectPotion_desc_rsc 32041
@@ -49598,8 +49601,8 @@ V	viUse_type 14
 V	viPoisonPercent 57
 V	viGoBadDamage 58
 V	viColor 43
-Y	vrName 12
-Y	vrIcon 25
+Y	vrName 14
+Y	vrIcon 27
 Y	piItem_flags 10
 C KaraholsCursePotion 11535 11923 Potion
 R	KaraholsCursePotion_name_rsc 32066
@@ -49822,7 +49825,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C LightScroll 15940 11925 Scroll
 R	LightScroll_label_name_rsc 32108
 R	LightScroll_desc_rsc 32109
@@ -49832,7 +49835,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C DarknessScroll 11471 11925 Scroll
 R	DarknessScroll_label_name_rsc 32111
 R	DarknessScroll_desc_rsc 32112
@@ -49842,7 +49845,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C DiscordScroll 11472 11925 Scroll
 R	DiscordScroll_label_name_rsc 32114
 R	DiscordScroll_desc_rsc 32115
@@ -49852,7 +49855,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C DispellIllusionScroll 11473 11925 Scroll
 R	DispellIllusionScroll_label_name_rsc 32117
 R	DispellIllusionScroll_desc_rsc 32118
@@ -49862,7 +49865,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C EarthquakeScroll 16163 11925 Scroll
 R	EarthquakeScroll_label_name_rsc 32120
 R	EarthquakeScroll_desc_rsc 32121
@@ -49873,7 +49876,7 @@ V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
 V	vbDisabled 55
-Y	vrDesc 25
+Y	vrDesc 27
 C FinalRitesScroll 11474 11925 Scroll
 R	FinalRitesScroll_label_name_rsc 32123
 R	FinalRitesScroll_desc_rsc 32124
@@ -49883,7 +49886,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C FlashScroll 11475 11925 Scroll
 R	FlashScroll_label_name_rsc 32126
 R	FlashScroll_desc_rsc 32127
@@ -49893,7 +49896,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C HeatScroll 11476 11925 Scroll
 R	HeatScroll_label_name_rsc 32129
 R	HeatScroll_desc_rsc 32130
@@ -49903,7 +49906,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C KillingFieldScroll 11477 11925 Scroll
 R	KillingFieldScroll_label_name_rsc 32132
 R	KillingFieldScroll_desc_rsc 32133
@@ -49913,7 +49916,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C summonpoisonfogScroll 11479 11925 Scroll
 R	summonpoisonfogscroll_label_name_rsc 32135
 R	summonpoisonfogScroll_desc_rsc 32136
@@ -49923,7 +49926,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C SporeBurstScroll 11480 11925 Scroll
 R	SporeBurstScroll_label_name_rsc 32138
 R	SporeBurstScroll_desc_rsc 32139
@@ -49933,7 +49936,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C TruceScroll 11481 11925 Scroll
 R	TruceScroll_label_name_rsc 32141
 R	TruceScroll_desc_rsc 32142
@@ -49943,7 +49946,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C WindScroll 11482 11925 Scroll
 R	WindScroll_label_name_rsc 32144
 R	WindScroll_desc_rsc 32145
@@ -49953,7 +49956,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C LoadoutScroll 11484 11925 Scroll
 R	LoadoutScroll_label_name_rsc 32147
 R	LoadoutScroll_desc_rsc 32148
@@ -49964,7 +49967,7 @@ V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
 V	viValue_average 19
-Y	vrDesc 25
+Y	vrDesc 27
 M	DropOnDeath 13026
 C SetScroll 11483 11925 Scroll
 R	SetScroll_label_name_rsc 32150
@@ -49976,7 +49979,7 @@ V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
 V	viValue_average 19
-Y	vrDesc 25
+Y	vrDesc 27
 M	DropOnDeath 13026
 C MirthScroll 11485 11925 Scroll
 R	MirthScroll_label_name_rsc 32153
@@ -49987,7 +49990,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 M	Constructed 10065
 C MelancholyScroll 11486 11925 Scroll
 R	MelancholyScroll_label_name_rsc 32156
@@ -49998,7 +50001,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 M	Constructed 10065
 C BlindWand 11496 11924 Wand
 R	BlindWand_label_name_rsc 32159
@@ -50008,7 +50011,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C HoldWand 11497 11924 Wand
 R	HoldWand_label_name_rsc 32162
 R	HoldWand_desc_rsc 32163
@@ -50017,7 +50020,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C BrittleWand 11499 11924 Wand
 R	BrittleWand_label_name_rsc 32165
 R	BrittleWand_desc_rsc 32166
@@ -50026,7 +50029,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C BonkStick 11487 11924 Wand
 R	BonkStick_name_rsc 32168
 R	BonkStick_desc_rsc 32169
@@ -50042,9 +50045,9 @@ V	viGround_group 20
 V	viValue_average 19
 V	viHits_init_min 17
 V	viHits_init_max 18
-Y	vrDesc 25
-Y	pbCanSplit 24
-Y	piSpellPower 13
+Y	vrDesc 27
+Y	pbCanSplit 26
+Y	piSpellPower 15
 M	Constructor 10
 M	ReqNewApply 14618
 P		what 10002
@@ -50058,7 +50061,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C MarkOfDishonorWand 11493 11924 Wand
 R	MarkOfDishonorWand_label_name_rsc 32176
 R	MarkOfDishonorWand_desc_rsc 32177
@@ -50067,7 +50070,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C EnfeebleWand 11498 11924 Wand
 R	EnfeebleWand_label_name_rsc 32179
 R	EnfeebleWand_desc_rsc 32180
@@ -50076,7 +50079,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C ForgetWand 11502 11924 Wand
 R	ForgetWand_label_name_rsc 32182
 R	ForgetWand_desc_rsc 32183
@@ -50085,14 +50088,14 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C HospiceWand 11500 11924 Wand
 R	HospiceWand_label_name_rsc 32185
 R	HospiceWand_desc_rsc 32186
 V	vrLabelName 41
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C IdentifyWand 11495 11924 Wand
 R	IdentifyWand_label_name_rsc 32187
 R	IdentifyWand_desc_rsc 32188
@@ -50101,14 +50104,14 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C PurifyWand 11492 11924 Wand
 R	PurifyWand_label_name_rsc 32190
 R	PurifyWand_desc_rsc 32191
 V	vrLabelName 41
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C SeduceWand 11491 11924 Wand
 R	SeduceWand_label_name_rsc 32192
 R	SeduceWand_desc_rsc 32193
@@ -50117,7 +50120,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C ShatterWand 11490 11924 Wand
 R	ShatterWand_label_name_rsc 32195
 R	ShatterWand_desc_rsc 32196
@@ -50128,9 +50131,9 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
-Y	viHits_init_min 26
-Y	viHits_init_max 27
+Y	vrDesc 27
+Y	viHits_init_min 28
+Y	viHits_init_max 29
 C SwapWand 11488 11924 Wand
 R	SwapWand_label_name_rsc 32198
 R	SwapWand_desc_rsc 32199
@@ -50139,7 +50142,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C LightningWand 11494 11924 Wand
 R	LightningWand_label_name_rsc 32201
 R	LightningWand_desc_rsc 32202
@@ -50148,7 +50151,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C SlitherWand 11489 11924 Wand
 R	SlitherWand_label_name_rsc 32204
 R	SlitherWand_desc_rsc 32205
@@ -50157,7 +50160,7 @@ V	vrLabelName 41
 V	vrIcon 1
 V	viSpellEffect 42
 V	viColor 43
-Y	vrDesc 25
+Y	vrDesc 27
 C PotionSplitter 11429 16083 SpellItemSplitter
 R	PotionSplitter_name_rsc 32207
 R	PotionSplitter_desc_rsc 32208
@@ -50348,7 +50351,7 @@ V	viBroken_group 22
 V	vrWeapon_window_overlay 43
 V	vrWeapon_overlay 47
 V	viRange 52
-Y	piAttack_type 12
+Y	piAttack_type 14
 C MysticSword 11663 11912 Weapon
 R	mysticsword_name_rsc 32258
 R	mysticsword_desc_rsc 32259
@@ -50370,7 +50373,7 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
 V	viRange 52
-Y	piAttack_type 12
+Y	piAttack_type 14
 C Mace 11669 11912 Weapon
 R	mace_name_rsc 32263
 R	mace_desc_rsc 32264
@@ -50391,7 +50394,7 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
+Y	piAttack_type 14
 C BlackDagger 12139 11912 Weapon
 R	BlackDagger_name_rsc 32268
 R	BlackDagger_desc_rsc 32269
@@ -50437,16 +50440,16 @@ V	viBroken_group 22
 V	viBulk 5
 V	viWeight 6
 V	viItem_type 15
-Y	piAttack_type 12
-Y	piNotches 17
-Y	piPlayer_hits 18
-Y	piDagger_hits 19
-Y	piShiver 20
-Y	pbWarned 21
-Y	ptPlayer_heal 22
-Y	ptDagger_heal 23
-Y	ptShiver 24
-Y	piTime_Online 25
+Y	piAttack_type 14
+Y	piNotches 18
+Y	piPlayer_hits 19
+Y	piDagger_hits 20
+Y	piShiver 21
+Y	pbWarned 22
+Y	ptPlayer_heal 23
+Y	ptDagger_heal 24
+Y	ptShiver 25
+Y	piTime_Online 26
 M	UserLogon 2
 M	Delete 29
 M	ShowDesc 10069
@@ -50510,10 +50513,10 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
-Y	ptLongevity 17
+Y	piAttack_type 14
+Y	ptLongevity 18
 Y	piItem_flags 10
-Y	piHitBonus 15
+Y	piHitBonus 17
 M	Constructor 10
 P		iLongevity 15819
 P		iToHitBonus 15820
@@ -50549,7 +50552,7 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
+Y	piAttack_type 14
 C LongSword 11665 11912 Weapon
 R	longsword_name_rsc 32312
 R	longsword_desc_rsc 32313
@@ -50571,7 +50574,7 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
 V	viRange 52
-Y	piAttack_type 12
+Y	piAttack_type 14
 C Hammer 11668 11912 Weapon
 R	hammer_name_rsc 32317
 R	hammer_desc_rsc 32318
@@ -50592,7 +50595,7 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
+Y	piAttack_type 14
 C RangedWeapon 13197 11912 Weapon
 R	ranged_desc_rsc 32322
 R	ranged_wrong_ammo_rsc 32323
@@ -50607,7 +50610,7 @@ V	viUse_Amount 16
 V	vrDesc 2
 V	viWeaponDamage 55
 V	viRange 52
-Y	piAttack_Type 12
+Y	piAttack_Type 14
 M	GetHitBonus 12932
 M	GetMinDamage 12936
 M	GetMaxDamage 12937
@@ -50652,7 +50655,7 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
+Y	piAttack_type 14
 C GoldSword 11660 11912 Weapon
 R	goldsword_name_rsc 32330
 R	goldsword_desc_rsc 32331
@@ -50676,7 +50679,7 @@ V	viBroken_group 22
 V	viMin_damage 53
 V	viMax_damage 54
 V	viRange 52
-Y	piAttack_type 12
+Y	piAttack_type 14
 M	GetMinDamage 12936
 M	GetMaxDamage 12937
 M	GetMinSpecialDamage 12940
@@ -50711,8 +50714,8 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
 V	viRange 52
-Y	piAttack_type 12
-Y	poQuester 17
+Y	piAttack_type 14
+Y	poQuester 18
 M	Constructor 10
 P		quester 14482
 M	Delete 29
@@ -50753,8 +50756,8 @@ V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
 V	viRange 52
-Y	piAttack_type 12
-Y	piAttack_Spell 13
+Y	piAttack_type 14
+Y	piAttack_Spell 15
 M	DoShatter 13013
 M	WeaponBroke 16103
 M	ShatterToShards 16132
@@ -50797,8 +50800,8 @@ V	viHits_init_min 17
 V	viHits_init_max 18
 V	viItem_type 15
 V	viRange 52
-Y	plStatmods 17
-Y	pbIn_use 18
+Y	plStatmods 18
+Y	pbIn_use 13
 Y	pbWarned 19
 Y	piHunger 20
 Y	piFineHunger 21
@@ -50807,8 +50810,8 @@ Y	ptHoldingDamage 23
 Y	piHoldingDamageInterval 24
 Y	piHpWorthyThreshold 25
 Y	piKarmaWorthyThreshold 26
-Y	piAttack_type 12
-Y	piAttack_Spell 13
+Y	piAttack_type 14
+Y	piAttack_Spell 15
 Y	pbCounted 27
 Y	pbCheapDeath 28
 M	Constructor 10
@@ -50881,9 +50884,9 @@ V	viBroken_group 22
 V	viItem_type 15
 V	vrWeapon_window_overlay 43
 V	vrWeapon_overlay 47
-Y	piAttack_type 12
-Y	pbNewlyCreated 17
-Y	piHitBonus 15
+Y	piAttack_type 14
+Y	pbNewlyCreated 18
+Y	piHitBonus 17
 M	Constructor 10
 P		corpse 12359
 M	ReqNewOwner 10090
@@ -50921,12 +50924,12 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
-Y	piBaseDamage 17
-Y	piRange 18
-Y	piDisarmBonus 19
-Y	piSpellModifier 20
-Y	viProficiency_Needed 21
+Y	piAttack_type 14
+Y	piBaseDamage 18
+Y	piRange 19
+Y	piDisarmBonus 20
+Y	piSpellModifier 21
+Y	viProficiency_Needed 22
 M	GetRange 12931
 M	GetMinDamage 12936
 M	GetMaxDamage 12937
@@ -50965,10 +50968,10 @@ V	vrWeapon_overlay 47
 V	viGround_group 20
 V	viInventory_group 21
 V	viBroken_group 22
-Y	piAttack_type 12
-Y	ptLongevity 17
+Y	piAttack_type 14
+Y	ptLongevity 18
 Y	piItem_flags 10
-Y	piHitBonus 15
+Y	piHitBonus 17
 M	Constructor 10
 P		iLongevity 15819
 P		iToHitBonus 15820
@@ -51008,11 +51011,11 @@ V	viBulk 5
 V	viWeight 6
 V	viSpell_modifier 23
 V	viBaseXLAT 56
-Y	prBowTop 17
-Y	prBowBottom 18
-Y	prBowOverlay 19
-Y	vrWeapon_window_overlay 20
-Y	vrWeapon_overlay 21
+Y	prBowTop 18
+Y	prBowBottom 19
+Y	prBowOverlay 20
+Y	vrWeapon_window_overlay 21
+Y	vrWeapon_overlay 22
 M	Constructor 10
 M	ReqUseSomething 12982
 P		what 10002
@@ -51099,11 +51102,11 @@ V	vrDesc 2
 V	viValue_average 19
 V	viBulk 5
 V	viWeight 6
-Y	viWeaponDamage 22
-Y	viRange 23
-Y	viHit_roll_modifier 24
-Y	viBaseXLAT 25
-Y	piAttack_Type 12
+Y	viWeaponDamage 23
+Y	viRange 24
+Y	viHit_roll_modifier 25
+Y	viBaseXLAT 26
+Y	piAttack_Type 14
 M	SetColor 15081
 P		iColor 13576
 C NeruditeBow 11655 14835 Bow
@@ -51123,7 +51126,7 @@ V	viHits_init_min 17
 V	viHits_init_max 18
 V	viSpell_modifier 23
 V	viBaseXLAT 56
-Y	piAttack_Type 12
+Y	piAttack_Type 14
 M	DoShatter 13013
 M	WeaponBroke 16103
 M	ShatterToShards 16132
@@ -51143,8 +51146,8 @@ V	viBaseXLAT 56
 V	viWeaponDamage 55
 V	viRange 52
 V	viHit_roll_modifier 54
-Y	piAttack_Type 12
-Y	piAttack_spell 13
+Y	piAttack_Type 14
+Y	piAttack_spell 15
 M	ReqUse 12986
 M	DoShatter 13013
 M	WeaponBroke 16103
@@ -51177,9 +51180,9 @@ R	lore_tosapoth_desc_7_rsc 32427
 R	lore_tosapoth_text_7_rsc 32428
 V	vrIcon 1
 V	viTotalBooks 41
-Y	vrName 13
-Y	vrDesc 14
-Y	prText 15
+Y	vrName 15
+Y	vrDesc 16
+Y	prText 17
 M	SetBookContents 16127
 C LoreHist1 11417 16126 LoreBook
 R	lore_hist1_icon_rsc 32429
@@ -51221,7 +51224,7 @@ R	lore_hist1_desc_11_rsc 32464
 R	lore_hist1_text_11_rsc 32465
 V	vrIcon 1
 V	viTotalBooks 41
-Y	vrName 13
-Y	vrDesc 14
-Y	prText 15
+Y	vrName 15
+Y	vrDesc 16
+Y	prText 17
 M	SetBookContents 16127
