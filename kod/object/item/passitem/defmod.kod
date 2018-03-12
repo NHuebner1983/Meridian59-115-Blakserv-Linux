@@ -43,10 +43,22 @@ properties:
 
 messages:
 
+   ReqUse()
+   {
+	   piUsed = 1;
+	   
+	   return TRUE;
+   }
+   
+   ReqUnuse()
+   {
+	   piUsed = 2;
+	   
+	   return TRUE;
+   }
+
    ReqUseSomething(what = $)
    {
-  	  piUsed = 1;
-	  
       if IsClass(what,&DefenseModifier)
          AND (Send(what,@GetItemUseType) & Send(self,@GetItemUseType)
               OR Send(self,@GetItemUseType) & Send(what,@GetItemUseType))
@@ -58,12 +70,10 @@ messages:
          }
          else
          {
-			piUsed = 2;
-			
             return FALSE;
          }
       }
-	
+
       propagate;
    }
 

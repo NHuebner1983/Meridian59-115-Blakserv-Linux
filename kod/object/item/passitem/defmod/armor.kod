@@ -50,14 +50,14 @@ classvars:
 
    // Armor goes over layer 0 items such as shirts
    viLayer = 1
-
+   
 properties:
 
    // If set to true, armor can be colored.
    pbColored = FALSE
 
 messages:
-
+   
    ReqRepair()
    {
       return TRUE;

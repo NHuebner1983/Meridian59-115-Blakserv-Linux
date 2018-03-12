@@ -139,7 +139,7 @@ properties:
    // Support for players, monsters, and items
    plRadiusEnchantments = $
 
-   piUsed = 0
+   piUsed = 2
    
    pbIn_use = FALSE
    
