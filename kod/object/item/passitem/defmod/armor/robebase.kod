@@ -130,7 +130,16 @@ messages:
 
    ReqUse()
    {
-      return (NOT Send(Send(SYS,@GetWarEvent),@IsActive));
+	  piUsed = 1;
+	  
+	  pbIn_use = (NOT Send(Send(SYS,@GetWarEvent),@IsActive));
+	  
+	  if NOT pbIn_use
+	  {
+		  piUsed = 2;
+	  }
+   
+   	  return pbIn_use;
    }
 
    HasSkinTones()

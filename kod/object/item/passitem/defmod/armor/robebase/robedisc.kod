@@ -25,10 +25,8 @@ resources:
    RobeInsignia_name_rsc = "robes of the disciple"
    RobeInsignia_icon_rsc = Robe.bgf
    RobeInsignia_desc_rsc = \
-      "Heavy and warm, disciple robes typically denote a fervent (and some "
-      "would say unhealthy) dedication to one school or another.   These robes "
-      "bear the insignia of %s and will give bonuses to spells in that school."
-
+      "Dedicated to the school of %s."
+	  
    disciplerobe_riija_female = emblm-rf.bgf
    disciplerobe_riija_male = emblm-rm.bgf
    disciplerobe_faren_female = emblm-ff.bgf
@@ -50,7 +48,7 @@ classvars:
    viGround_group = 1
    viInventory_group = 2
    viBroken_group = 3
-   viSpell_modifier = 10
+   viSpell_modifier = 30
    viBulk = 160
    viWeight = 130
    viValue_average = 2000

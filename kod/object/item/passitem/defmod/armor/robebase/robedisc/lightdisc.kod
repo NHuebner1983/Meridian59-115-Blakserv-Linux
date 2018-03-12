@@ -25,11 +25,8 @@ resources:
    LightRobeDiscipleInsignia_name_rsc = "light robes of the disciple"
    LightRobeDiscipleInsignia_icon_rsc = ltrobe.bgf
    LightRobeDiscipleInsignia_desc_rsc = \
-      "Light and comfortable, these disciple robes typically denote a "
-      "fervent (and some would say unhealthy) dedication to one school or "
-      "another.  These robes bear the insignia of %s and will give bonuses "
-      "to spells in that school."
-
+      "Dedicated to the school of %s."
+	  
 classvars:
 
    vrName = LightRobeDiscipleInsignia_name_rsc

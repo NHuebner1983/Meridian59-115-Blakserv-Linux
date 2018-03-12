@@ -28,6 +28,20 @@ properties:
 
 messages:
 
+   ReqUse()
+   {
+	   piUsed = 1;
+	   
+	   return TRUE;
+   }
+   
+   ReqUnuse()
+   {
+	   piUsed = 2;
+
+	   return TRUE;
+   }
+
    GetInstrumentLevel()
    {
       return viInstrument_strength;
