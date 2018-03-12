@@ -51130,6 +51130,33 @@ M	ReqUnuse 12989
 M	HasSkinTones 13070
 M	ItemChangesArms 13085
 C Robe 11638 16101 RobeBase
+C LightRobe 11637 16101 RobeBase
+R	lightrobe_name_rsc 30980
+R	lightrobe_desc_rsc 30981
+R	lightrobe_icon_rsc 30982
+R	lightrobe_male_icon_rsc 30983
+R	lightrobe_female_icon_rsc 30984
+R	lightrobe_legs_male 30985
+R	lightrobe_legs_female 30986
+V	vrName 0
+V	vrIcon 1
+V	vrDesc 2
+V	vrBroken_rsc 44
+V	vrItem_broken 12
+V	viHits_init_min 17
+V	viHits_init_max 18
+V	viValue_average 19
+V	viWeight 6
+V	viBulk 5
+V	vrIcon_male 24
+V	vrIcon_female 25
+V	vrLeftarm_male 26
+V	vrRightarm_male 28
+V	vrLeftarm_female 27
+V	vrRightarm_female 29
+V	vrLegs_male 30
+V	vrLegs_female 31
+M	ItemChangesArms 13085
 C DiscipleRobe 11636 16101 RobeBase
 R	RobeInsignia_name_rsc 30965
 R	RobeInsignia_desc_rsc 30966
@@ -51196,33 +51223,6 @@ P		school 10417
 P		bRefresh 16135
 M	SetXLATTranslation 16134
 P		translation 12928
-C LightRobe 11637 16101 RobeBase
-R	lightrobe_name_rsc 30980
-R	lightrobe_desc_rsc 30981
-R	lightrobe_icon_rsc 30982
-R	lightrobe_male_icon_rsc 30983
-R	lightrobe_female_icon_rsc 30984
-R	lightrobe_legs_male 30985
-R	lightrobe_legs_female 30986
-V	vrName 0
-V	vrIcon 1
-V	vrDesc 2
-V	vrBroken_rsc 44
-V	vrItem_broken 12
-V	viHits_init_min 17
-V	viHits_init_max 18
-V	viValue_average 19
-V	viWeight 6
-V	viBulk 5
-V	vrIcon_male 24
-V	vrIcon_female 25
-V	vrLeftarm_male 26
-V	vrRightarm_male 28
-V	vrLeftarm_female 27
-V	vrRightarm_female 29
-V	vrLegs_male 30
-V	vrLegs_female 31
-M	ItemChangesArms 13085
 C LightDiscipleRobe 11635 11636 DiscipleRobe
 R	LightRobeDiscipleInsignia_name_rsc 30987
 R	LightRobeDiscipleInsignia_desc_rsc 30988

@@ -93,10 +93,10 @@ messages:
    {
       if Send(oSpell,@GetSchool) = piSchool
       {
-         return Bound(4 * piLevel,5, viSpell_modifier);
+         return (piLevel * 5) + 5;
       }
 
-      return 5;
+      return viSpell_modifier;
     }
 
    SetXLATTranslation(translation=$)
