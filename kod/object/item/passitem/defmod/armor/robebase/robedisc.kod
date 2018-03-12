@@ -93,7 +93,7 @@ messages:
    {
       if Send(oSpell,@GetSchool) = piSchool
       {
-         return Bound(4 * piLevel,5,20);
+         return Bound(4 * piLevel,5, viSpell_modifier);
       }
 
       return 5;
@@ -229,18 +229,21 @@ messages:
    {
       local i, oItemAtt;
 
-      // Check to be sure nothing in ItemAtts disallows this.
+      piUsed = 1;
+	  
+	  // Check to be sure nothing in ItemAtts disallows this.
       foreach i in plItem_Attributes
       {
          oItemAtt = Send(SYS,@FindItemAttByNum,
                         #num=Send(self,@GetNumFromCompound,#compound=First(i)));
          if NOT Send(oItemAtt,@ItemReqUse,#oItem=self,#oPlayer=poOwner)
          {
+			piUsed = 2;
             return FALSE;
          }
       }
 
-      return TRUE;
+  	  return TRUE;
    }
 
    NewUsed()

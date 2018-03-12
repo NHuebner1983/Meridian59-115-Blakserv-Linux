@@ -142,6 +142,15 @@ messages:
    	  return pbIn_use;
    }
 
+   ReqUnuse()
+   {
+       piUsed = 2;
+	   
+	   pbIn_use = FALSE;
+	   
+	   return TRUE;
+   }
+   
    HasSkinTones()
    {
       return TRUE;
