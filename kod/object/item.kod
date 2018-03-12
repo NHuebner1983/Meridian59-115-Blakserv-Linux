@@ -1578,7 +1578,7 @@ messages:
    ReqDMDelete()
    "Only delete if not used."
    {
-      return (NOT pbUsed);
+      return (piUsed <> 1);
    }
 
    // An item can format a text effect for players in the room to see,
