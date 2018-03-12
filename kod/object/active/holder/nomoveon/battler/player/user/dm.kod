@@ -2762,36 +2762,37 @@ messages:
       return;
    }
 
-   GetOneOfEach(type=ITEMTYPE_MISC,school=0)
-   {
-      local lTemplate, i, iNumber;
+	GetOneOfEach(type=ITEMTYPE_MISC,school=0)
+	{
+		local lTemplate, i, iNumber;
 
-      iNumber = 100;
-      if type = ITEMTYPE_MONEY
-      {
-         iNumber = 5000000;
-      }
+		iNumber = 100;
+		
+		if type = ITEMTYPE_MONEY
+		{
+			iNumber = 5000000;
+		}
 
-      lTemplate = Send(SYS,@GetItemTemplates);
-      foreach i in lTemplate
-      {
-		 if type = ITEMTYPE_ROBE
-		 {
-			 Send(self,@NewHold,#what=Create(&DiscipleRobe,#school=school));
-		 }
-		 else
-		 {
-			 if Send(i,@IsItemType,#type=type)
+		if type = ITEMTYPE_ROBE
+		{
+			Send(self,@NewHold,#what=Create(&DiscipleRobe,#school=school));
+		}
+		else
+		{
+			lTemplate = Send(SYS,@GetItemTemplates);
+			foreach i in lTemplate
+			{
+				if Send(i,@IsItemType,#type=type)
 				AND NOT Send(i,@IsItemType,#type=ITEMTYPE_SPECIAL)
-			 {
-				Send(self,@NewHold,#what=Create(GetClass(i),#number=iNumber,
-											  #oDMCreator=self));
-			 }
-		 }
-      }
-
-      return;
-   }
+				{
+					Send(self,@NewHold,#what=Create(GetClass(i),#number=iNumber,
+					#oDMCreator=self));
+				}
+			}
+		}
+		
+		return;
+	}
 
    IsHuntable()
    {
