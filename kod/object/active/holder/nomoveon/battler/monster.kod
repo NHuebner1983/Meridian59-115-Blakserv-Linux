@@ -5519,6 +5519,29 @@ messages:
       }
 
       iQuestHistory = First(Send(who,@GetQuestHistory,#index=viQuestID));
+	  
+	  if (QUEST_HISTORY_SUCCESS & iQuestHistory)
+	  {
+		  // Give a disciple robe for completing disciple quests.
+		  
+		  if viQuestID = QST_ID_SHALILLE_DISCIPLE
+		  {
+			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_SHALILLE);
+		  }
+		  if viQuestID = QST_ID_KRAANAN_DISCIPLE
+		  {
+			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_KRAANAN);
+		  }
+		  if viQuestID = QST_ID_FAREN_DISCIPLE
+		  {
+			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_FAREN);
+		  }
+		  if viQuestID = QST_ID_QOR_DISCIPLE
+		  {
+			  Send(who,@NewHold,#what=&DiscipleRobe,#school=SS_QOR);
+		  }
+	  }
+	  
       return (QUEST_HISTORY_SUCCESS & iQuestHistory);
    }
 

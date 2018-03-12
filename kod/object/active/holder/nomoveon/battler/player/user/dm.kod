@@ -89,6 +89,7 @@ resources:
    dm_none = "none"
    dm_clear_abilities_command = "clear abilities"
    dm_clear_inventory_command = "clear inventory"
+   dm_get_robes_command = "get robes"
    dm_get_spells_command = "get spells"
    dm_get_skills_command = "get skills"
    dm_get_money_command = "get money"
@@ -2676,6 +2677,15 @@ messages:
 
    GetAllOfItem(string=$)
    {
+	  if StringEqual(string,dm_get_robes_command)
+      {
+         Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_JALA);
+         Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_FAREN);
+         Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_KRAANAN);
+         Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_QOR);
+         Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_SHALILLE);
+         Send(self,@GetOneOfEach,#type=ITEMTYPE_ROBE,#school=SS_RIIJA);
+      }
       if StringEqual(string,dm_get_misc_command)
       {
          Send(self,@GetOneOfEach,#type=ITEMTYPE_MISC);
@@ -2752,14 +2762,14 @@ messages:
       return;
    }
 
-   GetOneOfEach(type=ITEMTYPE_MISC)
+   GetOneOfEach(type=ITEMTYPE_MISC,school=0)
    {
       local lTemplate, i, iNumber;
 
       iNumber = 100;
       if type = ITEMTYPE_MONEY
       {
-         iNumber = 250000;
+         iNumber = 5000000;
       }
 
       lTemplate = Send(SYS,@GetItemTemplates);

@@ -52,6 +52,7 @@ classvars:
    viBulk = 160
    viWeight = 130
    viValue_average = 2000
+   viItem_Type = ITEMTYPE_ARMOR | ITEMTYPE_ROBE
 
 properties:
 
@@ -93,10 +94,10 @@ messages:
    {
       if Send(oSpell,@GetSchool) = piSchool
       {
-         return (piLevel * 5) + 5;
+         return Bound(6 * piLevel, 15, 35);
       }
 
-      return viSpell_modifier;
+      return 5;
     }
 
    SetXLATTranslation(translation=$)
