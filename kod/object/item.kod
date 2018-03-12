@@ -1576,9 +1576,9 @@ messages:
    }
 
    ReqDMDelete()
-   "Will this item be deleted by a DM Clear Inventory command?"
+   "Only delete if not used."
    {
-      return TRUE;
+      return (NOT pbUsed);
    }
 
    // An item can format a text effect for players in the room to see,

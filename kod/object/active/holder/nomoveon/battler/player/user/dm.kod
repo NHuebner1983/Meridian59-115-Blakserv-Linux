@@ -1179,7 +1179,7 @@ messages:
       {
          foreach i in plActive
          {
-			if Send(i,@ReqDMDelete) AND NOT Send(self,@FindUsing,#class=i)
+            if Send(i,@ReqDMDelete)
             {
                Send(i,@Delete);
             }
@@ -1187,7 +1187,7 @@ messages:
 
          foreach i in plPassive
          {
-            if Send(i,@ReqDMDelete) AND NOT Send(self,@FindUsing,#class=i)
+            if Send(i,@ReqDMDelete)
             {
                Send(i,@Delete);
             }
