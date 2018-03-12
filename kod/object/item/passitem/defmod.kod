@@ -45,6 +45,8 @@ messages:
 
    ReqUseSomething(what = $)
    {
+  	  piUsed = 1;
+	  
       if IsClass(what,&DefenseModifier)
          AND (Send(what,@GetItemUseType) & Send(self,@GetItemUseType)
               OR Send(self,@GetItemUseType) & Send(what,@GetItemUseType))
@@ -56,10 +58,12 @@ messages:
          }
          else
          {
+			piUsed = 2;
+			
             return FALSE;
          }
       }
-
+	
       propagate;
    }
 
