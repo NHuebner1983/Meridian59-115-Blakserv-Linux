@@ -210,19 +210,5 @@ messages:
       return;
    }
 
-   Delete()
-   {
-		if oGhostPortal = $
-		{
-			oGhostPortal = Create(&Portal,#dest_room_num=RID_FIELD1,#dest_row=42,#dest_col=15,
-			#dest_fine_row=32, #dest_fine_col=32);
-			
-			Send(self,@NewHold,#what=oGhostPortal,#new_row=1, #new_col=4,
-			#fine_row=44,#fine_col=61,#new_angle=ANGLE_SOUTH);
-		}
-		
-		return TRUE;
-   }
-   
 end
 ////////////////////////////////////////////////////////////////////////////////

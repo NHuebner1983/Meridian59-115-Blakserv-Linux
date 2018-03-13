@@ -494,8 +494,6 @@ properties:
 
    viCurrentState = STATE_WAIT
    
-   oGhostPortal = $
-   
 messages:
 
    Constructor(template=FALSE, color=0, piSurvivalLevel=0, iBrain = 0)
