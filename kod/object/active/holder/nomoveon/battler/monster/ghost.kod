@@ -221,7 +221,7 @@ messages:
 			#fine_row=44,#fine_col=61,#new_angle=ANGLE_SOUTH);
 		}
 		
-		propagate;
+		return TRUE;
    }
    
 end
