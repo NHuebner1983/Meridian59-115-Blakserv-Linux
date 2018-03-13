@@ -67,7 +67,7 @@ classvars:
    viSpeed = SPEED_FASTER
    viAttack_type = ATCK_WEAP_MAGIC
    viAttack_spell = ATCK_SPELL_FIRE
-   viLevel = LEVEL_23_HP
+   viLevel = LEVEL_20_HP
    viDifficulty = 9
    viVisionDistance = 28
 

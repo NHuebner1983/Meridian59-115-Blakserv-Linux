@@ -15,7 +15,7 @@ constants:
    include blakston.khd
 
    // Delay before ghost pops again automatically.  About two minutes (in seconds).
-   GHOST_CYCLE = 120
+   GHOST_CYCLE = 20
 
 resources:
 
@@ -179,6 +179,24 @@ messages:
       return;
    }
 
+   SomethingKilled(what=$,victim=$)
+   {
+      if IsClass(what,&Monster) AND IsClass(victim,&Ghost)
+      {
+  	    // Show the portal to Dark Angels (currently RID_FIELD1)
+		if oGhostPortal = $
+		{
+			oGhostPortal = Create(&Portal,#dest_room_num=RID_FIELD1,#dest_row=42,#dest_col=15,
+			#dest_fine_row=32, #dest_fine_col=32);
+
+			Send(self,@NewHold,#what=oGhostPortal,#new_row=1, #new_col=4,
+			#fine_row=44,#fine_col=61,#new_angle=ANGLE_SOUTH);
+		}
+	  }
+	  
+	  propagate;
+   }
+   
    Delete()
    {
       if ptGhost <> $
@@ -190,23 +208,5 @@ messages:
       propagate;
    }
    
-   SomethingKilled(what=$,victim=$)
-   {
-      if IsClass(what,&Monster) AND IsClass(victim,&Thrasher)
-      {
-  	    // Show the portal to Dark Angels (currently RID_FIELD1)
-		if oGhostPortal = $
-		{
-			oGhostPortal = Create(&Portal,#dest_room_num=RID_FIELD1,#dest_row=42,#dest_col=15,
-			#dest_fine_row=32, #dest_fine_col=32);
-
-			Send(poOwner,@NewHold,#what=oGhostPortal,#new_row=1, #new_col=4,
-			#fine_row=44,#fine_col=61,#new_angle=ANGLE_SOUTH);
-		}
-	  }	 
-	  
-	  propagate;
-   }   
-
 end
 ////////////////////////////////////////////////////////////////////////////////
