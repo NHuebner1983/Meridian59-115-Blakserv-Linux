@@ -2373,8 +2373,8 @@
    // Cap is reached by 158 HP
    MAX_XP_PER_LEVEL = 25000
    
-   // Max XP assumes no more than MAX_XP_PER_LEVEL.
-   MAX_XP = 5000000
+   // Max XP
+   MAX_XP = 2374409
    
    // If the player somehow manages to kill a very tough monster
    // we will capt the MAX_XP_PER_KILL at the MAX_XP_PER_LEVEL x 2.

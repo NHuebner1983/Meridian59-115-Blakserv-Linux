@@ -8974,13 +8974,14 @@ messages:
    {
       local i, iMaxHealth, dodgeskill, oSkill, monster_level, iXP, oWeapon,
             iItemBonus, iUnbound, iDist, iDifference, iXPNeeded, iXPBonus, iPrevTrainingPoints,
-			iTrainingPointsAwarded;
+			iTrainingPointsAwarded, bSpit;
 
       iXP = 0;
       iItemBonus = 0;
 	  iXPBonus = 0;
 	  iTrainingPointsAwarded = 0;
-
+	  bSpit = FALSE;
+	  
       // Some things just never allow advancement.
       // Can advance in arena if realdeath is on in an arena.
       if NOT Send(what,@CanPlayerAdvanceOnMe)
@@ -9123,6 +9124,7 @@ messages:
          {
             // You spit on the corpse of your unworthy foe.
             Send(self,@MsgSendUser,#message_rsc=player_spits);
+			bSpit = TRUE;
          }
 
          // Determine XP bonuses on top of the base amount:
@@ -9147,12 +9149,21 @@ messages:
             AND monster_level < piMax_health
          {
             iXP /= 2;
+			iXPBonus = 0;
          }
 
          iXP = iXP * Bound(Send(SETTINGS_OBJECT,@GetXPPercent),50,500) / 100;
          // Add in XP bonus from items after this.
          iXP += iItemBonus;
          
+		 if bSpit OR Send(self,@GetMaxHealth) >= (HP_BASE_MAX_ONE_STAMINA + Send(self,@GetStamina))
+		 {
+			 // Do not gain XP at all.
+			 // You've reached your limit!
+			 iXP = 0;
+			 iXPBonus = 0;
+		 }
+
 		 // AddXP checks for HP gain and redraws the XP bar.
          // NOTE: iMaxHealth could be wrong after this point.
          Send(self,@AddXP,#iAmount=iXP,#iXPBonus=iXPBonus);
