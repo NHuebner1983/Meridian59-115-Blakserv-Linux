@@ -9163,11 +9163,13 @@ messages:
 			 iXP = 0;
 			 iXPBonus = 0;
 		 }
-
-		 // AddXP checks for HP gain and redraws the XP bar.
-         // NOTE: iMaxHealth could be wrong after this point.
-         Send(self,@AddXP,#iAmount=iXP,#iXPBonus=iXPBonus);
-
+		 else
+		 {
+			 // AddXP checks for HP gain and redraws the XP bar.
+			 // NOTE: iMaxHealth could be wrong after this point.
+			 Send(self,@AddXP,#iAmount=iXP,#iXPBonus=iXPBonus);
+		 }
+		 
          // Also grant unbound energy for your own kills.
          // Unbound energy allows free spell casts.
          if IsClass(what,&Monster) AND killing_blow
