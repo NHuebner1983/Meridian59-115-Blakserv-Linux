@@ -68,8 +68,8 @@ messages:
 		oPortal = Create(&Portal,#dest_room_num=RID_THRONE2,#dest_row=23,#dest_col=5,
 		#dest_fine_row=31, #dest_fine_col=28);
 
-		Send(self,@NewHold,#what=oPortal,#new_row=33, #new_col=15,
-		#fine_row=40,#fine_col=33,#new_angle=ANGLE_NORTH);
+		Send(self,@NewHold,#what=oPortal,#new_row=42, #new_col=5,
+		#fine_row=40,#fine_col=11,#new_angle=ANGLE_NORTH);
 
       propagate;
    }
