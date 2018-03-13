@@ -61,14 +61,15 @@ classvars:
    vrDead_icon = DarkAngel_dead_icon_rsc
    vrDead_name = DarkAngel_dead_name_rsc
 
-   viTreasure_type = TID_DARK_ANGEL
+   // Give the Ghost Treasure type (Plate/Robes/Mystics, etc).
+   viTreasure_type = TID_GHOST
    viCashmin = 0
    viCashmax = 0
    viSpeed = SPEED_FASTER
    viAttack_type = ATCK_WEAP_MAGIC
    viAttack_spell = ATCK_SPELL_FIRE
    viLevel = LEVEL_20_HP
-   viDifficulty = 9
+   viDifficulty = 8
    viVisionDistance = 28
 
    // Attack range of 448, or 7 row/col.
@@ -84,14 +85,14 @@ classvars:
    vrSound_death = DarkAngel_sound_death
 
    // 1 in x chance to cast a spell.
-   viSpellChance = 3
+   viSpellChance = 30
 
 properties:
 
    piAnimation = ANIM_NONE
    piDrawEffectFlag = OF_BOUNCING
 
-   piSpellPower = 99
+   piSpellPower = 40
    piMax_mana = 40
 
    // piSpellRange in FINENESS units. 10 row/cols.
