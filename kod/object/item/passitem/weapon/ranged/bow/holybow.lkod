@@ -1,0 +1,9 @@
+HolyBow_name_rsc = de "holy bow"
+HolyBow_desc_rsc = de \
+   "This bow glows with the spirit of battle. "
+   "Once owned by Priestess Xiana to battle Qor in a great siege."
+   "This holy bow has been blessed by Shal'ille."
+HolyBow_not_good_enough = de \
+   "You are not worthy of this divine weapon."
+HolyBow_good_obtained = de \
+   "Your soul fills with light and courage as you prepare for battle."

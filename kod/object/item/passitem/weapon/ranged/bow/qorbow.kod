@@ -61,7 +61,7 @@ classvars:
 properties:
 
    piAttack_Type = ATCK_WEAP_MAGIC + ATCK_WEAP_PIERCE
-   piAttack_spell = ATCK_SPELL_ACID
+   piAttack_spell = ATCK_SPELL_UNHOLY
 
 messages:
 
