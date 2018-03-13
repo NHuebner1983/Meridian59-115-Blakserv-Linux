@@ -300,5 +300,12 @@ messages:
       return FALSE;
    }
 
+   SpecialHatredBehavior(what=$)
+   {
+	   // Dark Angels are no longer extremely agressive with aggro.
+	   // Pull as you need because they are around 255 HP and very tough to kill.
+	   return 0;
+   }   
+   
 end
 ////////////////////////////////////////////////////////////////////////////////

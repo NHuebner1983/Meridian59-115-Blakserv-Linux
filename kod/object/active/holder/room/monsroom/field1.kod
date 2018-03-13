@@ -1,0 +1,93 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+////////////////////////////////////////////////////////////////////////////////
+Field1 is MonsterRoom
+
+constants:
+
+   TO_ROW = 42
+   TO_COL = 15
+
+   SECTOR_CAGE1 = 1
+   SECTOR_CAGE2 = 2
+   RESET_TIME = 10000
+
+   include blakston.khd
+
+resources:
+
+   include field1.lkod
+
+   room_name_field1 = "The Fields"
+   room_field1 = field1.roo
+   field1_music = pk_fm.ogg
+
+classvars:
+
+   viTeleport_row = 42
+   viTeleport_col = 15
+   viTerrain_type = TERRAIN_FIELDS | TERRAIN_CITY
+   viPermanent_flags = ROOM_SAFELOGOFF
+
+   vrName = room_name_field1
+
+properties:
+
+   prData = room_name_field1
+  
+   prRoom = room_field1
+   piRoom_num = RID_FIELD1
+   prMusic = field1_music
+
+   piBaseLight = LIGHT_NICE
+   piOutside_factor = 8
+
+   pbSnowGroundTexture = TRUE
+
+   piInit_count_min = 1
+   piInit_count_max = 4
+
+   piMonster_count_max = 4
+   
+messages:
+
+	Constructed()
+	{
+		local oPortal;
+
+		plMonsters = [ [&DarkAngel, 100] ];
+		plGenerators = [ [14,11], [14,19], [6,19], [6,11] ];
+
+		oPortal = Create(&Portal,#dest_room_num=RID_THRONE2,#dest_row=23,#dest_col=5,
+		#dest_fine_row=31, #dest_fine_col=28);
+
+		Send(self,@NewHold,#what=oPortal,#new_row=33, #new_col=15,
+		#fine_row=40,#fine_col=33,#new_angle=ANGLE_NORTH);
+
+		propagate;
+	}
+
+   GetName()
+   {
+      return prData;
+   }
+
+   SeanceCheck()
+   {
+      return FALSE;
+   }
+
+   GetRegion()
+   {
+      return RID_HISTORIC;
+   }
+
+end
+////////////////////////////////////////////////////////////////////////////////

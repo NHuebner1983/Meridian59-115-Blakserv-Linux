@@ -42,12 +42,12 @@ classvars:
    viDefault_behavior = AI_FIGHT_AGGRESSIVE |  AI_FIGHT_WIZARD_KILLER \
       | AI_FIGHT_HYPERAGGRESSIVE
 
-   viDifficulty = 6
+   viDifficulty = 8
    viVisionDistance = 20
-   viLevel = LEVEL_10_HP
+   viLevel = LEVEL_20_HP
    viKarma = 0
-   viCashmin = 500
-   viCashmax = 1200
+   viCashmin = 1000
+   viCashmax = 5000
 
 properties:
 
