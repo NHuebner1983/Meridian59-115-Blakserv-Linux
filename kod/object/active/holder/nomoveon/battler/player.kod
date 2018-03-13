@@ -9193,8 +9193,8 @@ messages:
          // Here, we work out if the player deserves training points.
          // They qualify if they got at least one gain point from the monster,
          // and also got the killing blow (no double points from single mobs).
-         if iXP > 0
-            AND killing_blow
+         if iMaxHealth <= monster_level
+		    AND killing_blow
             AND piTraining_points < MAX_TRAINING_POINTS
          {
 			 

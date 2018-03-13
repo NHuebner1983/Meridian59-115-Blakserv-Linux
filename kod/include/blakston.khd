@@ -2425,54 +2425,51 @@
    TP_ADDITIONAL_ABOVE_MAXED_HP = 50
    
    // These HP levels can be used to replace monster hard-coded values.
-   // To give you an idea, Giant Rats would be Level_1_HP and so would a handful of others.
-   // If you decided you wanted rats to take you to 35, just change LEVEL_1_HP to 35.
-   // Obviously a lot of work will be needed to make use of these.
-   // 300 HP ends at LEVEL_28_HP -- Add more as needed.
-   // If you think this is whacky, just remember, sometimes up to 5 or more 
-   // monsters may be in 1 Level, and nobody wants to update 100 monsters by hand.
-   
-   LEVEL_0_HP = 20
+   // It makes it easier to adjust toughness of monsters later on by either lowering or raising them.
+      
+   LEVEL_0_HP = 30
    LEVEL_1_HP = 35
-   LEVEL_2_HP = 45
-   LEVEL_3_HP = 55
-   LEVEL_4_HP = 65
-   LEVEL_5_HP = 75
-   LEVEL_6_HP = 85
-   LEVEL_7_HP = 95
-   LEVEL_8_HP = 100
-   LEVEL_9_HP = 110
-   LEVEL_10_HP = 125
-   LEVEL_11_HP = 135
-   LEVEL_12_HP = 145
-   LEVEL_13_HP = 155
-   LEVEL_14_HP = 165
-   LEVEL_15_HP = 175
-   LEVEL_16_HP = 185
-   LEVEL_17_HP = 195
-   LEVEL_18_HP = 200
-   LEVEL_19_HP = 210
-   LEVEL_20_HP = 225
-   LEVEL_21_HP = 235
-   LEVEL_22_HP = 245
-   LEVEL_23_HP = 255
-   LEVEL_24_HP = 265
-   LEVEL_25_HP = 275
-   LEVEL_26_HP = 285
-   LEVEL_27_HP = 295
-   LEVEL_28_HP = 300
-   LEVEL_29_HP = 350
-   LEVEL_30_HP = 400
-   LEVEL_31_HP = 450
-   LEVEL_32_HP = 500
-   LEVEL_33_HP = 550
-   LEVEL_34_HP = 600
-   LEVEL_35_HP = 650
-   LEVEL_36_HP = 700
-   LEVEL_37_HP = 750
-   LEVEL_38_HP = 800
-   LEVEL_39_HP = 850
-   LEVEL_40_HP = 900
+   LEVEL_2_HP = 40
+   LEVEL_3_HP = 45
+   LEVEL_4_HP = 50
+   LEVEL_5_HP = 55
+   LEVEL_6_HP = 65
+   LEVEL_7_HP = 75
+   LEVEL_8_HP = 90
+   LEVEL_9_HP = 95
+   LEVEL_10_HP = 100
+   LEVEL_11_HP = 110
+   LEVEL_12_HP = 120
+   LEVEL_13_HP = 130
+   LEVEL_14_HP = 140
+   LEVEL_15_HP = 150
+   LEVEL_16_HP = 160
+   LEVEL_17_HP = 170
+   LEVEL_18_HP = 180
+   LEVEL_19_HP = 190
+   LEVEL_20_HP = 200
+   LEVEL_21_HP = 210
+   LEVEL_22_HP = 220
+   LEVEL_23_HP = 230
+   LEVEL_24_HP = 240
+   LEVEL_25_HP = 250
+   LEVEL_26_HP = 260
+   LEVEL_27_HP = 270
+   LEVEL_28_HP = 280
+   LEVEL_29_HP = 290
+   LEVEL_30_HP = 300
+   LEVEL_31_HP = 310
+   LEVEL_32_HP = 320
+   LEVEL_33_HP = 330
+   LEVEL_34_HP = 340
+   LEVEL_35_HP = 350
+   LEVEL_36_HP = 360
+   LEVEL_37_HP = 370
+   LEVEL_38_HP = 380
+   LEVEL_39_HP = 390
+   LEVEL_40_HP = 400
+   
+   // Event / Bosses
    LEVEL_41_HP = 1000
    LEVEL_42_HP = 2000
    LEVEL_43_HP = 3000

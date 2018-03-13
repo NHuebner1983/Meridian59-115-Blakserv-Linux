@@ -19,8 +19,8 @@ constants:
 
    // These are high precision damage amounts, with two 'decimal places'.
    // Actual damage shown to player will be (default) 5-9.
-   SPIN_DAMAGE_MIN = 500
-   SPIN_DAMAGE_MAX = 900
+   SPIN_DAMAGE_MIN = 200
+   SPIN_DAMAGE_MAX = 700
 
 resources:
 
@@ -81,8 +81,8 @@ classvars:
 properties:
 
    viSpeed = SPEED_FAST
-   viLevel = LEVEL_18_HP
-   viDifficulty = 8
+   viLevel = LEVEL_21_HP
+   viDifficulty = 7
 
    piAnimation = ANIM_NONE
    // Default shield or $ for default.
