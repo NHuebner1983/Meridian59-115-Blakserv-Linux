@@ -832,16 +832,19 @@ messages:
    SetTargetItemColor(color=$)
    {
 	    local oTarget;
-		
+
 		oTarget = Send(self,@GetTarget);
+	
+		Send(oTarget,@SetPaletteTranslation,
+			 #translation=Send(SYS,@EncodeTwoColorXlat,
+			 #color1=color));
+		Send(oTarget,@SetItemColored);
 		
-		if oTarget <> $ AND IsClass(oTarget, &Item)
-		{
-			Send(oTarget,@SetPaletteTranslation,
-                 #translation=Send(SYS,@EncodeTwoColorXlat,
-                 #color1=color));
-			Send(oTarget,@SetItemColored);
-		}
+//		oTarget = Send(self,@GetTarget);
+		// AND GetClass(Send(oTarget,@GetOwner)) = self
+//		if oTarget <> $ 
+//		{
+//		}
 		
 		return;
    }
