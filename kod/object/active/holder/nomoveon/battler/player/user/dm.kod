@@ -829,24 +829,25 @@ messages:
       return (prRank = dm_moderator);
    }
 
-   SetTargetItemColor(color=$)
+   SetActiveInventoryObjectsColor(color=$)
    {
-	    local oTarget;
+	     foreach i in plActive
+         {
+            if Send(i,@InUse) AND NOT Send(i,@IsColored)
+            {
+               Send(i,@SetItemColor,#flags=color);
+            }
+         }
 
-		oTarget = Send(self,@GetTarget);
-	
-		Send(oTarget,@SetPaletteTranslation,
-			 #translation=Send(SYS,@EncodeTwoColorXlat,
-			 #color1=color));
-		Send(oTarget,@SetItemColored);
-		
-//		oTarget = Send(self,@GetTarget);
-		// AND GetClass(Send(oTarget,@GetOwner)) = self
-//		if oTarget <> $ 
-//		{
-//		}
-		
-		return;
+         foreach i in plPassive
+         {
+            if Send(i,@InUse) AND NOT Send(i,@IsColored)
+            {
+				Send(i,@SetItemColor,#flags=color);
+            }
+         }
+
+		 return;
    }
    
    UserSay(string=$,type=$)
@@ -953,43 +954,43 @@ messages:
 
       if StringEqual(string,dm_color_black_command)
       {
-		 Send(self,@SetTargetItemColor,#color=XLAT_REDTOBLACK);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=XLAT_REDTOBLACK);
 		 
          return;
       }
       if StringEqual(string,dm_color_white_command)
       {
-		 Send(self,@SetTargetItemColor,#color=PT_FRST_WHT3);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=PT_FRST_WHT3);
 		 
          return;
       }
       if StringEqual(string,dm_color_yellow_command)
       {
-		 Send(self,@SetTargetItemColor,#color=PT_ITEM_XLAT_BLUE_TO_YELLOW);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=PT_ITEM_XLAT_BLUE_TO_YELLOW);
 		 
          return;
       }
       if StringEqual(string,dm_color_green_command)
       {
-		 Send(self,@SetTargetItemColor,#color=PT_MET_GREEN);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=PT_MET_GREEN);
 		 
          return;
       }
       if StringEqual(string,dm_color_red_command)
       {
-		 Send(self,@SetTargetItemColor,#color=PT_MET_RED);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=PT_MET_RED);
 		 
          return;
       }
       if StringEqual(string,dm_color_blue_command)
       {
-		 Send(self,@SetTargetItemColor,#color=PT_MET_BLUE);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=PT_MET_BLUE);
 		 
          return;
       }
       if StringEqual(string,dm_color_purple_command)
       {
-		 Send(self,@SetTargetItemColor,#color=XLAT_TO_PURPLE);
+		 Send(self,@SetActiveInventoryObjectsColor,#color=XLAT_TO_PURPLE);
 		 
          return;
       }
