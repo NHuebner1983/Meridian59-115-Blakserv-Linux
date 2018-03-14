@@ -1585,7 +1585,7 @@ messages:
    ReqDMDelete()
    "By default this item can be removed."
    {
-      return TRUE;
+      return NOT (piUsed = 1 OR pbIn_use OR pbColored);
    }
 
    // An item can format a text effect for players in the room to see,
