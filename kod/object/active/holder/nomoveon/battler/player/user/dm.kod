@@ -835,9 +835,12 @@ messages:
 		
 		oTarget = Send(self,@GetTarget);
 		
-		if oTarget <> $ AND NOT (IsClass(oTarget, &User) OR IsClass(oTarget, &Monster))
+		if oTarget <> $ AND IsClass(oTarget, &Item)
 		{
-			Send(oTarget,@SetItemColor,#flags=color);
+			Send(oTarget,@SetPaletteTranslation,
+                 #translation=Send(SYS,@EncodeTwoColorXlat,
+                 #color1=color));
+			Send(oTarget,@SetItemColored);
 		}
 		
 		return;

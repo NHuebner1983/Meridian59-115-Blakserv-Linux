@@ -1368,10 +1368,8 @@ messages:
       return;
    }
 
-   SetItemColor(flags = $)
+   SetItemColored()
    {
-	   piItem_flags = flags;
-	   
 	   pbColored = TRUE;
 
 	   return;

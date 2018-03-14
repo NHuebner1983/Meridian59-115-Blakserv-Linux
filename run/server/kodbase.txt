@@ -1,4 +1,4 @@
-T 16185 32483
+T 16186 32483
 C UtilityFunctions 10001 0
 Y	plTemp 1
 M	UtilGoNearSquare 10012
@@ -42341,8 +42341,7 @@ M	RemoveDMCreated 13114
 M	CanSweep 13115
 M	InUse 15570
 M	IsColored 16182
-M	SetItemColor 16184
-P		flags 10154
+M	SetItemColored 16186
 C DM 32 1 User
 R	dm_login 25963
 R	dm_mortal 25964
