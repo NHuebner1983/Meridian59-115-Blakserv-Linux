@@ -1145,6 +1145,15 @@ messages:
          return;
       }
 
+	  // If you are a recent PVP Combatant, you will die instead of penalty.
+	  if Send(SETTINGS_OBJECT,@PVPDeathOnPenalty) AND Send(self,@IsRecentPvPCombatant)
+      {
+		  Send(Send(self,@GetOwner),@SomethingKilled,
+		      #what=what,#victim=self);
+
+		  return;
+	  }
+	  
       // Add the penalty for repeat logging to the number of recent kills.
       iPenCount = (Send(self,@GetLogoffPenaltyCount)
                        + Send(self,@GetDecayedUnjustifiedKills));
