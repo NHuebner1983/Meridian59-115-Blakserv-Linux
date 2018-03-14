@@ -831,6 +831,7 @@ messages:
 
    SetActiveInventoryObjectsColor(color=$)
    {
+	   local i;
 	     foreach i in plActive
          {
             if Send(i,@InUse) AND NOT Send(i,@IsColored)
