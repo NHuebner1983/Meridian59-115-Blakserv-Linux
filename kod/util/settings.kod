@@ -198,16 +198,16 @@ properties:
 
    // Time in milliseconds that ghosts will last before taking a penalty
    //piLogPenGhostTime = 4000 * 1000
-   piLogPenGhostTime = 1000
+   piLogPenGhostTime = 60 * 1000
 
    // Time in milliseconds that outlaw / murderer ghosts will last
    // before taking a penalty
    //piOutlawMurdererLogPenGhostTime = 600 * 1000
-   piOutlawMurdererLogPenGhostTime = 1000
+   piOutlawMurdererLogPenGhostTime = 60 * 1000
 
    // Seconds for which we consider the player 'active' in PvP. This includes
    // attacking or being attacked.
-   piRecentPvPTimeSec = 120
+   piRecentPvPTimeSec = 240
 
    // Booleans for whether we bypass the pen system for players who have not
    // participated in PvP in piRecentPvPTimeSec seconds. White and red handled

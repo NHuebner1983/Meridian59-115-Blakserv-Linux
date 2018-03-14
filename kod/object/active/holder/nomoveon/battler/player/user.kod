@@ -1078,6 +1078,11 @@ messages:
    {
       local iTime, iRecent;
 
+	  if piFlags & PFLAG_MURDERER
+      {
+	      return TRUE;
+      }
+
       iTime = GetTime();
       iRecent = iTime - Send(SETTINGS_OBJECT,@GetRecentPvPTime);
 
