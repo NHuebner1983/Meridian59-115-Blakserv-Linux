@@ -178,6 +178,10 @@ properties:
    // place. This is intended to prevent being players 'scouting' with mules.
    pbAngelReturnToSafetyPenaltiesEnable = TRUE
 
+   // PVP Death on Penalty
+   // Only enable this if you want to prevent players from exploiting Alt-F4 / Phase.
+   pbPVPDeathOnPenalty = TRUE
+   
    // If this is enabled a player will lose half their mana and all buffs
    // when they log off in a safe zone. This is to prevent 'character trains'
    // with pre-buffed characters
@@ -193,11 +197,13 @@ properties:
    pbLoseXPOnPenalty = TRUE
 
    // Time in milliseconds that ghosts will last before taking a penalty
-   piLogPenGhostTime = 4000 * 1000
+   //piLogPenGhostTime = 4000 * 1000
+   piLogPenGhostTime = 40000
 
    // Time in milliseconds that outlaw / murderer ghosts will last
    // before taking a penalty
-   piOutlawMurdererLogPenGhostTime = 380 * 1000
+   //piOutlawMurdererLogPenGhostTime = 600 * 1000
+   piOutlawMurdererLogPenGhostTime = 1000
 
    // Seconds for which we consider the player 'active' in PvP. This includes
    // attacking or being attacked.
@@ -582,6 +588,12 @@ messages:
    LogSafePenaltyEnable()
    {
       return pbLogSafePenaltyEnable;
+   }
+
+   // Returns if a player should receive a death when they were recently in PVP.
+   PVPDeathOnPenalty()
+   {
+      return pbPVPDeathOnPenalty;
    }
 
    GetFlatPenaltiesEnable(flag = 0)
