@@ -14618,6 +14618,14 @@ messages:
       return;
    }
 
+   ResetLastPlayerAttackTime()
+   {
+	   piTimeAttackedPlayer = 0;
+	   piTimeAttackedByPlayer = 0;
+	   
+	   return;
+   }
+
    SendLightingInformation()
    {
       local i, oLightObject, iColor, iIntensity;

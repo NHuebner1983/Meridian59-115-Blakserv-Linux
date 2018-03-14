@@ -1086,7 +1086,9 @@ messages:
       iTime = GetTime();
       iRecent = iTime - Send(SETTINGS_OBJECT,@GetRecentPvPTime);
 
-      return (piTimeAttackedByPlayer > iRecent OR piTimeAttackedPlayer > iRecent);
+      // You should only be flagged for PVP if you have attacked someone.
+	  return piTimeAttackedPlayer > iRecent;
+      //return (piTimeAttackedByPlayer > iRecent OR piTimeAttackedPlayer > iRecent);
    }
 
    DecayLogoffPenaltyCount()
@@ -1138,6 +1140,16 @@ messages:
 		  Send(self,@Killed,#what=self);
 		  Send(self,@SomethingKilled,
 		      #what=what,#victim=self);
+
+		  // Teleport to the Underworld.
+		  Send(self,@UserGotoDeadRoom);
+
+          // Reset logoff penalty for taking death
+          Send(self,@ResetLogoffPenaltyTime);
+		  
+		  // Reset the last player who attacked us and we attacked.
+		  // This will allow us to be out of PVP Mode.
+		  Send(self,@ResetLastPlayerAttackTime);
 
 		  return;
 	  }
