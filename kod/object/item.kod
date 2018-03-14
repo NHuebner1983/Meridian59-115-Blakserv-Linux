@@ -1368,6 +1368,15 @@ messages:
       return;
    }
 
+   SetItemColor(flags = $)
+   {
+	   piItem_flags = flags;
+	   
+	   pbColored = TRUE;
+
+	   return;
+   }
+   
    CanIdentify()
    {
       local i, oItemAtt, iNum;

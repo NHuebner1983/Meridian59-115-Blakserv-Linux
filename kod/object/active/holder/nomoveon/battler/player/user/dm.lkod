@@ -51,6 +51,16 @@ dm_monster_authorize_command = de "monster authorize"
 dm_none = de "none"
 dm_clear_abilities_command = de "clear abilities"
 dm_clear_inventory_command = de "clear inventory"
+
+// Item color commands for targetted item   
+dm_color_yellow_command = de "color yellow"
+dm_color_blue_command = de "color blue"
+dm_color_red_command = de "color red"
+dm_color_purple_command = de "color purple"
+dm_color_green_command = de "color green"
+dm_color_black_command = de "color black"
+dm_color_white_command = de "color white"
+
 dm_get_robes_command = de "get robes"
 dm_get_spells_command = de "get spells"
 dm_get_skills_command = de "get skills"
