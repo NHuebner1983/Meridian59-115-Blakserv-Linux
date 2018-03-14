@@ -47,7 +47,7 @@ classvars:
    viSpeed = SPEED_SLOW
    viAttack_spell = ATCK_SPELL_ACID
    viAttributes = 0
-   viLevel = LEVEL_2_HP
+   viLevel = LEVEL_3_HP
    viDifficulty = 4
    viVisionDistance = 10
    viKarma = 0

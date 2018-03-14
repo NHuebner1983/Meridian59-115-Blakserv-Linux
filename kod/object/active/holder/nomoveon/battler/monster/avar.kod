@@ -69,7 +69,7 @@ classvars:
    viSpeed = SPEED_AVERAGE
    viDefault_behavior = \
       AI_MOVE_REGROUP | AI_FIGHT_AGGRESSIVE | AI_FIGHT_MONSTERS
-   viLevel = LEVEL_13_HP
+   viLevel = LEVEL_15_HP
    viDifficulty = 7
    viVisionDistance = 16
 
