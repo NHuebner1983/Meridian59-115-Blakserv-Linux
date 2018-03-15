@@ -1139,7 +1139,7 @@ messages:
       {
 		  Send(self,@Killed,#what=self);
 		  Send(self,@SomethingKilled,
-		      #what=what,#victim=self);
+		      #what=self,#victim=self);
 
 		  // Teleport to the Underworld.
 		  Send(self,@UserGotoDeadRoom);

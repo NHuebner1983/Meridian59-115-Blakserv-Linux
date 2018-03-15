@@ -8942,7 +8942,7 @@ messages:
       {
          // Let players share XP if they're grouped, even if
          // they're not fighting the same mob.
-         if Send(poOwner,@AreGroupedHere,#who=self,#what=what)
+         if self <> what AND Send(poOwner,@AreGroupedHere,#who=self,#what=what)
          {
             Post(self,@AdvancementCheck,#what=victim,#killing_blow=FALSE,
                   #group_member_kill=TRUE,#group_member=what);
