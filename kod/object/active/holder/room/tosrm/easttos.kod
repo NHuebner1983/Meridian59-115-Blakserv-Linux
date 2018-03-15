@@ -75,6 +75,7 @@ messages:
 
 	  // Streets of Tos
 	  plExits = Cons([ 29, 3, RID_TOS, 56, 39, ROTATE_NONE ],plExits);
+	  plExits = Cons([ 28, 3, RID_TOS, 56, 39, ROTATE_NONE ],plExits);
 
 	  // Main Arena Entrance
       plExits = Cons([ 28, 25, RID_TOS_ARENA2, 27, 27, ROTATE_NONE ],plExits);
