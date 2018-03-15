@@ -1141,6 +1141,9 @@ messages:
 		  Send(self,@SomethingKilled,
 		      #what=self,#victim=self);
 
+		  // Apply death penalties
+		  Send(self,@ApplyDeathPenalties);
+		  
 		  // Teleport to the Underworld.
 		  Send(self,@UserGotoDeadRoom);
 
