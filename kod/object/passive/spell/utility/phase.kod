@@ -42,6 +42,10 @@ resources:
    
    Phase_penned_wav_rsc = logoffghost_poof.ogg
    
+   Phase_pvp_src = \
+      "~I~BYou cannot phase if you have recently attacked a player or are "
+	  "wanted for murder."
+	  
    Phase_lost_one_item = \
       "You lost %s skill points, %s spell points, and %s%s."
    Phase_lost_two_items = \
@@ -210,6 +214,13 @@ messages:
       }
       else
       {
+		  if Send(SETTINGS_OBJECT,@PVPDeathOnPenalty) AND Send(who,@IsRecentPvPCombatant)
+		  {
+			Send(who,@MsgSendUser,#message_rsc=Phase_pvp_src);
+			
+			return FALSE;
+		  }
+		  
          Send(self,@AdjustVisualEffectBasedOnTimeRemaining,#who=who);
          Send(who,@BreakTrance,#event=EVENT_STEER);
          Send(who,@FreezeAllEnchantments);
