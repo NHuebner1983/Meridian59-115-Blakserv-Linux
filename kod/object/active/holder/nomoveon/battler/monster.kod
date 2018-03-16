@@ -5519,7 +5519,7 @@ messages:
       }
 
       iQuestHistory = First(Send(who,@GetQuestHistory,#index=viQuestID));
-	  
+
       return (QUEST_HISTORY_SUCCESS & iQuestHistory);
    }
 
