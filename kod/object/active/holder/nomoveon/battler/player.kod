@@ -579,7 +579,7 @@ resources:
       "fleeting.  Vigor can be restored either through needed rest or a "
       "hearty meal."
       "\n\n"
-      "When you reach 50 health, I will no longer be able to protect you from "
+      "When you reach 75 health, I will no longer be able to protect you from "
       "combat with other players.  If you do not wish to partake in player-"
       "versus player combat, you can opt-out by visiting the Temple of "
       "Shal'ille (north from the town of Marion) and following the directions "
@@ -7148,8 +7148,8 @@ messages:
       piBase_max_health = piBase_max_health + amount;
       amount = Send(self,@GetBaseMaxHealth) - iPrev_max;
 
-      // Give them the "further info" gmail if they've advanced to 25.
-      if piBase_Max_health = 25
+      // Give them the "further info" gmail if they've advanced to 25 (ANGEL_DOING_WELL_MAIL_HP)
+      if piBase_Max_health = ANGEL_DOING_WELL_MAIL_HP
          AND amount > 0
          AND NOT (piFlags & PFLAG_TUTORIAL)
       {

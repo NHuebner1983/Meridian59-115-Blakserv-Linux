@@ -2351,7 +2351,8 @@
    MONEY_DROP_EXTRA = 1200
    
    // Player flags
-   PKILL_ENABLE_HP = 100
+   ANGEL_DOING_WELL_MAIL_HP = 50
+   PKILL_ENABLE_HP = 75
    MAX_MANA = 200
    MAX_VIGOR = 200
    
@@ -2422,6 +2423,7 @@
    TP_ADDITIONAL_ABOVE_BASE_HP = 25
    
    // Training Points to award after Player's Stamina Max HP
+   // The above 2 variables add to this one, totaling (25 + 25 + 50) At Max HP.
    TP_ADDITIONAL_ABOVE_MAXED_HP = 50
    
    // These HP levels can be used to replace monster hard-coded values.
