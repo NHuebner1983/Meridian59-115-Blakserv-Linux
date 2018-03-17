@@ -6848,7 +6848,7 @@ messages:
       iTime = iTime - Send(Send(SYS,@GetParliament),@GetFactionRegenBonus,
                            #who=self,#hpregen=TRUE);
 
-      return bound(iTime,1000,60000);
+      return bound(iTime,400,20000);
    }
 
    CalculateManaTime()
@@ -6869,7 +6869,7 @@ messages:
          iTime = iTime - Send(Send(SYS,@GetParliament),@GetFactionRegenBonus,
                               #who=self,#hpregen=FALSE);
 
-         iTime = Bound(iTime,1000,60000);
+         iTime = Bound(iTime,400,20000);
 
          // Mana Focus will adjust mana regen time based on its spellpower.
          // Flag check for speed.
