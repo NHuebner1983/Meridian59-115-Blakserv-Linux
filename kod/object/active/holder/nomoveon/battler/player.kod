@@ -6862,14 +6862,14 @@ messages:
       }
       else
       {
-         iTime = BASE_REGEN_TIME + (25-Send(self,@GetMysticism))*1000;
+         iTime = BASE_REGEN_TIME + (25-Send(self,@GetMysticism))*100;
          iTime = iTime * 200 / bound(piVigor,1,$);
          iTime = iTime/ bound(piMax_Mana,1,$);
 
          iTime = iTime - Send(Send(SYS,@GetParliament),@GetFactionRegenBonus,
                               #who=self,#hpregen=FALSE);
 
-         iTime = Bound(iTime,1000,60000);
+         iTime = Bound(iTime,300,10000);
 
          // Mana Focus will adjust mana regen time based on its spellpower.
          // Flag check for speed.
