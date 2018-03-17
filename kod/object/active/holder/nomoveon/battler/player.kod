@@ -48,7 +48,7 @@ constants:
    // Formula:   10000 / FOOD_USE_RATE
    // Currently: 833 sec = 13.9 min
    // Note:      Need empty stomach to get vigor boost from food
-   BASE_REGEN_TIME = 10000
+   BASE_REGEN_TIME = 5000
 
    // Rate at which stomach empties.
    FOOD_USE_RATE = 12
@@ -60,7 +60,7 @@ constants:
    ATTACK_EXERTION = 5000
 
    // Number of ms required to gain one vigor point
-   REST_TIME = 100          
+   REST_TIME = 50          
 
    // Number of ms to lose one boosted health or mana point.
    BOOST_DECAY_TIME = 30000 
@@ -98,7 +98,7 @@ constants:
    MIN_NEEDED_TO_ADVANCE = 75       
                                     
    // How many weapon swings until we get an improve check?
-   SWINGS_PER_IMPROVE_CHECK = 75    
+   SWINGS_PER_IMPROVE_CHECK = 45 
 
    // What's the length after having a player attacked before we let "mules" 
    //  cast on them again.  Currently set to 15 minutes.  Should be bigger 
