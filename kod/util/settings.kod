@@ -48,7 +48,7 @@ properties:
    piKillKarmaSwingMonster = 6
    piKillKarmaSwingPlayer = 10
 
-   pbMonsterFactionEnabled = TRUE
+   pbMonsterFactionEnabled = FALSE
 
    pbAtrophyOn = FALSE
    
