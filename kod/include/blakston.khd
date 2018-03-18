@@ -1170,10 +1170,10 @@
    // Ambient lighting constants
    // Constants for natural level of light in the room.
    LIGHT_MIN = 0
-   LIGHT_ALMOST_NONE = 60
-   LIGHT_VERY_DARK = 84
-   LIGHT_DARK = 124
-   LIGHT_NICE = 164
+   LIGHT_ALMOST_NONE = 124
+   LIGHT_VERY_DARK = 144
+   LIGHT_DARK = 174
+   LIGHT_NICE = 194
    LIGHT_MAX = 255
 
    // Directional lighting
