@@ -1,0 +1,24 @@
+Welcome to Server 115!
+
+Here's a few things we fixed while you were away...
+
+Password Change Feature
+--------------------------------------------
+You can now change your password in the game. To change your account password, look for the Password button in the top bar of your Ogre Client. Use strong passwords so people can't hack your accounts. Remember if you've given out your login information in the past, it's very possible someone might try that again here.
+--------------------------------------------
+
+
+Direction/Angle when entering/leaving rooms
+--------------------------------------------
+That pesky bug was really getting on everyone's nerves. We've finally squashed it. You should go to the next room the same way you left the last one.
+--------------------------------------------
+
+
+Had a happy St. Patrick's Day?
+--------------------------------------------
+You received a gift! Check all of your characters for that special something.
+--------------------------------------------
+
+Check the globes for more updates.
+
+ - Your 115 Team
