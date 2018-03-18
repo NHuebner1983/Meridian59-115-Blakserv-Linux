@@ -65,8 +65,9 @@ properties:
    // Is this a room where monsters grow in strength?
    piLevel = 0
 
-   // When the ghost is killed a portal will appear.
+   // Monster portals
    oGhostPortal = $
+   oDuskRatPortal = $
    
 messages:
 

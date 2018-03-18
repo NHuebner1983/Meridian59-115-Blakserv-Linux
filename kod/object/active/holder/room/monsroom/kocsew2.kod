@@ -57,6 +57,8 @@ properties:
 
    piMonster_count_max = 15
 
+   oMainlandPortal = $
+   
 messages:
 
    Constructed()
@@ -87,5 +89,19 @@ messages:
       propagate;
    }
 
+   FirstUserEntered()
+   {
+	   if oMainlandPortal = $
+	   {
+			oMainlandPortal = Create(&Portal,#dest_room_num=RID_TOS_SMUGGLERS_WAY,#dest_row=22,#dest_col=13,
+				#dest_fine_row=34, #dest_fine_col=104);
+
+			Send(self,@NewHold,#what=oMainlandPortal,#new_row=37, #new_col=24,
+				#fine_row=12,#fine_col=15,#new_angle=ANGLE_EAST);
+	   }
+	   
+	   propagate;
+   }
+   
 end
 ////////////////////////////////////////////////////////////////////////////////

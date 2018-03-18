@@ -90,6 +90,8 @@ messages:
    {
       local i;
 
+      oGhostPortal = $;
+	  
       if ptGhost <> $
       {
          DeleteTimer(ptGhost);
