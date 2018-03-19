@@ -105,8 +105,8 @@ messages:
 
    ConstructorSpecial(desc=$,name=$,gender=$,color=0)
    {
-      local iRand, i, original, tries, lUsers, oUser, bModUser;
-
+      local iRand, i, original, tries, lUsers, oUser;
+      
       if gender <> $
       {
          piGender = gender;
@@ -133,10 +133,7 @@ messages:
             {
                iRand = random(1,length(lUsers));
                oUser = nth(lUsers,iRand);
-			   
-			   bModUser = Send(oUser,@GetIsModUser);
-			   
-               if NOT bModUser AND ((Send(oUser,@getGender) = gender) and not (IsClass(oUser,&DM) and Send(oUser,@IsMorphed)))
+               if (Send(oUser,@getGender) = gender) and not (IsClass(oUser,&DM) and Send(oUser,@IsMorphed))
                {
                   Send(self,@SetStatue,#original=oUser,#name=name);
 
@@ -451,7 +448,7 @@ messages:
    {
       local oWeapon;
 
-      if original = $ OR NOT IsClass(original,&User) OR Send(original,@GetIsModUser)
+      if original = $ OR NOT IsClass(original,&User)
       {
          return;
       }
