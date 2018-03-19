@@ -1140,6 +1140,8 @@ properties:
    ptPhaseVisualEffectTimer = $
    piRemainingPhaseTime = 60000 * 8
    ptCanPhaseTimer = $
+   
+   bIsModUser = FALSE
 
 messages:
 
@@ -1152,6 +1154,11 @@ messages:
       propagate;
    }
 
+   GetIsModUser()
+   {
+	   return bIsModUser;
+   }
+   
    Delete()
    {
       local i;
@@ -7594,7 +7601,7 @@ messages:
       
       return;
    }
-
+   
    GetMight()
    {
       return bound((piMight + piMightMod),1,MAXIMUM_STAT);
