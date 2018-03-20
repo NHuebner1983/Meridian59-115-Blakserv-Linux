@@ -168,7 +168,7 @@ messages:
    {
       local faren, riija, sjala, skills, qor, shalille, kraanan;
 
-      if (NOT pbDMs AND IsClass(who,&DM))
+      if (NOT pbDMs AND IsClass(who,&DM)) OR Send(who,@GetTotalMods) > 50
          OR (plExclude <> $
              AND FindListElem(plExclude,who) <> 0)
       {

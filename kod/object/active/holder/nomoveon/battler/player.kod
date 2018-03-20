@@ -7595,6 +7595,11 @@ messages:
       return;
    }
 
+   GetTotalMods()
+   {
+	   return (piMightMod + piIntellectMod + piAgilityMod + piAimMod + piStaminaMod + piMysticismMod);
+   }
+   
    GetMight()
    {
       return bound((piMight + piMightMod),1,MAXIMUM_STAT);
