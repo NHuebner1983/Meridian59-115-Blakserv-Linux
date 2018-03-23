@@ -6690,6 +6690,227 @@ messages:
       return system_fuzzy_cardinal_deficit;
    }
 
+   RemovePercentFromString(string = $, iPercent = $)
+   {
+	   if string = $ {return -1;}
+	   
+		if (iPercent = 10) {StringSubstitute(string, "10",""); return string;}
+		if (iPercent = 11) {StringSubstitute(string, "11",""); return string;}
+		if (iPercent = 12) {StringSubstitute(string, "12",""); return string;}
+		if (iPercent = 13) {StringSubstitute(string, "13",""); return string;}
+		if (iPercent = 14) {StringSubstitute(string, "14",""); return string;}
+		if (iPercent = 15) {StringSubstitute(string, "15",""); return string;}
+		if (iPercent = 16) {StringSubstitute(string, "16",""); return string;}
+		if (iPercent = 17) {StringSubstitute(string, "17",""); return string;}
+		if (iPercent = 18) {StringSubstitute(string, "18",""); return string;}
+		if (iPercent = 19) {StringSubstitute(string, "19",""); return string;}
+		if (iPercent = 20) {StringSubstitute(string, "20",""); return string;}
+		if (iPercent = 21) {StringSubstitute(string, "21",""); return string;}
+		if (iPercent = 22) {StringSubstitute(string, "22",""); return string;}
+		if (iPercent = 23) {StringSubstitute(string, "23",""); return string;}
+		if (iPercent = 24) {StringSubstitute(string, "24",""); return string;}
+		if (iPercent = 25) {StringSubstitute(string, "25",""); return string;}
+		if (iPercent = 26) {StringSubstitute(string, "26",""); return string;}
+		if (iPercent = 27) {StringSubstitute(string, "27",""); return string;}
+		if (iPercent = 28) {StringSubstitute(string, "28",""); return string;}
+		if (iPercent = 29) {StringSubstitute(string, "29",""); return string;}
+		if (iPercent = 30) {StringSubstitute(string, "30",""); return string;}
+		if (iPercent = 31) {StringSubstitute(string, "31",""); return string;}
+		if (iPercent = 32) {StringSubstitute(string, "32",""); return string;}
+		if (iPercent = 33) {StringSubstitute(string, "33",""); return string;}
+		if (iPercent = 34) {StringSubstitute(string, "34",""); return string;}
+		if (iPercent = 35) {StringSubstitute(string, "35",""); return string;}
+		if (iPercent = 36) {StringSubstitute(string, "36",""); return string;}
+		if (iPercent = 37) {StringSubstitute(string, "37",""); return string;}
+		if (iPercent = 38) {StringSubstitute(string, "38",""); return string;}
+		if (iPercent = 39) {StringSubstitute(string, "39",""); return string;}
+		if (iPercent = 40) {StringSubstitute(string, "40",""); return string;}
+		if (iPercent = 41) {StringSubstitute(string, "41",""); return string;}
+		if (iPercent = 42) {StringSubstitute(string, "42",""); return string;}
+		if (iPercent = 43) {StringSubstitute(string, "43",""); return string;}
+		if (iPercent = 44) {StringSubstitute(string, "44",""); return string;}
+		if (iPercent = 45) {StringSubstitute(string, "45",""); return string;}
+		if (iPercent = 46) {StringSubstitute(string, "46",""); return string;}
+		if (iPercent = 47) {StringSubstitute(string, "47",""); return string;}
+		if (iPercent = 48) {StringSubstitute(string, "48",""); return string;}
+		if (iPercent = 49) {StringSubstitute(string, "49",""); return string;}
+		if (iPercent = 50) {StringSubstitute(string, "50",""); return string;}
+		if (iPercent = 51) {StringSubstitute(string, "51",""); return string;}
+		if (iPercent = 52) {StringSubstitute(string, "52",""); return string;}
+		if (iPercent = 53) {StringSubstitute(string, "53",""); return string;}
+		if (iPercent = 54) {StringSubstitute(string, "54",""); return string;}
+		if (iPercent = 55) {StringSubstitute(string, "55",""); return string;}
+		if (iPercent = 56) {StringSubstitute(string, "56",""); return string;}
+		if (iPercent = 57) {StringSubstitute(string, "57",""); return string;}
+		if (iPercent = 58) {StringSubstitute(string, "58",""); return string;}
+		if (iPercent = 59) {StringSubstitute(string, "59",""); return string;}
+		if (iPercent = 60) {StringSubstitute(string, "60",""); return string;}
+		if (iPercent = 61) {StringSubstitute(string, "61",""); return string;}
+		if (iPercent = 62) {StringSubstitute(string, "62",""); return string;}
+		if (iPercent = 63) {StringSubstitute(string, "63",""); return string;}
+		if (iPercent = 64) {StringSubstitute(string, "64",""); return string;}
+		if (iPercent = 65) {StringSubstitute(string, "65",""); return string;}
+		if (iPercent = 66) {StringSubstitute(string, "66",""); return string;}
+		if (iPercent = 67) {StringSubstitute(string, "67",""); return string;}
+		if (iPercent = 68) {StringSubstitute(string, "68",""); return string;}
+		if (iPercent = 69) {StringSubstitute(string, "69",""); return string;}
+		if (iPercent = 70) {StringSubstitute(string, "70",""); return string;}
+		if (iPercent = 71) {StringSubstitute(string, "71",""); return string;}
+		if (iPercent = 72) {StringSubstitute(string, "72",""); return string;}
+		if (iPercent = 73) {StringSubstitute(string, "73",""); return string;}
+		if (iPercent = 74) {StringSubstitute(string, "74",""); return string;}
+		if (iPercent = 75) {StringSubstitute(string, "75",""); return string;}
+		if (iPercent = 76) {StringSubstitute(string, "76",""); return string;}
+		if (iPercent = 77) {StringSubstitute(string, "77",""); return string;}
+		if (iPercent = 78) {StringSubstitute(string, "78",""); return string;}
+		if (iPercent = 79) {StringSubstitute(string, "79",""); return string;}
+		if (iPercent = 80) {StringSubstitute(string, "80",""); return string;}
+		if (iPercent = 81) {StringSubstitute(string, "81",""); return string;}
+		if (iPercent = 82) {StringSubstitute(string, "82",""); return string;}
+		if (iPercent = 83) {StringSubstitute(string, "83",""); return string;}
+		if (iPercent = 84) {StringSubstitute(string, "84",""); return string;}
+		if (iPercent = 85) {StringSubstitute(string, "85",""); return string;}
+		if (iPercent = 86) {StringSubstitute(string, "86",""); return string;}
+		if (iPercent = 87) {StringSubstitute(string, "87",""); return string;}
+		if (iPercent = 88) {StringSubstitute(string, "88",""); return string;}
+		if (iPercent = 89) {StringSubstitute(string, "89",""); return string;}
+		if (iPercent = 90) {StringSubstitute(string, "90",""); return string;}
+		if (iPercent = 91) {StringSubstitute(string, "91",""); return string;}
+		if (iPercent = 92) {StringSubstitute(string, "92",""); return string;}
+		if (iPercent = 93) {StringSubstitute(string, "93",""); return string;}
+		if (iPercent = 94) {StringSubstitute(string, "94",""); return string;}
+		if (iPercent = 95) {StringSubstitute(string, "95",""); return string;}
+		if (iPercent = 96) {StringSubstitute(string, "96",""); return string;}
+		if (iPercent = 97) {StringSubstitute(string, "97",""); return string;}
+		if (iPercent = 98) {StringSubstitute(string, "98",""); return string;}
+		if (iPercent = 99) {StringSubstitute(string, "99",""); return string;}
+		if (iPercent = 100) {StringSubstitute(string, "100",""); return string;}
+		
+		if (iPercent = 1) {StringSubstitute(string, "1",""); return string;}
+		if (iPercent = 2) {StringSubstitute(string, "2",""); return string;}
+		if (iPercent = 3) {StringSubstitute(string, "3",""); return string;}
+		if (iPercent = 4) {StringSubstitute(string, "4",""); return string;}
+		if (iPercent = 5) {StringSubstitute(string, "5",""); return string;}
+		if (iPercent = 6) {StringSubstitute(string, "6",""); return string;}
+		if (iPercent = 7) {StringSubstitute(string, "7",""); return string;}
+		if (iPercent = 8) {StringSubstitute(string, "8",""); return string;}
+		if (iPercent = 9) {StringSubstitute(string, "9",""); return string;}
+
+	   return string;
+   }
+   
+   GetPercentFromString(string = $)
+   {
+      if string = $ {return -1;}
+    
+		// Yeh, I really had to do it this way because of String to Number / Number to String conversions
+		// apparently do not exist in KOD. Spent 2 hours until I gave up and went this route.
+		
+		if (StringContain(string,"10")) {return 10;}
+		if (StringContain(string,"11")) {return 11;}
+		if (StringContain(string,"12")) {return 12;}
+		if (StringContain(string,"13")) {return 13;}
+		if (StringContain(string,"14")) {return 14;}
+		if (StringContain(string,"15")) {return 15;}
+		if (StringContain(string,"16")) {return 16;}
+		if (StringContain(string,"17")) {return 17;}
+		if (StringContain(string,"18")) {return 18;}
+		if (StringContain(string,"19")) {return 19;}
+		if (StringContain(string,"20")) {return 20;}
+		if (StringContain(string,"21")) {return 21;}
+		if (StringContain(string,"22")) {return 22;}
+		if (StringContain(string,"23")) {return 23;}
+		if (StringContain(string,"24")) {return 24;}
+		if (StringContain(string,"25")) {return 25;}
+		if (StringContain(string,"26")) {return 26;}
+		if (StringContain(string,"27")) {return 27;}
+		if (StringContain(string,"28")) {return 28;}
+		if (StringContain(string,"29")) {return 29;}
+		if (StringContain(string,"30")) {return 30;}
+		if (StringContain(string,"31")) {return 31;}
+		if (StringContain(string,"32")) {return 32;}
+		if (StringContain(string,"33")) {return 33;}
+		if (StringContain(string,"34")) {return 34;}
+		if (StringContain(string,"35")) {return 35;}
+		if (StringContain(string,"36")) {return 36;}
+		if (StringContain(string,"37")) {return 37;}
+		if (StringContain(string,"38")) {return 38;}
+		if (StringContain(string,"39")) {return 39;}
+		if (StringContain(string,"40")) {return 40;}
+		if (StringContain(string,"41")) {return 41;}
+		if (StringContain(string,"42")) {return 42;}
+		if (StringContain(string,"43")) {return 43;}
+		if (StringContain(string,"44")) {return 44;}
+		if (StringContain(string,"45")) {return 45;}
+		if (StringContain(string,"46")) {return 46;}
+		if (StringContain(string,"47")) {return 47;}
+		if (StringContain(string,"48")) {return 48;}
+		if (StringContain(string,"49")) {return 49;}
+		if (StringContain(string,"50")) {return 50;}
+		if (StringContain(string,"51")) {return 51;}
+		if (StringContain(string,"52")) {return 52;}
+		if (StringContain(string,"53")) {return 53;}
+		if (StringContain(string,"54")) {return 54;}
+		if (StringContain(string,"55")) {return 55;}
+		if (StringContain(string,"56")) {return 56;}
+		if (StringContain(string,"57")) {return 57;}
+		if (StringContain(string,"58")) {return 58;}
+		if (StringContain(string,"59")) {return 59;}
+		if (StringContain(string,"60")) {return 60;}
+		if (StringContain(string,"61")) {return 61;}
+		if (StringContain(string,"62")) {return 62;}
+		if (StringContain(string,"63")) {return 63;}
+		if (StringContain(string,"64")) {return 64;}
+		if (StringContain(string,"65")) {return 65;}
+		if (StringContain(string,"66")) {return 66;}
+		if (StringContain(string,"67")) {return 67;}
+		if (StringContain(string,"68")) {return 68;}
+		if (StringContain(string,"69")) {return 69;}
+		if (StringContain(string,"70")) {return 70;}
+		if (StringContain(string,"71")) {return 71;}
+		if (StringContain(string,"72")) {return 72;}
+		if (StringContain(string,"73")) {return 73;}
+		if (StringContain(string,"74")) {return 74;}
+		if (StringContain(string,"75")) {return 75;}
+		if (StringContain(string,"76")) {return 76;}
+		if (StringContain(string,"77")) {return 77;}
+		if (StringContain(string,"78")) {return 78;}
+		if (StringContain(string,"79")) {return 79;}
+		if (StringContain(string,"80")) {return 80;}
+		if (StringContain(string,"81")) {return 81;}
+		if (StringContain(string,"82")) {return 82;}
+		if (StringContain(string,"83")) {return 83;}
+		if (StringContain(string,"84")) {return 84;}
+		if (StringContain(string,"85")) {return 85;}
+		if (StringContain(string,"86")) {return 86;}
+		if (StringContain(string,"87")) {return 87;}
+		if (StringContain(string,"88")) {return 88;}
+		if (StringContain(string,"89")) {return 89;}
+		if (StringContain(string,"90")) {return 90;}
+		if (StringContain(string,"91")) {return 91;}
+		if (StringContain(string,"92")) {return 92;}
+		if (StringContain(string,"93")) {return 93;}
+		if (StringContain(string,"94")) {return 94;}
+		if (StringContain(string,"95")) {return 95;}
+		if (StringContain(string,"96")) {return 96;}
+		if (StringContain(string,"97")) {return 97;}
+		if (StringContain(string,"98")) {return 98;}
+		if (StringContain(string,"99")) {return 99;}
+		if (StringContain(string,"100")) {return 100;}
+
+		if (StringContain(string,"1")) {return 1;}
+		if (StringContain(string,"2")) {return 2;}
+		if (StringContain(string,"3")) {return 3;}
+		if (StringContain(string,"4")) {return 4;}
+		if (StringContain(string,"5")) {return 5;}
+		if (StringContain(string,"6")) {return 6;}
+		if (StringContain(string,"7")) {return 7;}
+		if (StringContain(string,"8")) {return 8;}
+		if (StringContain(string,"9")) {return 9;}
+
+      return 0;
+   }
+
    GetNumberFromString(string = $)
    "Gets the lowest number found in a string. Returns -1 if no number is found. "
    "Only finds values zero to twelve, then ten, twenty, thirty... up to a hundred."

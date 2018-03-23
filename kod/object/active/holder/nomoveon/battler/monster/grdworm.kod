@@ -404,6 +404,7 @@ messages:
          if use_weapon = $
             OR NOT (IsClass(use_weapon,&Hammer)
                OR IsClass(use_weapon,&SpiritualHammer)
+			   OR IsClass(use_weapon,&HolyHammer)
                OR IsClass(use_weapon,&Mace))
          {
             Send(who,@MsgSendUser,#message_rsc=groundworm_cannot_hit);

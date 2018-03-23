@@ -113,7 +113,7 @@ messages:
    SomethingSaidDuringTrance(who=$,string=$,lTargets=$)
    {
       local i, bFound, oSpell, sSpell, oSkill, sSkill, iPercent,
-            iRatio, iGain, iNum, iPoints;
+            iRatio, iGain, iNum, iPoints, iPreferPercent;
 
       Send(who,@BreakTrance,#event=EVENT_STEER);  /// Don't print fizzle message
 
@@ -121,6 +121,16 @@ messages:
 
       iPoints = Send(who,@GetTrainingPoints);
 
+	  iPreferPercent = Send(SYS, @GetPercentFromString,
+		#string=string);
+	  
+	  if iPreferPercent > 0
+	  {
+		  string = Send(SYS, @RemovePercentFromString,
+			#string=string,
+			#iPercent=iPreferPercent);
+	  }
+	  
       foreach i in Send(who,@GetSpellList)
       {
          iNum = Send(who,@DecodeSpellNum,#compound=i);
@@ -163,6 +173,11 @@ messages:
                   iGain = 99 - iPercent;
                }
 
+			   if iPreferPercent > 0 AND iPreferPercent < iGain
+			   {
+				   iGain = iPreferPercent;
+			   }
+			   
                Send(who,@MsgSendUser,#message_rsc=Meditate_cast_success,
                      #parm1=sSpell,#parm2=iGain);
                Send(who,@ChangeSpellAbility,#spell_num=iNum,
@@ -215,6 +230,11 @@ messages:
                   iGain = 99 - iPercent;
                }
 
+			   if iPreferPercent > 0 AND iPreferPercent < iGain
+			   {
+				   iGain = iPreferPercent;
+			   }
+			   
                Send(who,@MsgSendUser,#message_rsc=Meditate_cast_success,
                      #parm1=sSkill,#parm2=iGain);
                Send(who,@ChangeSkillAbility,#Skill_num=iNum,
