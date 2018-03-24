@@ -168,6 +168,7 @@ classvars:
    viTrap3_row = 31
    viTrap3_col = 32
 
+   // Blinks to door
    viBlink1_row = 31
    viBlink1_col = 17
 
@@ -236,6 +237,13 @@ messages:
                        [27, 31]
                      ];
 
+	  // Create the chest
+      if poChest = $
+      {
+         poChest = Create(&WoodenBox,#bLocked=TRUE);
+         Send(self,@NewHold,#what=poChest,#new_row=33,#new_col=25);
+      }
+
       // Set the treasure for the final chest.
       Send(self,@ResetTreasureList);
  
@@ -245,12 +253,6 @@ messages:
       // Set a wall in trap 3 as impassable (prevents a safe spot).
       Send(self,@AnimateWall,#wall=SECTOR_DOOR_TRAB2C,#animation=ANIMATE_NONE,
            #first_group=1,#passable=FALSE); 
-
-      if poChest = $
-      {
-         poChest = Create(&WoodenBox,#bLocked=TRUE);
-         Send(self,@NewHold,#what=poChest,#new_row=33,#new_col=25);
-      }
 
       propagate;
    }
@@ -379,6 +381,19 @@ messages:
       propagate;
    }
 
+   Recreate()
+   {
+      if poChest <> $
+      {
+		 Send(poChest, @Delete);
+		 poChest = $;
+         poChest = Create(&WoodenBox,#bLocked=TRUE);
+         Send(self,@NewHold,#what=poChest,#new_row=33,#new_col=25);
+      }	   
+	  
+	  propagate;
+   }   
+   
 ///////////////////////////////////////////
 //                                        //
 // Are we within the trap or blink area?  //
@@ -711,6 +726,15 @@ messages:
       iRow = Send(what,@GetRow);
       iCol = Send(what,@GetCol);
 
+	  // AlwaysBlinkToDoor@SilenceM59
+	  // ALWAYS BLINK TO DOOR
+	  // In case users are unable to exit the maze through the normal door.
+	  // As experienced by a user which needs to be fixed.
+	  Send(SYS,@UtilGoNearSquare,#what=what,#where=self,
+		   #new_row=viBlink1_row,#new_col=viBlink1_col);
+		   
+	  return;
+	  
       if Send(self,@InTrapAreaOne,#what=what)
       {
          Send(SYS,@UtilGoNearSquare,#what=what,#where=self,
@@ -935,10 +959,16 @@ messages:
       {
          Send(what,@MsgSendUser,#message_rsc=marcrypt3a_illegal_door);
          Send(what,@EffectSendUserDuration,#effect=EFFECT_PAIN,#duration=5000);
-         Send(what,@AdminGoToOOG);
+		 
+		 // Instead of OOGing them, just blink them to the main blink spot.
+		 
+          Send(SYS,@UtilGoNearSquare,#what=what,#where=self,
+               #new_row=viBlink1_row,#new_col=viBlink1_col);
+		 
+         /*Send(what,@AdminGoToOOG);
          debug("ALERT! Player ",Send(what,@GetTrueName),what,
                 " illegally used the door in RID_MAR_CRYPT3a.");
-         debug("Additional: They are now in OOG. =)");
+         debug("Additional: They are now in OOG. =)");*/
          
          return TRUE;
       }
@@ -1150,14 +1180,14 @@ messages:
                           [ 2, TREASURE_OBJECT, &OfferingJala, 1 ],
                           [ 1, TREASURE_OBJECT, &Prism, 1 ],
                           [ 3, TREASURE_OBJECT, &TrueLute, 1 ],
-                          [ 5, TREASURE_OBJECT, &PurpleMushroom, 25 ],
-                          [ 7, TREASURE_OBJECT, &InkyCap, 20 ],
-                          [ 5, TREASURE_OBJECT, &BlueDragonScale, 20 ],
-                          [ 5, TREASURE_OBJECT, &DarkAngelFeather, 20 ],
-                          [ 5, TREASURE_OBJECT, &EntrootBerry, 50 ],
-                          [ 5, TREASURE_OBJECT, &Yrxlsap, 20 ],
-                          [ 6, TREASURE_OBJECT, &Ruby, 35 ],
-                          [ 3, TREASURE_OBJECT, &Money, 25000 ]
+                          [ 5, TREASURE_OBJECT, &PurpleMushroom, 50 ],
+                          [ 7, TREASURE_OBJECT, &InkyCap, 40 ],
+                          [ 5, TREASURE_OBJECT, &BlueDragonScale, 40 ],
+                          [ 5, TREASURE_OBJECT, &DarkAngelFeather, 40 ],
+                          [ 5, TREASURE_OBJECT, &EntrootBerry, 100 ],
+                          [ 5, TREASURE_OBJECT, &Yrxlsap, 40 ],
+                          [ 6, TREASURE_OBJECT, &Ruby, 70 ],
+                          [ 3, TREASURE_OBJECT, &Money, 50000 ]
                         ];
 
       return;
@@ -1187,8 +1217,11 @@ messages:
 
       plTreasuresList = $;
 
-      Send(poChest,@Delete);
-      poChest = $;
+	  if poChest <> $
+	  {
+		  Send(poChest,@Delete);
+		  poChest = $;
+	  }
 
       propagate;
    }
@@ -1196,7 +1229,7 @@ messages:
    CanHavePlayerPortal()
    {
       // Don't allow portals into this room, bypassing puzzle
-      return false;
+      return FALSE;
    }
 
 end

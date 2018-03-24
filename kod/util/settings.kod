@@ -313,7 +313,7 @@ properties:
    // setting changes, you should recreate the system. Doesn't affect
    // players that already have the flag - if this is switched off,
    // the flag needs to be manually removed from players.
-   pbPvPOptOutEnabled = FALSE
+   pbPvPOptOutEnabled = TRUE
 
 messages:
 

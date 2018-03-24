@@ -97,7 +97,7 @@ classvars:
    viAffectsInnocents = FALSE   // Unaffiliated white characters
    viAffectsNewbies = FALSE     // Angeled characters
 
-   viCasterPersist = FALSE      // If true, spell will 'follow' caster between rooms
+   viCasterPersist = TRUE      // If true, spell will 'follow' caster between rooms
 
    viAffectsItems = FALSE       // If true, will apply effects to items in the room, such as a mace on the ground
                                 // It is possible for an item to be the source of a radius enchantment
