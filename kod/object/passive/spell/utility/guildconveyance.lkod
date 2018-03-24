@@ -1,0 +1,13 @@
+GuildConveyance_name_rsc = de "guild conveyance"
+GuildConveyance_desc_rsc = de \
+  "Sends any item to your guild hall chest.  "
+  "Requires only a moment of your precious time."
+GuildConveyance_cant = de "You cannot convey %s%s to your guild hall chest."
+GuildConveyance_chest_full = de "Your guild chest can't hold anymore items."
+GuildConveyance_not_holding = de \
+  "The item must be in your inventory first."
+GuildConveyance_cast = de \
+  "A guild squire has delivered %s%s to your guild hall chest for safe keeping."
+GuildConveyance_not_guilded = de "You must be guilded to cast guild conveyance."
+GuildConveyance_rank_too_low = de "You are not high enough rank to access your guild hall chest."
+GuildConveyance_no_hall = de "Your guild does not own a hall. Perhaps you should complain to your guild master."

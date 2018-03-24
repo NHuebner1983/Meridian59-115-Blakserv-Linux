@@ -110,7 +110,7 @@ messages:
          [
             Create(&LoadoutScroll,#labelled=TRUE),
             Create(&SetScroll,#labelled=TRUE),
-            Create(&Cheese,#number=3),
+            Create(&InkyCap,#number=5),
             Create(&Mug)
          ],
       $,$,$];
