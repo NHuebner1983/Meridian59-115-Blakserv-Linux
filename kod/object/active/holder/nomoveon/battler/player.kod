@@ -9186,7 +9186,7 @@ messages:
 			if killing_blow
 			{
 				// You may only earn unbound energy if you earned XP and an XP Bonus.
-				if iXP AND iXPBonus
+				if ((iXP AND iXPBonus) OR NOT bSpit)
 				{
 					// Earn the base amount multiplied by monster level divided by 10
 					// Example:   25 * 200 = 5000  /  10  = 500 unbound energy.
@@ -9208,7 +9208,7 @@ messages:
 			{
 				// Group kill most likely.
 				// You may only earn unbound energy if you earned an XP Bonus.
-				if iXPBonus
+				if iXPBonus OR NOT bSpit
 				{
 					// Earn the base amount multiplied by monster level divided by 10
 					// Example:   25 * 200 = 5000  /  100  = 50 unbound energy.

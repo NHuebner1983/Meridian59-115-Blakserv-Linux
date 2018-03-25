@@ -209,6 +209,8 @@ messages:
    {
       local oRoom;
 
+	  bForceDeathOnPenalty = FALSE;
+	  
       if Send(who,@CheckPlayerFlag,#flag=PFLAG_PHASED)
       {
          Send(who,@RemoveEnchantment,#what=self);
@@ -366,7 +368,7 @@ messages:
 
       // Phased player handles the penalties and calls the spell
       // back with the penalty numbers to send the resource.
-      Send(who,@CalculatePenalties,#what=self,#bForceDeath=bForceDeathOnPenalty);
+      Send(who,@CalculatePenalties,#what=self);
 
       return;
    }

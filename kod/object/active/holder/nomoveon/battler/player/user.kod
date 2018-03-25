@@ -1128,14 +1128,14 @@ messages:
       return;
    }
 
-   CalculatePenalties(what=$, bForceDeath=$)
+   CalculatePenalties(what=$)
    "'what' is the calling object, i.e. logoff ghost, phase spell."
    {
       local iPenCount, iEquivDeath, iPointLoss, iItemLoss, oDrop,
             iXPLoss, iNumItems, iNumSpellPts, iNumSkillPts, oSoldierShield;
 
 	  // If you are a recent PVP Combatant, you will die instead of penalty.
-	  if ((bForceDeath <> $ AND bForceDeath) OR (Send(SETTINGS_OBJECT,@PVPDeathOnPenalty) AND Send(self,@IsRecentPvPCombatant)))
+	  if Send(SETTINGS_OBJECT,@PVPDeathOnPenalty) AND Send(self,@IsRecentPvPCombatant)
       {
 		  Send(self,@Killed,#what=self);
 		  Send(self,@SomethingKilled,
