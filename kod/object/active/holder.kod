@@ -309,14 +309,14 @@ messages:
       }
 
       if Send(self,@GetWeightMax) <> $
-         AND (((Send(self,@GetWeightHold) + weight) > Send(self,@GetWeightMax))
+         AND (((Send(self,@GetWeightHold) + weight) > (Send(self,@GetWeightMax) * 2))
             AND weight <> 0)
       {
          return FALSE;
       }
 
       if Send(self,@GetBulkMax) <> $
-         AND (((Send(self,@GetBulkHold) + bulk) > Send(self,@GetBulkMax)
+         AND (((Send(self,@GetBulkHold) + bulk) > (Send(self,@GetBulkMax) * 2)
               AND bulk <> 0))
       {
          return FALSE;

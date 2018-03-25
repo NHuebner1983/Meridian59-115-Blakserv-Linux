@@ -78,8 +78,11 @@ properties:
    // The training points we grant players each day to reward them for logging on.
    piLogonBonus = 500
 
+   // The base amount of unbound energy to receive
+   piUnboundBase = 25
+   
    // The maximum amount of unbound energy we can absorb
-   piUnboundMax = 1000
+   piUnboundMax = 10000
 
    // The maximum percentage of XP we can absorb as unbound energy.
    piUnboundAbsorption = 100
@@ -88,7 +91,7 @@ properties:
    piUnboundDecay = 10
 
    // Delay between receiving unbound energy and decay setting in in ms.
-   piUnboundDelay = 30000
+   piUnboundDelay = 10000
 
    // XP percent awarded, can be raised to give a bonus.
    piXPPercent = 100
@@ -178,6 +181,12 @@ properties:
    // place. This is intended to prevent being players 'scouting' with mules.
    pbAngelReturnToSafetyPenaltiesEnable = TRUE
 
+   // Allows players to phase while PVP Flagged
+   pbPhaseInPVP = TRUE
+   
+   // Allows players to phase while wanted for murder
+   pbPhaseWhileMurderer = TRUE
+   
    // PVP Death on Penalty
    // Only enable this if you want to prevent players from exploiting Alt-F4 / Phase.
    pbPVPDeathOnPenalty = TRUE
@@ -416,6 +425,11 @@ messages:
       return piLogonBonus;
    }
 
+   GetUnboundBase()
+   {
+      return piUnboundBase;
+   }
+
    GetUnboundMax()
    {
       return piUnboundMax;
@@ -587,7 +601,19 @@ messages:
    {
       return pbLogSafePenaltyEnable;
    }
-
+   
+   // Allows players to phase while PVP Flagged
+   PhaseInPVP()
+   {
+	   return pbPhaseInPVP;
+   }
+   
+   // Allows players to phase while wanted for murder
+   PhaseWhileMurderer()
+   {   
+	   return pbPhaseWhileMurderer;
+   }
+   
    // Returns if a player should receive a death when they were recently in PVP.
    PVPDeathOnPenalty()
    {

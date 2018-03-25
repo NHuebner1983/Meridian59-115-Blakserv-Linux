@@ -9180,33 +9180,42 @@ messages:
 		 
          // Also grant unbound energy for your own kills.
          // Unbound energy allows free spell casts.
-         if IsClass(what,&Monster) AND killing_blow
+         if IsClass(what,&Monster)
          {
-            // Let's figure the amount, mostly based on monster level.
-            iUnbound = monster_level * Send(SETTINGS_OBJECT,@GetUnboundAbsorption)
-               * (Random(30,80) + (Send(self,@GetMysticism) * 2 / 5)) / 10000;
-
-            // Scale with distance to victim.
-            iDist = Bound(Send(self,@SquaredFineDistanceTo3D,#what=what),1,$);
-            // 36864 is 3 range in fine units, cf. SquaredFineDistanceTo3D.
-            iUnbound = Bound(iUnbound * 36864 / iDist,$,iUnbound);
-
-            // Scale with player level.
-            iDifference = piMax_health - monster_level;
-            if iDifference > 10
-            {
-               iUnbound = Bound(iUnbound * 100 / (iDifference * iDifference),$,iUnbound);
-            }
-
-            // Grant only one fourth of the energy if the mob didn't attack the player.
-            if ((piFlags & PFLAG_TOOK_DAMAGE) OR (piFlags & PFLAG_DODGED))
-            {
-               Send(self,@AddUnboundEnergy,#iAmount=iUnbound);
-            }
-            else
-            {
-               Send(self,@AddUnboundEnergy,#iAmount=iUnbound / 4);
-            }
+			// Killing blow!
+			if killing_blow
+			{
+				// You may only earn unbound energy if you earned XP and an XP Bonus.
+				if iXP AND iXPBonus
+				{
+					// Earn the base amount multiplied by monster level divided by 10
+					// Example:   25 * 200 = 5000  /  10  = 500 unbound energy.
+					iUnbound = (Send(SETTINGS_OBJECT,@GetUnboundBase) * monster_level) / 10;
+					
+					if ((piFlags & PFLAG_TOOK_DAMAGE) OR (piFlags & PFLAG_DODGED))
+					{
+					   // Grant full if the player dodged or took damage from monster
+					   Send(self,@AddUnboundEnergy,#iAmount=iUnbound);
+					}
+					else
+					{
+					   // Grand half if player did not take damage from monster
+					   Send(self,@AddUnboundEnergy,#iAmount=iUnbound / 2);
+					}
+				}
+			}
+			else
+			{
+				// Group kill most likely.
+				// You may only earn unbound energy if you earned an XP Bonus.
+				if iXPBonus
+				{
+					// Earn the base amount multiplied by monster level divided by 10
+					// Example:   25 * 200 = 5000  /  100  = 50 unbound energy.
+					iUnbound = (Send(SETTINGS_OBJECT,@GetUnboundBase) * monster_level) / 100;
+					Send(self,@AddUnboundEnergy,#iAmount=iUnbound);
+				}
+			}
          }
 
 		 iPrevTrainingPoints = piTraining_points;
