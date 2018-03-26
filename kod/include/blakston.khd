@@ -2417,6 +2417,9 @@
    // training points per kill.
    MAX_TRAINING_POINTS_PER_KILL = 2500
    
+   // New characters start out with 10,000 training points to get them started
+   NEW_PLAYER_TRAINING_POINTS = 10000
+   
    // Additional training points to award for each kill
    TP_AWARD_BONUS_PER_KILL = 20
       
