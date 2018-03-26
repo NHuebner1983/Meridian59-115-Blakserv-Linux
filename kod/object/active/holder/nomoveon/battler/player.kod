@@ -9229,23 +9229,13 @@ messages:
          {
 			 
 			// Give point bonus for a successful kill
-			iTrainingPointsAwarded = TP_ALWAYS_AWARD_PER_KILL;
-			
-			// Give point bonus if you reach the base HP
-			if Send(self,@GetMaxHealth) >= HP_BASE_MAX_ONE_STAMINA
-			{
-				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_BASE_HP;
-			}
-			
-			// Give point bonus if you reach your max HP
-			if Send(self,@GetMaxHealth) >= (HP_BASE_MAX_ONE_STAMINA + Send(self,@GetStamina))
-			{
-				iTrainingPointsAwarded += TP_ADDITIONAL_ABOVE_MAXED_HP;
-			}
+			iTrainingPointsAwarded = TP_AWARD_BONUS_PER_KILL;
 
-            piTraining_points += iTrainingPointsAwarded
-               + (Send(what,@GetBoostedLevel)
-               / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));			   
+			// Give training points which match the player's HP
+			iTrainingPointsAwarded += Send(self,@GetMaxHealth);
+			
+			// Set the final total training points the user will have
+            piTraining_points += iTrainingPointsAwarded;
          }
 		 
          // Let the player know how many training points they have, if they
@@ -12287,12 +12277,12 @@ messages:
 
    GetBulkMax()
    {
-      return viBulk_hold_max + (Send(self,@GetMight) * 20);
+      return (viBulk_hold_max + (Send(self,@GetMight) * 20)) * 2;
    }
 
    GetWeightMax()
    {
-      return viWeight_hold_max + (Send(self,@GetMight) * 20);
+      return (viWeight_hold_max + (Send(self,@GetMight) * 20) * 2);
    }
 
    CountKnownAtLevel(school=$,level=$)
