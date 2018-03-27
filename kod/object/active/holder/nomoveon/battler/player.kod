@@ -251,6 +251,7 @@ resources:
       "from your fallen enemy."
    player_unbound_energy_lost = "You channel ~B~t%i~v~B unbound energy "
       "to shape your spell."
+   player_unbound_energy_escapes = "The unbound energy escapes from your soul."
 
    player_health_gain_maxed = "Your health cannot increase any further."
 
@@ -4671,7 +4672,7 @@ messages:
 
       return TRUE;
    }
-
+   
    CheckStatusAndSafety(victim=$,report=TRUE,actual=TRUE,minion=FALSE,
                         stroke_obj=$)
    "CF_SAFETY_OFF prevents accidental attacks. You can always successfully "
@@ -4730,7 +4731,7 @@ messages:
          // Okay, attack is against a player, so record the time
          if actual = TRUE
          {
-            piTimeAttackedPlayer = GetTime();
+			piTimeAttackedPlayer = GetTime();
          }
 
          return TRUE;
@@ -15388,6 +15389,9 @@ messages:
       {
          Send(poOwner,@SomethingWaveRoom,#what=self,#wave_rsc=pvp_notify_wav);
       }
+	  
+	  // Destroy ubound energy during pvp
+	  piUnbound_energy = 0;
 
       // Set our attacked-by time here.
       piTimeAttackedByPlayer = iTime;

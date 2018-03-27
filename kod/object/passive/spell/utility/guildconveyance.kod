@@ -110,7 +110,7 @@ messages:
    
    CastSpell(who = $, lTargets = $)
    {
-      local i, oTarget, oGuild, oGuildHall, oBox, bSuccess;
+      local i, oTarget, oGuild, oGuildHall, oBox, bAtLeastOneBoxFound, bSuccess;
 
       if (lTargets = $)
       {
@@ -149,25 +149,23 @@ messages:
 	  // Whether or not the conveyance was successful...
 	  bSuccess = FALSE;
 	  
+	  // Whether or not we found a guild hall chest...
+	  bAtLeastOneBoxFound = FALSE;
+	  
 	  foreach i in Send(oGuildHall,@GetHolderActive)
       {
          oBox = First(i);
 		 
          if oBox <> $ AND IsClass(oBox,&StorageBox)
          {
+			bAtLeastOneBoxFound = TRUE;
+			
 			if Send(oBox,@ReqNewHold,#what=oTarget,#who=who,#IsConveyance=TRUE)
 			{
 				Send(oBox,@NewHold,#what=oTarget);
 				
 				bSuccess = TRUE;
 				
-				break;
-			}
-			else
-			{
-				// Box can't hold anymore items...
-				Send(who,@MsgSendUser,#message_rsc=GuildConveyance_chest_full);
-
 				break;
 			}
 		 }
@@ -180,8 +178,16 @@ messages:
 	  }
 	  else
 	  {
-         Send(who,@MsgSendUser,#message_rsc=GuildConveyance_cant,
-               #parm1=Send(oTarget,@GetDef),#parm2=Send(oTarget,@GetName));		  
+		 if bAtLeastOneBoxFound
+		 {
+			// All chests are full
+			Send(who,@MsgSendUser,#message_rsc=GuildConveyance_chest_full);
+		 }
+		 else
+		 {
+			Send(who,@MsgSendUser,#message_rsc=GuildConveyance_cant,
+				#parm1=Send(oTarget,@GetDef),#parm2=Send(oTarget,@GetName));		  
+		 }
 	  }
       propagate;
    }

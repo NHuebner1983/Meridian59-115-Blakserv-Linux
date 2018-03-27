@@ -31,6 +31,11 @@ resources:
       "~BYou extend to %s%q the opportunity to join %s%q."
    guildinvitation_to_inductee = \
       "~B%s%s extends to you an invitation to join %s%q!"
+   guildinvitation_pvp_warning = \
+      "~I~r~B---Warning---~B By joining a guild you will become "
+	  "PVP Flagged when another player attacks you, even if you "
+	  "do not attack them. If you phase or logoff while PVP Flagged, "
+	  "your final penalty will be death."
    guildinvitation_guild_full = \
       "%s%q's ranks are full, and may not take new members."
    guildinvitation_cannot_rejoin = \
@@ -127,7 +132,10 @@ messages:
       Send(oTarget,@MsgSendUser,#message_rsc=guildinvitation_to_inductee,
             #parm1=Send(who,@GetCapIndef),#parm2=Send(who,@GetName),
             #parm3=Send(newguild,@GetDef),#parm4=Send(newguild,@GetName));
-
+	  
+	  // PVP Warning
+      Send(oTarget,@MsgSendUser,#message_rsc=guildinvitation_pvp_warning);			
+			
       // Put invitation object in inductees inventory.
       Send(oTarget,@NewHold,#what=Create(&Guildinvitation,#inductor=who,
             #inductee=oTarget));

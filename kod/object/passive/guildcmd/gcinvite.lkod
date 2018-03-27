@@ -11,6 +11,11 @@ guildinvitation_to_inductor = de \
    "~BDu bietest %s%q die Möglichkeit, sich %s%q anzuschließen."
 guildinvitation_to_inductee = de \
    "~B%s%s bietet Dir eine Einladung an, Dich %s%q anzuschließen!"
+guildinvitation_pvp_warning = de \
+  "~I~r~B---Warning---~B By joining a guild you will become "
+  "PVP Flagged when another player attacks you, even if you "
+  "do not attack them. If you phase or logoff while PVP Flagged, "
+  "your final penalty will be death."
 guildinvitation_guild_full = de \
    "Alle Ränge der Gilde %s%q sind besetzt, und sie nehmen keine neue Mitglieder mehr auf."
 guildinvitation_cannot_rejoin = de \

@@ -1076,7 +1076,7 @@ messages:
 
    IsRecentPvPCombatant()
    {
-      local iTime, iRecent;
+      local iTime, iRecent, oGuilded, oSoldierShield;
 
 	  if piFlags & PFLAG_MURDERER
       {
@@ -1086,9 +1086,20 @@ messages:
       iTime = GetTime();
       iRecent = iTime - Send(SETTINGS_OBJECT,@GetRecentPvPTime);
 
+	  // Check if player is guilded
+	  oGuilded = Send(self,@GetGuild);
+	  
+	  // Check if player is faction shielded
+	  oSoldierShield = Send(self,@FindUsing,#class=&SoldierShield);
+	  
+	  if oGuilded <> $ OR oSoldierShield <> $
+	  {
+		  // Player is Guilded or Soldier Shielded
+		  return (piTimeAttackedByPlayer > iRecent OR piTimeAttackedPlayer > iRecent);
+	  }
+	  
       // You should only be flagged for PVP if you have attacked someone.
 	  return piTimeAttackedPlayer > iRecent;
-      //return (piTimeAttackedByPlayer > iRecent OR piTimeAttackedPlayer > iRecent);
    }
 
    DecayLogoffPenaltyCount()

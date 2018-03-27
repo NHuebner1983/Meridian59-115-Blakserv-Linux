@@ -44,8 +44,12 @@ resources:
 
    // Quest resources.
    princess_faction_soldier_assign_1 =\
-      "I am in need of allies.  Please, prove your loyalty by fighting "
-      "%INDEF_MONSTER%MONSTER.  You should find one guarding a flagpole "
+      "I am in need of allies, ~B~Ibut be warned~B~I, ~ryou will be PVP Flagged "
+	  "if another player attacks you, which will result in death should you "
+	  "take a penalty from phase or logging off. If you think you're strong enough, "
+	  "proceed with this request...."
+      "~kPlease, prove your loyalty by fighting "
+      "~B%INDEF_MONSTER%MONSTER~B. You should find one guarding a flagpole "
       "nearby.  Come back and let me know you are done."
    princess_faction_soldier_assign_2 =\
       "I am glad to see you have returned.  Please fight "

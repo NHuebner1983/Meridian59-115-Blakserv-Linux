@@ -44,7 +44,11 @@ resources:
 
    // Quest resources.
    rebel_faction_soldier_assign_1 =\
-      "I have faith in you.  Go dispatch %INDEF_MONSTER%MONSTER near a "
+      "I have faith in you, ~B~Ibut be warned~B~I, ~ryou will be PVP Flagged "
+	  "if another player attacks you, which will result in death should you "
+	  "take a penalty from phase or logging off. If you think you're strong enough, "
+	  "proceed with this request...."
+	  "~kGo dispatch ~B%INDEF_MONSTER%MONSTER~B near a "
       "flagpole, return to report on your battle, and then we will talk "
       "about your future as a soldier."
    rebel_faction_soldier_assign_2 =\

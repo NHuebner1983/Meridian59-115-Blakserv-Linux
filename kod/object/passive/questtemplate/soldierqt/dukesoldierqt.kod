@@ -44,9 +44,12 @@ resources:
 
    // Quest resources.
    duke_faction_soldier_assign_1 = \
-      "Yes, perhaps you'll do.  Prove your loyalty by murdering "
-      "%INDEF_MONSTER%MONSTER.  You can usually find some guarding a "
-      "flagpole.  Come back afterwards to tell of your deeds."
+      "Yes, perhaps you'll do, ~B~Ibut be warned~B~I, ~ryou will be PVP Flagged "
+	  "if another player attacks you, which will result in death should you "
+	  "take a penalty from phase or logging off. If you think you're strong enough, "
+	  "proceed with this request...."
+      "~kProve your loyalty by murdering ~B%INDEF_MONSTER%MONSTER~B. You can usually find some guarding a "
+      "flagpole. Come back afterwards to tell of your deeds."
    duke_faction_soldier_assign_2 = \
       "Excellent.  Now, show your contempt for my enemies by murdering "
       "%INDEF_MONSTER%MONSTER.  Return to me when you are done to let "
