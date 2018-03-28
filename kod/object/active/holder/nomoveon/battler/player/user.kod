@@ -8580,7 +8580,7 @@ messages:
             rSay_format = user_emote_str;
          }
 
-         if Send(what,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
+         if IsClass(what,&User) AND Send(what,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
             AND (rSay_format = user_said_str
                  OR rSay_format = user_yelled_str
                  OR rSay_format = user_emote_str)
@@ -8599,7 +8599,6 @@ messages:
             }
 
             
-
             AddPacket(1,BP_SAID, 4,what, 4,rName, 1,type, 4,rSay_format,
                       4,Send(what,@GetCapIndef), 4,rName, 0,string);
 
