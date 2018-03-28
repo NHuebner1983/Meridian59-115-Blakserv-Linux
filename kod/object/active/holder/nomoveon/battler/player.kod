@@ -15522,7 +15522,7 @@ messages:
       piTimeAttackedByPlayer = iTime;
 
 	  // Attacker is not a player.
-	  if attacker = $ OR NOT IsClass(attacker,&User)
+	  if attacker = $ OR NOT IsClass(attacker,&Player)
 	  {
 		  return;
 	  }
@@ -15546,7 +15546,7 @@ messages:
 	  
 	  // Check if a murderer/orange attacked a shield holder
 	  // You're a soldier - you can't get out of this without a fight.
-	  if Send(self,@FindUsing,#class=&SoldierShield) AND (Send(attacker,@CheckPlayerFlag,#flag=PFLAG_MURDERER) OR Send(attacker,@CheckPlayerFlag,#flag=PFLAG_OUTLAW))
+	  if attacker <> $ AND Send(self,@FindUsing,#class=&SoldierShield) <> $ AND Send(attacker,@IsMurderer)
 	  {
 		  Send(self,@SetAttackShield);
 		  Send(attacker,@SetAttackedByShield);

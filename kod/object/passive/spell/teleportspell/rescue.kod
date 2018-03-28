@@ -69,9 +69,7 @@ messages:
    CanPayCosts(who = $,lTargets = $)
    {
       // Can't cast just after attacking someone
-      if Send(who,@GetLastPlayerAttackTime)
-         + Send(SETTINGS_OBJECT,@TeleportAttackDelaySec)
-         > GetTime()
+      if Send(who,@IsRecentPVPCombatant)
       {
          Send(who,@MsgSendUser,#message_rsc=spell_too_soon_since_attacking);
 
@@ -98,17 +96,6 @@ messages:
    CastSpell(who = $, iSpellPower = 0)
    {
       local iDelay;
-
-	  if who <> $ AND Send(who, @IsRecentPVPCombatant)
-	  {
-		  if NOT (Send(Send(who,@GetOwner),@GetPermanentFlags) & ROOM_NO_COMBAT)
-		  {
-			  ClearTempString();
-			  AppendTempString("~B~r~IYour attempt to escape has failed. You are PVP Flagged and can only cast this spell from a safe room until your PVP Flag timer wears off.");
-			  Send(who,@MsgSendUser,#message_rsc=GetTempString());
-			  return FALSE;
-		  }
-	  }
 	  
       // Start with the base time.  Reduce time by spellpower.
       iDelay += 1000 * Send(SETTINGS_OBJECT, @RescueBaseDelaySec);
