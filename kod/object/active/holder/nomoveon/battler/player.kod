@@ -14762,7 +14762,7 @@ messages:
    
    IsGuildWarOrShieldFlagged()
    {
-	   return (Send(self,@GetAttackGuildWar) OR Send(self,@GetAttackedByGuildWar) OR Send(self,@GetAttackShield) OR Send(self,@GetAttackedByShield));
+	   return Send(self,@IsMurderer) OR (Send(self,@GetAttackGuildWar) OR Send(self,@GetAttackedByGuildWar) OR Send(self,@GetAttackShield) OR Send(self,@GetAttackedByShield));
 	   
    }
    
