@@ -1106,6 +1106,18 @@ properties:
    // piTimeAttackedByPlayer records the last time we were attacked by a player.
    piTimeAttackedByPlayer = 0
    
+   // I attacked a guild war enemy
+   bAttackGuildWar = FALSE
+   
+   // I was attacked by a guild war enemy
+   bAttackedByGuildWar = FALSE
+   
+   // I attacked a shielded enemy
+   bAttackShield = FALSE
+   
+   // I was attacked by a shielded enemy
+   bAttackedByShield = FALSE
+   
    // piDeathcost is used to tell the underworld what percent of normal
    //  penalties to apply when the players leaves.  FALSE means no penalties.
    piDeathCost = 100
@@ -1275,6 +1287,55 @@ messages:
       return 0;
    }
 
+   GetAttackGuildWar()
+   {
+	   return bAttackGuildWar;
+   }
+
+   GetAttackedByGuildWar()
+   {
+	   return bAttackedByGuildWar;
+   }
+
+   GetAttackShield()
+   {
+	   return bAttackShield;
+   }
+
+   GetAttackedByShield()
+   {
+	   return bAttackedByShield;
+   }
+   
+   SetAttackGuildWar()
+   {
+	   bAttackGuildWar = TRUE;
+	   
+	   return;
+   }
+
+   SetAttackedByGuildWar()
+   {
+	   bAttackedByGuildWar = TRUE;
+	   
+	   return;
+   }
+
+   SetAttackShield()
+   {
+	   bAttackShield = TRUE;
+	   
+	   return;
+   }
+
+   SetAttackedByShield()
+   {
+	   bAttackedByShield = TRUE;
+	   
+	   return;
+   }
+   
+   
    SetPlayerFlag(flag=0,value=FALSE,flagset=1)
    "This always requires the POSITIVE flag name."
    {
@@ -4731,6 +4792,20 @@ messages:
          // Okay, attack is against a player, so record the time
          if actual = TRUE
          {
+			if poGuild <> $ AND oEnemyGuild <> $ AND Send(poGuild,@IsMutualEnemy,#otherguild=oEnemyGuild)
+			{
+				// Mutual guild war attack
+				Send(self,@SetAttackGuildWar);
+				Send(victim,@SetAttackedByGuildWar);
+			}
+			
+			if oSoldierShield <> $ AND Send(oSoldierShield,@IsEnemyAttack,#what=victim)
+			{
+				// Mutual soldier shield attack
+				Send(self,@SetAttackShield);
+				Send(victim,@SetAttackedByShield);
+			}
+			
 			piTimeAttackedPlayer = GetTime();
          }
 
@@ -5037,7 +5112,7 @@ messages:
       // initially, but then not again until PVP_NOTIFY_DECAY has passed
       if IsClass(what,&User)
       {
-         Send(what,@DoPvpNotify);
+         Send(what,@DoPvpNotify,#attacker=self);
       }
 
       // Okay, checking is done, attack is okay.  Do the animation thing.
@@ -14637,10 +14712,60 @@ messages:
    {
 	   piTimeAttackedPlayer = 0;
 	   piTimeAttackedByPlayer = 0;
+	   	   
+	   // Reset all of my PVP type flags
+	   bAttackGuildWar = FALSE;
+	   bAttackedByGuildWar = FALSE;
+	   bAttackShield = FALSE;
+	   bAttackedByShield = FALSE;
+   	   
+	   Debug("PVP Flags reset: ", Send(self,@GetName));
 	   
 	   return;
    }
 
+	TryToPVPFlag(attacker=$, victim=$)
+	{
+		local poGuild, oEnemyGuild, oSoldierShield;
+		
+		if attacker = $ OR victim = $
+		{
+			// No harm, no foul.
+			return;
+		}
+
+		// Victim's Guild
+		poGuild = Send(victim,@GetGuild);
+
+		// Attacker's Guild
+		oEnemyGuild = Send(attacker,@GetGuild);
+
+		// Attacker's Shield
+		oSoldierShield = Send(attacker,@FindUsing,#class=&SoldierShield);
+		
+		if poGuild <> $ AND oEnemyGuild <> $ AND Send(poGuild,@IsMutualEnemy,#otherguild=oEnemyGuild)
+		{
+			// Mutual guild war attack
+			Send(attacker,@SetAttackGuildWar);
+			Debug("TryToPVPFlagged War: ", Send(attacker,@GetName));
+		}
+
+		if oSoldierShield <> $ AND Send(oSoldierShield,@IsEnemyAttack,#what=victim)
+		{
+			// Mutual soldier shield attack
+			Send(attacker,@SetAttackShield);
+			Debug("TryToPVPFlagged Shield: ", Send(attacker,@GetName));
+		}
+		
+		return;
+	}
+   
+   IsGuildWarOrShieldFlagged()
+   {
+	   return (Send(self,@GetAttackGuildWar) OR Send(self,@GetAttackedByGuildWar) OR Send(self,@GetAttackShield) OR Send(self,@GetAttackedByShield));
+	   
+   }
+   
    SendLightingInformation()
    {
       local i, oLightObject, iColor, iIntensity;
@@ -15375,9 +15500,9 @@ messages:
       return piTimeAttackedByPlayer;
    }
 
-   DoPvpNotify()
+   DoPvpNotify(attacker=$)
    {
-      local iTime, iNotify;
+      local iTime, iNotify, poGuild, oEnemyGuild, oSoldierShield;
 
       iTime = GetTime();
       iNotify = iTime - PVP_NOTIFY_DECAY;
@@ -15396,6 +15521,45 @@ messages:
       // Set our attacked-by time here.
       piTimeAttackedByPlayer = iTime;
 
+	  // Attacker is not a player.
+	  if attacker = $ OR NOT IsClass(attacker,&User)
+	  {
+		  return;
+	  }
+	  	  
+	  // My Guild
+	  poGuild = Send(self,@GetGuild);
+	  
+	  // Their Guild
+      oEnemyGuild = Send(attacker,@GetGuild);
+	  
+	  // Their Shield
+      oSoldierShield = Send(attacker,@FindUsing,#class=&SoldierShield);
+	  
+	  // Check if their guild and my guild are at war
+	  if poGuild <> $ AND oEnemyGuild <> $ AND Send(poGuild,@IsMutualEnemy,#otherguild=oEnemyGuild)
+	  {
+		  // Mutual guild war attack
+		  Send(self,@SetAttackGuildWar);
+		  Send(attacker,@SetAttackedByGuildWar);
+	  }
+	  
+	  // Check if a murderer/orange attacked a shield holder
+	  // You're a soldier - you can't get out of this without a fight.
+	  if Send(self,@FindUsing,#class=&SoldierShield) AND (Send(attacker,@CheckPlayerFlag,#flag=PFLAG_MURDERER) OR Send(attacker,@CheckPlayerFlag,#flag=PFLAG_OUTLAW))
+	  {
+		  Send(self,@SetAttackShield);
+		  Send(attacker,@SetAttackedByShield);
+	  }
+	  
+	  // Check if their shield registered an enemy attack from my shield
+	  if oSoldierShield <> $ AND Send(oSoldierShield,@IsEnemyAttack,#what=self)
+	  {
+		  // Mutual soldier shield attack
+		  Send(self,@SetAttackShield);
+		  Send(attacker,@SetAttackedByShield);
+	  }
+	  
       return;
    }
 

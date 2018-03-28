@@ -1076,7 +1076,7 @@ messages:
 
    IsRecentPvPCombatant()
    {
-      local iTime, iRecent, oGuilded, oSoldierShield;
+      local iTime, iRecent;
 
 	  if piFlags & PFLAG_MURDERER
       {
@@ -1086,15 +1086,9 @@ messages:
       iTime = GetTime();
       iRecent = iTime - Send(SETTINGS_OBJECT,@GetRecentPvPTime);
 
-	  // Check if player is guilded
-	  oGuilded = Send(self,@GetGuild);
-	  
-	  // Check if player is faction shielded
-	  oSoldierShield = Send(self,@FindUsing,#class=&SoldierShield);
-	  
-	  if oGuilded <> $ OR oSoldierShield <> $
+	  if Send(self,@IsGuildWarOrShieldFlagged)
 	  {
-		  // Player is Guilded or Soldier Shielded
+		  // Player is GuildWar or Soldier Shielded
 		  return (piTimeAttackedByPlayer > iRecent OR piTimeAttackedPlayer > iRecent);
 	  }
 	  

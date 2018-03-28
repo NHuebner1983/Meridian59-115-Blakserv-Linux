@@ -74,6 +74,22 @@ properties:
 
 messages:
 
+   CastSpell(who = $, iSpellPower = 0)
+   {
+	  if who <> $ AND Send(who, @IsRecentPVPCombatant)
+	  {
+		  if NOT (Send(Send(who,@GetOwner),@GetPermanentFlags) & ROOM_NO_COMBAT)
+		  {
+			  ClearTempString();
+			  AppendTempString("~B~r~IYour attempt to escape has failed. You are PVP Flagged and can only cast this spell from a safe room until your PVP Flag timer wears off.");
+			  Send(who,@MsgSendUser,#message_rsc=GetTempString());
+			  return FALSE;
+		  }
+	  }
+	  
+	  propagate;
+   }
+   
    ResetReagents()
    {
       plReagents = $;

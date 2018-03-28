@@ -99,8 +99,19 @@ messages:
    {
       local iDelay;
 
+	  if who <> $ AND Send(who, @IsRecentPVPCombatant)
+	  {
+		  if NOT (Send(Send(who,@GetOwner),@GetPermanentFlags) & ROOM_NO_COMBAT)
+		  {
+			  ClearTempString();
+			  AppendTempString("~B~r~IYour attempt to escape has failed. You are PVP Flagged and can only cast this spell from a safe room until your PVP Flag timer wears off.");
+			  Send(who,@MsgSendUser,#message_rsc=GetTempString());
+			  return FALSE;
+		  }
+	  }
+	  
       // Start with the base time.  Reduce time by spellpower.
-      iDelay = 1000 * Send(SETTINGS_OBJECT, @RescueBaseDelaySec);
+      iDelay += 1000 * Send(SETTINGS_OBJECT, @RescueBaseDelaySec);
       iDelay = iDelay - (iSpellPower * iDelay) / 100 / 4;
 
       // Add a little delay in sometimes.

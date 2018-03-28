@@ -191,6 +191,7 @@ messages:
       if Random(1,100) < iMissChance
       {
          Send(who,@MsgSendUser,#message_rsc=winds_miss_rsc);
+		 Send(oCaster,@TryToPVPFlag,#attacker=oCaster,#victim=who);
 
          return TRUE;
       }
