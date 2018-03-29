@@ -217,13 +217,13 @@ messages:
       }
       else
       {
-		  if Send(who,@IsMurderer) AND NOT Send(SETTINGS_OBJECT, @PhaseWhileMurderer)
+		  /*if Send(who,@IsMurderer) AND NOT Send(SETTINGS_OBJECT, @PhaseWhileMurderer)
 		  {
 			// Murderers are not allowed to phase.
 			Send(who,@MsgSendUser,#message_rsc=Phase_pvp_src);
 
 			return FALSE;
-		  }
+		  }*/
 		  
 		  if Send(who,@IsRecentPvPCombatant) AND NOT Send(SETTINGS_OBJECT,@PhaseInPVP)
 		  {

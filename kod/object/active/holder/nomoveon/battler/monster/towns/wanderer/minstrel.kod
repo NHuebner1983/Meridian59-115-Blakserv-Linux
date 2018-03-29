@@ -83,9 +83,11 @@ messages:
 
    CreateDestinationList()
    {
-      plDestinations = [ [RID_DUKE3, 13, 21] , [RID_CORNOTH, 16, 39, 48,16],
+      plDestinations = [ [RID_TOS_INN, 6, 5, 44, 12],[RID_TOS_INN, 6, 5, 44, 12] ];
+	  
+/*      plDestinations = [ [RID_TOS_INN, 3, 10, 18, 46], [RID_DUKE3, 13, 21] , [RID_CORNOTH, 16, 39, 48,16],
                          [RID_JAS_TAVERN, 11, 9],[RID_BAR_BAR, 20, 7],
-                         [RID_CASTLE2C, 31, 23]];
+                         [RID_CASTLE2C, 31, 23]];*/
 
       return;
    }

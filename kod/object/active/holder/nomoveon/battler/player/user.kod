@@ -1074,6 +1074,34 @@ messages:
 
 #region Penalties
 
+   SetHighestPvpTime(addSeconds = $)
+   {
+	   local iTime, iPvpSec, iLatestAttackTime;
+
+   	   iPvpSec = Send(SETTINGS_OBJECT,@GetRecentPvPTime);
+
+	   if addSeconds <> $ AND addSeconds > 0
+	   {
+		   iPvpSec += addSeconds;
+	   }
+	   
+	   iTime = GetTime();
+	   
+	   if Send(self,@IsGuildWarOrShieldFlagged)
+	   {
+		   piTimeAttackedPlayer = iTime + iPvpsec;
+		   piTimeAttackedByPlayer = iTime + iPvpsec;
+	   }
+	   else
+	   {
+		   piTimeAttackedPlayer = iTime + iPvpsec;
+	   }
+	   
+	   Debug("Set PVP time to: ", iPvpSec);
+
+	   return;
+   }
+
    IsRecentPvPCombatant()
    {
       local iTime, iRecent;

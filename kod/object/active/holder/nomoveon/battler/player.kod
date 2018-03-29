@@ -14747,14 +14747,12 @@ messages:
 		{
 			// Mutual guild war attack
 			Send(attacker,@SetAttackGuildWar);
-			Debug("TryToPVPFlagged War: ", Send(attacker,@GetName));
 		}
 
 		if oSoldierShield <> $ AND Send(oSoldierShield,@IsEnemyAttack,#what=victim)
 		{
 			// Mutual soldier shield attack
 			Send(attacker,@SetAttackShield);
-			Debug("TryToPVPFlagged Shield: ", Send(attacker,@GetName));
 		}
 		
 		return;
@@ -15266,7 +15264,7 @@ messages:
 
    StartPhaseTimer()
    {
-      local i;
+      local i, diffTime;
 
       // If phase time regen timer is active, delete it.
       if (ptPhaseRegenTimer <> $)
@@ -15293,16 +15291,14 @@ messages:
          ptPhaseVisualEffectTimer = CreateTimer(self,@PhaseVisualEffectTimer,2000);
       }
 
-      // Add phase time to piTimeAttackedPlayer if it is currently
-      // preventing the player from casting escape spells.
-      if piTimeAttackedPlayer
-            + Send(SETTINGS_OBJECT,@TeleportAttackDelaySec)
-            > GetTime()
-      {
-         piTimeAttackedPlayer = piTimeAttackedPlayer
-                                 + (Send(self,@GetRemainingPhaseTime) / 1000);
-      }
 
+	  // Make sure they are still PVP flagged by time their penalty ends.
+	  // If they make it to safety, they will be PVP Flagged from the beginning again.
+	  if Send(self,@IsRecentPvPCombatant)
+	  {
+		  Send(self,@SetHighestPvpTime,#addSeconds=(Send(self,@GetRemainingPhaseTime) / 1000));
+	  }
+	  
       return;
    }
    

@@ -98,7 +98,7 @@ messages:
       local iDelay;
 	  
       // Start with the base time.  Reduce time by spellpower.
-      iDelay += 1000 * Send(SETTINGS_OBJECT, @RescueBaseDelaySec);
+      iDelay = 1000 * Send(SETTINGS_OBJECT, @RescueBaseDelaySec);
       iDelay = iDelay - (iSpellPower * iDelay) / 100 / 4;
 
       // Add a little delay in sometimes.

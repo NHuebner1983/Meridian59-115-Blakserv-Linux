@@ -247,10 +247,12 @@ messages:
 
    CreateDestinationList()
    {
-      plDestinations = [ [RID_G5, 4, 42], [RID_C5, 16, 40], 
+      plDestinations = [ [RID_TOS_INN, 6, 9, 11, 61], [RID_TOS_INN, 6, 9, 11, 61] ];
+	  
+/*      plDestinations = [ [RID_TOS_INN, 6, 9, 11, 61], [RID_G5, 4, 42], [RID_C5, 16, 40], 
                          [RID_I3, 9, 34], [RID_TEMPLE, 24, 23],
                          [RID_F8, 11, 42] ];
-
+*/
       return;
    }
 
