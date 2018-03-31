@@ -5,6 +5,6 @@
 !include $(TOPDIR)\common.mak
 
 DEPEND = ..\radiusench.bof
-BOFS = jala.bof umbrella.bof
+BOFS = jala.bof umbrella.bof amarad.bof
 
 !include $(KODDIR)\kod.mak

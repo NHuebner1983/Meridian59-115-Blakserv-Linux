@@ -104,7 +104,13 @@ messages:
 
    AddRadiusEnchantment(what=$,iPower=0,source=$)
    {
-      local i;
+      local i, bExists, sMe, bEnchanted;
+
+	  bEnchanted = FALSE;
+	  
+	  sMe = Send(self,@GetName);
+	  
+	  bExists = FALSE;
 
       foreach i in plRadiusEnchantments
       {
@@ -112,29 +118,79 @@ messages:
             AND Nth(i,2) = iPower
             AND Nth(i,3) = source
          {
-            return;
+			 return;
+         }
+		 
+         if Send(First(i),@GetName) = Send(what,@GetName)
+		    AND Send(Nth(i,3),@GetName) = sMe
+		 {
+			 bExists = TRUE;
+			 bEnchanted = TRUE;
+			 break;
          }
       }
+	  
+	  plRadiusEnchantments = Cons([what,iPower,source],plRadiusEnchantments);
+	  
+	  if IsClass(self,&User)
+	  {
+		if source = self
+		{
+			// Top enchantment (personal enchant list)
+			Send(self,@ShowRemoveEnchantment,#what=what,#type=1);
+			Send(self,@ShowAddEnchantment,#what=what,#type=1);
+		}
 
-      plRadiusEnchantments = Cons([what,iPower,source],plRadiusEnchantments);
-
-      if IsClass(self,&User)
-      {
-         Send(self,@ShowAddEnchantment,#what=what,#type=2);
-
-         if source = self
-         {
-            Send(self,@ShowAddEnchantment,#what=what,#type=1);
-         }
-      }
+		// Bottom enchantment (room buffs list)
+		Send(self,@ShowRemoveEnchantment,#what=what,#type=2);
+		Send(self,@ShowAddEnchantment,#what=what,#type=2);
+	  }
 
       return;
    }
 
    RemoveRadiusEnchantment(what=$,iPower=0,source=$)
    {
-      local i;
+      local i, sMe, bEnchanted;
 
+	  bEnchanted = FALSE;
+	  
+	  sMe = Send(self,@GetName);
+	  
+	  foreach i in plRadiusEnchantments
+      {
+         if Send(First(i),@GetName) = Send(what,@GetName)
+		    AND Send(Nth(i,3),@GetName) = sMe
+		 {
+			 bEnchanted = TRUE;
+	     }
+		  
+         if First(i) = what
+            AND Nth(i,2) = iPower
+            AND Nth(i,3) = source
+         {
+            if IsClass(self,&User)
+            {
+               if source = self
+               {
+				  Send(self,@ShowRemoveEnchantment,#what=First(i),#type=2);
+                  Send(self,@ShowRemoveEnchantment,#what=First(i),#type=1);
+				  
+				  plRadiusEnchantments = DelListElem(plRadiusEnchantments,i);
+				  
+				  bEnchanted = FALSE;
+				  break;
+               }			
+			}
+		 }
+	  }
+	  
+	  if bEnchanted
+	  {
+		  // Do not remove the icon because we're using it too.
+		  return;
+	  }
+	  
       foreach i in plRadiusEnchantments
       {
          if First(i) = what
@@ -144,11 +200,6 @@ messages:
             if IsClass(self,&User)
             {
                Send(self,@ShowRemoveEnchantment,#what=First(i),#type=2);
-
-               if source = self
-               {
-                  Send(self,@ShowRemoveEnchantment,#what=First(i),#type=1);
-               }
             }
 
             plRadiusEnchantments = DelListElem(plRadiusEnchantments,i);

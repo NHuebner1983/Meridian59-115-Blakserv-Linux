@@ -339,6 +339,8 @@ messages:
          Send(self,@SendStatsDesc,#who=who);
          Send(self,@SendTimeDesc,#who=who);
 
+		 piMeditate_ratio = Send(SETTINGS_OBJECT,@GetMeditateRatioByLevel,#level=viSpell_Level);
+		 
          if piMeditate_ratio = 0
          {
             AddPacket(4,spell_nothing);
@@ -361,6 +363,7 @@ messages:
 
       return;
    }
+
 
    GetExtraDesc()
    {
@@ -1868,23 +1871,7 @@ messages:
 
    GetMeditateRatio()
    {
-      return piMeditate_ratio;
-   }
-
-   SetMeditateRatio(points=0)
-   {
-      if points > 0
-      {
-         piMeditate_ratio = points;
-      }
-
-      return;
-   }
-
-   ResetMeditateRatio()
-   {
-      piMeditate_ratio = viMeditate_ratio;
-      return;
+	  return Send(SETTINGS_OBJECT,@GetMeditateRatioByLevel,#level=viSpell_Level);
    }
 
    GetInitialChance(who=$)
@@ -2412,15 +2399,7 @@ messages:
       iSecondaryBonus = bound(iSecondaryBonus,0,10);
 
       iSpellPower = iPrimaryBonus + iSecondaryBonus + iPowerBonus + iBase;
-
-      if Send(oRoom,@CheckRoomFlag,#flag=ROOM_ANTI_MAGIC)
-      {
-         oModifierSpell = Send(SYS,@FindSpellByNum,#num=SID_ANTIMAGIC_AURA);
-         iSpellPower = Send(oModifierSpell,@ModifySpellPower,
-                              #who=who,#oRoom=oRoom,#oSpell=self,
-                              #iSpellPower=iSpellPower);
-      }
-
+	  	  
       lRadiusState = Send(who,@GetMostPowerfulRadiusEnchantmentState,
                            #byClass=&ManaConvergence);
       if lRadiusState <> $
@@ -2451,6 +2430,20 @@ messages:
          iSpellpower = iSpellpower - iAbilityLoss;
       }
 
+//      if Send(oRoom,@CheckRoomFlag,#flag=ROOM_ANTI_MAGIC)
+	  if Send(who,@IsAffectedByRadiusEnchantment,#byClass=&AMARad)
+      {
+         oModifierSpell = Send(SYS,@FindSpellByNum,#num=SID_ANTIMAGIC_AURA);
+         iSpellPower = Send(oModifierSpell,@ModifySpellPower,
+                              #who=who,#oRoom=oRoom,#oSpell=self,
+                              #iSpellPower=iSpellPower);
+							  
+		  if IsClass(self,&Discordance) AND iSpellPower < 10
+		  {
+			  iSpellPower = 10;
+		  }
+	  }
+	  
       // Bound the result.
       iSpellPower = bound(iSpellPower,SPELLPOWER_MINIMUM,SPELLPOWER_MAXIMUM);
 

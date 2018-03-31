@@ -3243,7 +3243,10 @@ messages:
       Send(self,@CreateOneSpellIfNew,#num=SID_UMBRELLA,#class=&Umbrella);
 
       Send(self,@CreateOneSpellIfNew,#num=SID_INVISIBILITY,#class=&Invisibility);
-      Send(self,@CreateOneSpellIfNew,#num=SID_ANTIMAGIC_AURA,#class=&AntiMagicAura);
+//      Send(self,@CreateOneSpellIfNew,#num=SID_ANTIMAGIC_AURA,#class=&AntiMagicAura);
+
+      Send(self,@CreateOneSpellIfNew,#num=SID_ANTIMAGIC_AURA,#class=&AMARad);
+
       Send(self,@CreateOneSpellIfNew,#num=SID_ENFEEBLE,#class=&Enfeeble);
       Send(self,@CreateOneSpellIfNew,#num=SID_RESIST_MAGIC,#class=&ResistMagic);
       Send(self,@CreateOneSpellIfNew,#num=SID_SWAP,#class=&Swap);

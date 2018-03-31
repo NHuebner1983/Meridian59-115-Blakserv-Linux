@@ -144,6 +144,8 @@ messages:
       // Add time resource if appropriate.
       Send(self,@SendTimeDesc,#who=who);
       
+	  piMeditate_ratio = Send(SETTINGS_OBJECT,@GetMeditateRatioByLevel,#level=viSkill_Level);
+	  
       // Add meditate ratio.
       if piMeditate_ratio = 0
       {
@@ -269,23 +271,7 @@ messages:
 
    GetMeditateRatio()
    {
-      return piMeditate_ratio;
-   }
-
-   SetMeditateRatio(points=0)
-   {
-      if points > 0
-      {
-         piMeditate_ratio = points;
-      }
-
-      return;
-   }
-
-   ResetMeditateRatio()
-   {
-      piMeditate_ratio = viMeditate_ratio;
-      return;
+	  return Send(SETTINGS_OBJECT,@GetMeditateRatioByLevel,#level=viSkill_Level);
    }
 
    CanPayCosts(who=$,oTarget=$)

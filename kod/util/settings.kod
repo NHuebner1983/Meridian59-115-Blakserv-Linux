@@ -44,6 +44,15 @@ properties:
    // Player advancement
    //
 
+   // Meditate amounts for each school level
+   // Applies to both WC and Spells
+   piMeditateLevelOne = 20
+   piMeditateLevelTwo = 30
+   piMeditateLevelThree = 45
+   piMeditateLevelFour = 70
+   piMeditateLevelFive = 100
+   piMeditateLevelSix = 160
+   
    piKillKarmaSwingNeutral = 3
    piKillKarmaSwingMonster = 6
    piKillKarmaSwingPlayer = 10
@@ -342,6 +351,69 @@ messages:
       return;
    }
 
+   GetMeditateLevelOne()
+   {
+	   return piMeditateLevelOne;
+   }
+   
+   GetMeditateLevelTwo()
+   {
+	   return piMeditateLevelTwo;
+   }
+   
+   GetMeditateLevelThree()
+   {
+	   return piMeditateLevelThree;
+   }
+   
+   GetMeditateLevelFour()
+   {
+	   return piMeditateLevelFour;
+   }
+
+   GetMeditateLevelFive()
+   {
+	   return piMeditateLevelFive;
+   }
+   
+   GetMeditateLevelSix()
+   {
+	   return piMeditateLevelSix;
+   }
+   
+   GetMeditateRatioByLevel(level=1)
+   {
+	   // All WC/Spells are now calculated by level.
+	   
+	   if level = 1
+	   {
+		   return Send(self,@GetMeditateLevelOne);
+	   }
+	   if level = 2
+	   {
+		   return Send(self,@GetMeditateLevelTwo);
+	   }
+	   if level = 3
+	   {
+		   return Send(self,@GetMeditateLevelThree);
+	   }
+	   if level = 4
+	   {
+		   return Send(self,@GetMeditateLevelFour);
+	   }
+	   if level = 5
+	   {
+		   return Send(self,@GetMeditateLevelFive);
+	   }
+	   if level = 6
+	   {
+		   return Send(self,@GetMeditateLevelSix);
+	   }
+	   
+	   return Send(self,@GetMeditateLevelSix);
+   }
+      
+   
    GetPKillEnableHP()
    {
       return piPKillEnableHP;

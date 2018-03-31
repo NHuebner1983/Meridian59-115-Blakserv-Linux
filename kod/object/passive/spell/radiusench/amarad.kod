@@ -1,0 +1,112 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+/////////////////////////////////////////////////////////////////////////////////
+AMARad is RadiusEnchantment
+
+constants:
+
+   include blakston.khd
+
+resources:
+
+   include amarad.lkod
+
+   AMARad_name_rsc = "anti-magic aura"
+   AMARad_icon_rsc = iantimag.bgf
+   AMARad_desc_rsc = \
+      "Sends a shock wave of magical energy coursing through the room which "
+      "reduces the spellpower of other spells cast for several minutes.  "
+      "More powerful mages are more effective at casting this spell.  "
+      "Requires four sapphires and a handful of polished seraphym to cast."
+   
+   AMARad_unnecessary = \
+      "You cannot overcome the anti-magic field in effect."
+   AMARad_reinforced = \
+      "The mana field around you is fluctuating more wildly than it was before."
+
+   AMARad_on = "The mana field begins to fluctuate."
+   AMARad_off = "The mana field returns to normal."
+   AMARad_new_occupant = "The mana field is fluctuating here."
+
+   AMARad_sound = kantimag.ogg
+
+classvars:
+
+   vrIcon = AMARad_icon_rsc
+   vrDesc = AMARad_desc_rsc
+   vrName = AMARad_name_rsc
+   vrAlreadyEnchanted = AMARad_unnecessary
+   vrSucceed_wav = AMARad_sound
+
+   viSpell_num = SID_ANTIMAGIC_AURA
+   viSchool = SS_KRAANAN
+   viHarmful = TRUE
+   viNoNewbieOffense = TRUE
+   viMana = 15
+   viSpell_level = 6
+   viCast_time = 600
+   viChance_To_Increase = 10
+   viMeditate_ratio = 75
+
+   viBaseRange = 8
+   viDrainTime = 15000
+
+   viAffectsEveryone = TRUE
+   
+properties:
+
+   // What percentage of AMA's spellpower is removed from the
+   // spellpower of any spells cast.
+   piAMAEffectPercent = 100
+
+messages:
+
+   ResetReagents()
+   {
+      plReagents = $;
+      plReagents = Cons([&Sapphire,4],plReagents);
+      plReagents = Cons([&PolishedSeraphym,2],plReagents);
+
+      return;
+   }
+
+   ModifySpellPower(who=$,oSpell=$,oRoom=$,iSpellPower=0)
+   {
+      local i, state, oCaster;
+
+      if (oRoom = $
+         OR who = $
+         OR IsClass(oSpell,&ManaConvergence))
+      {
+         return iSpellPower;
+      }
+
+      // Get power of AMA
+      //state = Send(oRoom,@GetEnchantedState,#what=self);
+	  state = Send(who,@GetMostPowerfulRadiusEnchantmentState,#byClass=&AMARad);
+      if (state = $)
+      {
+         return iSpellPower;
+      }
+
+      oCaster = Nth(state,3);
+
+      // Subtract AMA's spellpower from the power of the spell being cast.
+      return iSpellPower - Nth(state,2) * piAMAEffectPercent / 100;
+   }
+
+   AffectsSpellPower()
+   {
+      return TRUE;
+   }
+
+end
+
+////////////////////////////////////////////////////////////////////////////////
