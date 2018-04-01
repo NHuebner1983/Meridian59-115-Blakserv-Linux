@@ -281,7 +281,8 @@ messages:
       oRoom = Send(poOwner,@GetOwner);
 
       // AMA modifies item spellpower.
-      if Send(oRoom,@CheckRoomFlag,#flag=ROOM_ANTI_MAGIC)
+      //if Send(oRoom,@CheckRoomFlag,#flag=ROOM_ANTI_MAGIC)
+	  if Send(poOwner,@IsAffectedByRadiusEnchantment,#byClass=&AMARad)
       {
          oModifierSpell = Send(SYS,@FindSpellByNum,#num=SID_ANTIMAGIC_AURA);
          iSpellPower = Send(oModifierSpell,@ModifySpellPower,

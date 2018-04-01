@@ -58,8 +58,15 @@ classvars:
    viBaseRange = 8
    viDrainTime = 15000
 
-   viAffectsEveryone = TRUE
+   viAffectsCaster = TRUE
+   viAffectsGuildmates = TRUE
+   viAffectsAllies = TRUE
+   viAffectsEnemies = TRUE
    
+   viAffectsCasterOnly = FALSE
+   viAffectsInnocents = FALSE
+   viAffectsNewbies = FALSE
+
 properties:
 
    // What percentage of AMA's spellpower is removed from the

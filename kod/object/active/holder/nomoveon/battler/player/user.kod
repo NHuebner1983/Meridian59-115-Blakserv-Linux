@@ -553,6 +553,23 @@ properties:
    // keep track of how much this player triggers flood protection
    piFloodCount = 0
 
+	// These are only used for players who are in "Monster" mode (such as AI-Players).
+	piBehavior = $
+	piState = $
+	viSpeed = 50
+	piTargetLocationRow = $
+	piTargetLocationCol = $
+	piTargetLocationFineRow = $
+	piTargetLocationFineCol = $
+	poTarget = $
+	iMonsterModeInterval = 3000
+	tMonsterMode = $
+	bMonsterMode = FALSE
+	tAutoAttackA = $
+	tAutoAttackB = $
+	tAutoAttackC = $
+	bAutoAttacking = FALSE
+	
 messages:
 
    Constructor(name = $,icon = $)
@@ -4073,7 +4090,8 @@ messages:
       // 2. Do not allow any moves if player is marked as not allowed to move or 
       //    if destination is outside of the map.
       //
-      if (piFlags & PFLAG_NO_MOVE) OR NOT (iRflags & LIR_SECTOR_INSIDE)
+	  // But do not do this to DMs. Let them do anything they want.
+      if NOT IsClass(self,&DM) AND ((piFlags & PFLAG_NO_MOVE) OR NOT (iRflags & LIR_SECTOR_INSIDE))
       {
          // Reset position
          Send(SYS,@UtilGoNearSquare,#what=self,#where=poOwner,
@@ -8129,6 +8147,8 @@ messages:
          SendPacket(poSession);
       }
 
+	  Send(self,@AsMonsterContinue);
+	  
       propagate;
    }
 
@@ -8147,6 +8167,8 @@ messages:
          SendPacket(poSession);
       }
 
+	  Send(self,@AsMonsterContinue);
+	  
       propagate;
    }
 
@@ -8189,6 +8211,8 @@ messages:
                #parm1=Send(what,@GetName));
       }
 
+	  Send(self,@AsMonsterContinue);
+	  
       propagate;
    }
 
@@ -8211,6 +8235,8 @@ messages:
                #parm1=Send(what,@GetName));
       }
 
+	  Send(self,@AsMonsterContinue);
+	  
       propagate;
    }
 
@@ -8236,6 +8262,8 @@ messages:
          Send(self,@MsgSendUser,#message_rsc=user_spectate_on,
                #parm1=Send(what,@GetTrueName));
       }
+	  
+	  Send(self,@AsMonsterContinue);
 
       propagate;
    }
@@ -8256,7 +8284,10 @@ messages:
       {
          Send(self,@MsgSendUser,#message_rsc=user_spectate_off,
                #parm1=Send(what,@GetTrueName));
+
       }
+	  
+	  Send(self,@AsMonsterContinue);
 
       propagate;
    }
@@ -8286,6 +8317,8 @@ messages:
          }
       }
 
+	  Send(self,@AsMonsterContinue);
+	  
       propagate;
    }
 
@@ -8318,6 +8351,8 @@ messages:
          }
       }
 
+	  Send(self,@AsMonsterContinue);
+	  
       propagate;
    }
 
@@ -8691,6 +8726,8 @@ messages:
 
          SendPacket(poSession);
       }
+	  
+	  Send(self,@AsMonsterContinue);	  
 
       propagate;
    }
@@ -11151,5 +11188,305 @@ messages:
       return;
    }
 
+   // Monster movements copied from Monster KOD 
+   // to be able to control players in an AI-Like state.
+   MoveTowards(oTarget = $, face_target=TRUE, face_away=FALSE,
+               to_master=FALSE)
+   {
+      if oTarget = $ 
+      { 
+         Debug("Bad info passed to MoveTowards!");
+         return FALSE; 
+      }
+
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	  
+	  poTarget = oTarget;
+	  
+	  //Debug(Send(self,@GetName),"moving towards object",Send(oTarget,@GetName));
+	  
+      return Send(self, @MoveTowardsCoords,
+                   #iRow=Send(oTarget,@GetRow),
+                   #iCol=Send(oTarget,@GetCol),
+                   #iFineRow=Send(oTarget,@GetFineRow),
+                   #iFineCol=Send(oTarget,@GetFineCol),
+                   #face_target=TRUE);
+   }
+   
+   MoveTowardsCoords(iRow=$, iCol=$, iFineRow=FINENESS_HALF, iFineCol=FINENESS_HALF,
+                     face_target=TRUE, face_away=FALSE, to_master=FALSE)
+   {
+      if (iRow = $ or iCol = $)
+      {
+         return;
+      }
+
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	  
+	  //Debug(Send(self,@GetName),"moving towards coords",iRow,iCol,iFineRow,iFineCol);
+	  
+		Send(SYS,@UtilGoNearSquare,#what=self,#where=poOwner,
+			#new_row=iRow,
+			#new_col=iCol,
+			#fine_row=iFineRow,
+			#fine_col=iFineCol);
+
+		Send(self,@MonsterOrient,#new_row=iRow,#new_col=iCol,
+			#new_finerow=iFineRow,#new_finecol=iFineCol);
+
+	  //Send(self,@UserMove,#new_row=iRow,#new_col=iCol,#fine_row=iFineRow,#fine_col=iFineCol,#speed=50);
+	  
+	  return TRUE;
+   }
+
+   GotoCoords(iRow=$,iCol=$,iFineRow=FINENESS_HALF,iFineCol=FINENESS_HALF)
+   "Move to a specific row and column. warning! fineness really"
+   "isn't accurate as the monster will stop when it reaches the destination"
+   "row and column"
+   {
+      if (iRow = $ OR iCol = $)
+      {
+         return;
+      }
+
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	  
+      piTargetLocationRow = iRow;
+      piTargetLocationCol = iCol;
+      piTargetLocationFineRow = iFineRow;
+      piTargetLocationFineCol = iFineCol;
+      //Send(self,@SetBehaviorFlag,#flag=AI_HAS_TARGET_LOCATION,#value=TRUE);
+
+      return;
+   }
+   
+   MonsterOrient(new_row = $,new_col = $,new_finerow = FINENESS_HALF,
+                 new_finecol=FINENESS_HALF,face_target = TRUE, face_away=FALSE)
+   "Called by monster moving code before and after a real move"
+   {
+      local drow, dcol, iAngle;
+
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	  
+      // aiming towards a target or away from it
+      if (NOT (poTarget = $)) AND (face_target OR face_away)
+      { 
+         // build face towards (in fine-units)
+         drow = (Send(poTarget,@GetRow) * FINENESS) + Send(poTarget,@GetFineRow);
+         dcol = (Send(poTarget,@GetCol) * FINENESS) + Send(poTarget,@GetFineCol);
+         drow = drow - ((piRow * FINENESS) + piFine_row);
+         dcol = dcol - ((piCol * FINENESS) + piFine_col);
+
+         // rotate 180??, if we face away
+         if face_away
+         { 
+            drow = -drow;
+            dcol = -dcol;
+         }
+      }
+      else
+      {
+         drow = (new_row * FINENESS) + new_finerow;
+         dcol = (new_col * FINENESS) + new_finecol;
+         drow = drow - ((piRow * FINENESS) + piFine_row);
+         dcol = dcol - ((piCol * FINENESS) + piFine_col);
+      }
+
+      if poOwner <> $
+      {
+         iAngle = Send(SYS,@UtilGetAngleTowards,#row=drow,#col=dcol);
+         Send(poOwner,@SomethingTurned,#what=self,#new_angle=iAngle);
+      }
+
+      return;
+   }
+
+   FindNextMonster()
+   {
+	   local lActive, i, iFlags, oLastTarget;
+	   
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	   
+	   if poTarget <> $
+	   {
+		   oLastTarget = poTarget;
+	   }
+	   
+	   lActive = Send(poOwner,@GetplActive);
+	   
+	   if Length(lActive)
+	   {
+	   }
+	   
+	   foreach i in lActive
+	   {
+		   if IsClass(First(i),&Monster)
+		   {
+			   iFlags = Send(First(i),@GetObjectFlags,#what=self);
+			   
+			   if iFlags & OF_ATTACKABLE
+			   {
+				   poTarget = First(i);
+				   
+				   return TRUE;
+			   }
+		   }
+	   }
+	   
+	   return FALSE;
+   }
+   
+   SendMonsterAttacks()
+   {
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	   
+	   if poTarget <> $ AND NOT bAutoAttacking
+	   {
+		   tAutoAttackA = CreateTimer(self,@AttackMonster,iMonsterModeInterval / 3);
+		   tAutoAttackB = CreateTimer(self,@AttackMonster,iMonsterModeInterval / 2);
+		   tAutoAttackC = CreateTimer(self,@AttackMonster,iMonsterModeInterval);
+		   bAutoAttacking = TRUE;
+	   }
+	   else
+	   {
+		   tAutoAttackA = $;
+		   tAutoAttackB = $;
+		   tAutoAttackC = $;
+		   bAutoAttacking = FALSE;
+	   }
+	   
+	   return;
+   }
+   
+   AttackMonster()
+   {
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	   
+	   if poTarget <> $
+	   {
+		   Send(self,@UserAttack,#what=poTarget);
+		   bAutoAttacking = TRUE;
+	   }
+	   else
+	   {
+		   bAutoAttacking = FALSE;
+	   }
+	   
+	   return;	   
+   }
+   
+   
+   AsMonsterContinue()
+   {
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+	   
+	   if bMonsterMode
+	   {
+		   Send(self,@FindNextMonster);
+		   
+		   if poTarget <> $
+		   {
+			   Send(self,@MoveTowards,#oTarget=poTarget);
+			   Send(self,@SendMonsterAttacks);
+		   }
+		   else
+		   {
+//			   Debug("no targets as monster");
+		   }
+		   
+		   if tMonsterMode = $
+		   {
+			   tMonsterMode = CreateTimer(self,@AsMonsterContinue,iMonsterModeInterval);
+			   Debug(Send(self,@GetName),"restarting monster timer",tMonsterMode);
+			   Debug("Now",GetTime());
+			   Debug("Diff",(GetTime() - tMonsterMode));
+		   }
+		   else
+		   {
+			   Debug("tMonsterMode",tMonsterMode);
+			   Debug("Now",GetTime());
+			   Debug("Diff",(GetTime() - tMonsterMode));
+		   }
+	   }
+	   
+	   return;
+   }
+   
+   BecomeMonster()
+   {
+	   if NOT pbLogged_On
+	   {
+		   Send(self,@StopBeingMonster);
+		   
+		   return;
+	   }
+
+	   Debug("Became monster");
+	   
+	   bMonsterMode = TRUE;
+	   
+	   Send(self,@AsMonsterContinue);
+	   
+	   return;
+   }
+   
+   StopBeingMonster()
+   {
+	   bMonsterMode = FALSE;
+	   bAutoAttacking = FALSE;
+
+	   poTarget = $;
+	   
+	   tMonsterMode = $;
+
+	   tAutoAttackA = $;
+	   tAutoAttackB = $;
+	   tAutoAttackC = $;
+	   
+	   Debug("Stop being monster");
+
+	   return;
+   }
+   
 end
 ////////////////////////////////////////////////////////////////////////////////
