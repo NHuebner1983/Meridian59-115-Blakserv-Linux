@@ -139,7 +139,7 @@ messages:
       {
          return;
       }
-	  
+
       if Send(oOwner,@CheckRoomFlag,#flag=ROOM_NO_COMBAT)
          AND Send(oOwner,@CheckRoomFlag,#flag=ROOM_SAFELOGOFF)
       {

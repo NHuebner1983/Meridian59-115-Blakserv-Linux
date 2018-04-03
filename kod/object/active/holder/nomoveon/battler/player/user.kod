@@ -11335,7 +11335,7 @@ messages:
 	   
 	   foreach i in lActive
 	   {
-		   if IsClass(First(i),&Monster) AND Send(First(i),@GetCurrentState) <> 1
+		   if IsClass(First(i),&Monster) AND Send(First(i),@GetCurrentState) <> 1 AND NOT Send(First(i),@IsMinion)
 		   {
 			   if First(i) = poTarget
 			   {
