@@ -6489,12 +6489,6 @@ messages:
       {
          return;
       }
-
-	  // DM minions should not attack players unless the player is a target.
-	  if IsClass(Send(self,@GetMaster),&DM) AND NOT IsClass(oTarget,&Monster)
-	  {
-		  return;
-	  }
 	  	  
       foreach oActive in plControlledMinions
       {
