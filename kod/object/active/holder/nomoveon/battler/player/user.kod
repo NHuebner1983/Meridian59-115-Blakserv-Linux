@@ -1123,9 +1123,14 @@ messages:
    {
       local iTime, iRecent;
 
+	  if piTimeAttackedByPlayer <= 0 OR piTimeAttackedPlayer <= 0
+	  {
+		  return FALSE;
+	  }
+	  
 	  iTime = GetTime();
       iRecent = iTime - Send(SETTINGS_OBJECT,@GetRecentPvPTime);
-
+	  
 	  if Send(self,@IsGuildWarOrShieldFlagged)
 	  {
 		  // Player is GuildWar or Soldier Shielded

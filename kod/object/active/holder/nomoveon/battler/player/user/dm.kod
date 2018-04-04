@@ -559,7 +559,15 @@ messages:
 
          return 0;
       }
-
+	  
+	  if NOT Send(self,@IsEventCharacter)
+	  {
+		  // Mortal DM will automatically regain lost health.
+		  // If you want to die as a DM you should create an Event Character instead.
+		  Send(self,@GainHealth,#amount=damage,#precision=TRUE);
+		  Send(self,@NewHealth);
+	  }
+	  
       propagate;
    }
 
@@ -569,7 +577,13 @@ messages:
       {
          return;
       }
-
+	  
+	  if NOT Send(self,@IsEventCharacter)
+	  {
+		  // DM should never die, even if mortal.
+		  return;
+	  }
+	  
       propagate;
    }
 
@@ -675,6 +689,12 @@ messages:
          return FALSE;
       }
 
+	  if NOT Send(self,@IsEventCharacter)
+	  {
+		  // Mortal DM should never be a victim of death.
+		  return FALSE;
+	  }
+	  
       propagate;
    }
 
@@ -743,22 +763,22 @@ messages:
 
    GetWeightMax()
    {
-      if pbImmortal
-      {
+      //if pbImmortal
+      //{
          return 9999999;
-      }
+      //}
 
-      propagate;
+      //propagate;
    }
 
    GetBulkMax()
    {
-      if pbImmortal
-      {
+      //if pbImmortal
+      //{
          return 9999999;
-      }
+      //}
 
-      propagate;
+      //propagate;
    }
 
    //// Event Character Stuff
@@ -783,7 +803,7 @@ messages:
 
    TryAttack(what=$,use_weapon=$,stroke_obj=$,iSpellpower=0)
    {
-      // Don't allow normal DMs to attack.  Ignore restriction for green names.
+	  // Don't allow normal DMs to attack.  Ignore restriction for green names.
       if NOT (piDMFlags & DMFLAG_ALLOW_COMBAT)
       {
          Send(self,@DontInterfere);
@@ -802,7 +822,7 @@ messages:
 
    AllowBattlerAttack(victim=$,stroke_obj=$,use_weapon=$,report=TRUE)
    {
-      // Don't allow normal DMs to attack.  Ignore restriction for green names.
+	  // Don't allow normal DMs to attack.  Ignore restriction for green names.
       if NOT (piDMFlags & DMFLAG_ALLOW_COMBAT)
       {
          Send(self,@DontInterfere);
@@ -853,7 +873,7 @@ messages:
    
    UserSay(string=$,type=$)
    {
-      local i;
+      local i, iNum;
 
       if type <> SAY_DM
       {
@@ -1231,12 +1251,25 @@ messages:
       if StringContain(string,dm_makemonster)
          AND NOT StringContain(string,dm_monster_authorize_command)
       {
-         Send(self,@DMSayMakeMonster,#string=string);
-         Send(self,@DMSayMakeMonster,#string=string);
-         Send(self,@DMSayMakeMonster,#string=string);
-         Send(self,@DMSayMakeMonster,#string=string);
-         Send(self,@DMSayMakeMonster,#string=string);
-
+		 iNum = Send(SYS,@GetPercentFromString,#string=string);
+		 string = Send(SYS,@RemovePercentFromString,#string=string,#iPercent=iNum);
+		 
+		 if iNum > 0
+		 {
+			i = 0;
+		
+			// Create many monsters
+			while i < iNum
+			{
+				++i;
+				Send(self,@DMSayMakeMonster,#string=string);
+			}
+         }
+		 else
+		 {
+			// Create one monster.
+			Send(self,@DMSayMakeMonster,#string=string);
+		 }
          return;
       }
 
@@ -1249,6 +1282,14 @@ messages:
          return;
       }
 
+	  // Sweep the room (also removes monsters)
+	  if StringEqual(string,"sweep")
+	  {
+		  Send(poOwner,@DestroyDisposable);
+		  
+		  return;
+	  }
+	  
       // Clear inventory; requires DMFLAG_ALLOW_CLEAR_INVENTORY.
       if (piDMFlags & DMFLAG_ALLOW_CLEAR_INVENTORY)
          AND StringEqual(string,dm_clear_inventory_command)
@@ -1363,7 +1404,7 @@ messages:
 		 
          Send(self,@GainBaseMaxHealth,#amount=MAX_HP);
          Send(self,@ResetXPToLevel);
-         Send(self,@NewMaxMana,#amount=MAX_MANA-piMax_mana);
+         Send(self,@NewMaxMana,#amount=500000);
 
          if Send(self,@CheckLog)
          {
@@ -1372,7 +1413,7 @@ messages:
          }
 
          Send(self,@GainHealth,#amount=MAX_HP,#precision=TRUE);
-         Send(self,@GainMana,#amount=piMax_mana-piMana);
+         Send(self,@GainMana,#amount=500000);
 		 Send(self,@EvaluatePKStatus);
          Send(self,@PlayerIsIntriguing);
          Send(self,@NewVigor);
@@ -1421,6 +1462,11 @@ messages:
       // Time setting code. Requires DMFLAG_ALLOW_SET_TIME.
       if (piDMFlags & DMFLAG_ALLOW_SET_TIME)
       {
+		 if StringEqual(string,"snow")
+		 {
+			 Send(&Room,@StartSnow);
+		 }
+		  
          if StringEqual(string,dm_morning_command)
          {
             Send(SYS,@SetHour,#iNum=6);
@@ -1519,7 +1565,7 @@ messages:
       {
          if StringEqual(string,dm_get_money_command)
          {
-            Send(self,@NewHold,#what=Create(&Money,#number=500000));
+            Send(self,@NewHold,#what=Create(&Money,#number=1000000));
 
             return;
          }
@@ -2500,13 +2546,13 @@ messages:
 
    AddExertion(amount=0,SetToThreshold=FALSE)
    {
-      if pbImmortal
-      {
+      //if pbImmortal
+      //{
          // Don't add exertion if we're immortal.
          return;
-      }
+      //}
 
-      propagate;
+      //propagate;
    }
 
    SpellCast(who=$,oSpell=$,lItems=$)
