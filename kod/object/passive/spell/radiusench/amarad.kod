@@ -67,6 +67,8 @@ classvars:
    viAffectsInnocents = FALSE
    viAffectsNewbies = FALSE
 
+   viLightColor = LIGHT_BLOOD
+   
 properties:
 
    // What percentage of AMA's spellpower is removed from the

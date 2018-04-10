@@ -3321,6 +3321,7 @@ messages:
       Send(self,@CreateOneSpellIfNew,#num=SID_BAIT,#class=&Bait);
       Send(self,@CreateOneSpellIfNew,#num=SID_FORESIGHT,#class=&Foresight);
       Send(self,@CreateOneSpellIfNew,#num=SID_HASTE,#class=&Haste);
+	  Send(self,@CreateOneSpellIfNew,#num=SID_WOLFPACK,#class=&Wolfpack);
       Send(self,@CreateOneSpellIfNew,#num=SID_SHALILLEBANE,#class=&ShalilleBane);
       Send(self,@CreateOneSpellIfNew,#num=SID_QORBANE,#class=&QorBane);
       Send(self,@CreateOneSpellIfNew,#num=SID_VERTIGO,#class=&Vertigo);

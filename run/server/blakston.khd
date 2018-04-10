@@ -2221,6 +2221,7 @@
    SID_MEDITATE = 187
    SID_UNHOLY_TOUCH = 188
    SID_GUILDCONVEYANCE = 189
+   SID_WOLFPACK = 199
    
    // Depreciated spell IDs
    SID_LIGHTNING = 1                   // use SID_LIGHTNING_BOLT
